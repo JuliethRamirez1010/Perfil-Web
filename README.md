@@ -13,7 +13,7 @@ A public web page with six sections:
 
 | Section | What goes there |
 |---|---|
-| Home | Your name, your role, your links |
+| Home-Información| Your name, your role, your links |
 | About | Two or three sentences about you |
 | Skills | Your technical and professional skills |
 | Resume | Your education and your experience |
