@@ -13,8 +13,8 @@ A public web page with six sections:
 
 | Section | What goes there |
 |---|---|
-| Home-Información| Your name, your role, your links |
-| About | Two or three sentences about you |
+| Home-Información| Karen Julieth Ramírez Ospina, student, kramirez23@itfip.edu.co|
+| About |“I study Systems Engineering because I am interested in technology, and I want to gain knowledge that will allow me to develop my skills, create innovative solutions, and prepare for my professional future.”|
 | Skills | Your technical and professional skills |
 | Resume | Your education and your experience |
 | Projects | The projects you have built |
