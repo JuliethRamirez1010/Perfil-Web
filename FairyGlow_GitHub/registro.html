@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrarse | Fairy Glow</title>
+<link rel="stylesheet" href="css/registro.min.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-card">
+    <a href="index.html"><img src="img/logo.png" class="auth-logo" alt="Fairy Glow"></a>
+    <h1>Crear una cuenta</h1>
+    <p class="subtitle">Regístrate para acceder al catálogo.</p>
+    <form id="registerForm">
+      <label for="registerName">Nombre completo</label>
+      <input id="registerName" type="text" autocomplete="name" required placeholder="Tu nombre">
+      <label for="registerEmail">Correo electrónico</label>
+      <input id="registerEmail" type="email" autocomplete="email" required placeholder="correo@ejemplo.com">
+      <label for="registerPassword">Contraseña</label>
+      <input id="registerPassword" type="password" autocomplete="new-password" minlength="6" required placeholder="Mínimo 6 caracteres">
+      <label for="registerConfirm">Confirmar contraseña</label>
+      <input id="registerConfirm" type="password" autocomplete="new-password" minlength="6" required placeholder="Repite tu contraseña">
+      <button type="submit" class="auth-button">Registrarme</button>
+      <p id="registerMessage" class="message"></p>
+    </form>
+    <p class="switch">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a></p>
+    <a class="back-link" href="index.html">← Volver al inicio</a>
+  </div>
+</div>
+<script src="js/auth.js"></script>
+<script>
+document.getElementById('registerForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('registerMessage');
+  const name = document.getElementById('registerName').value.trim();
+  const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+  const password = document.getElementById('registerPassword').value;
+  const confirm = document.getElementById('registerConfirm').value;
+  if (password !== confirm) {
+    msg.textContent = 'Las contraseñas no coinciden.';
+    msg.className = 'message error';
+    return;
+  }
+  const result = await registerUser(name, email, password);
+  msg.textContent = result.message;
+  msg.className = 'message ' + (result.ok ? 'success' : 'error');
+  if (result.ok) setTimeout(() => location.href = 'login.html', 800);
+});
+</script>
+</body>
+</html>

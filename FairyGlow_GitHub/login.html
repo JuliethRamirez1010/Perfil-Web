@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar sesión | Fairy Glow</title>
+<link rel="stylesheet" href="css/login.min.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-card">
+    <a href="index.html"><img src="img/logo.png" class="auth-logo" alt="Fairy Glow"></a>
+    <h1>Iniciar sesión</h1>
+    <p class="subtitle">Ingresa para continuar a Fairy Glow.</p>
+    <form id="loginForm">
+      <label for="loginEmail">Correo electrónico</label>
+      <input id="loginEmail" type="email" autocomplete="email" required placeholder="correo@ejemplo.com">
+      <label for="loginPassword">Contraseña</label>
+      <input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Tu contraseña">
+      <button type="submit" class="auth-button">Iniciar sesión</button>
+      <p id="loginMessage" class="message"></p>
+    </form>
+    <p class="switch">¿No tienes una cuenta? <a href="registro.html">Regístrate</a></p>
+    <a class="back-link" href="index.html">← Volver al inicio</a>
+  </div>
+</div>
+<script src="js/auth.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('loginMessage');
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const password = document.getElementById('loginPassword').value;
+  const result = await loginUser(email, password);
+  msg.textContent = result.message;
+  msg.className = 'message ' + (result.ok ? 'success' : 'error');
+  if (result.ok) setTimeout(() => location.href = 'catalogo.html', 500);
+});
+</script>
+</body>
+</html>
