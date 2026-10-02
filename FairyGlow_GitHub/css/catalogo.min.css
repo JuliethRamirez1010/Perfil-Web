@@ -1,0 +1,106 @@
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #fffafc;
+  color: #333;
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #2283D6,#51A9F5);
+  color: #333;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Categorías */
+.categoria {
+  padding: 2rem;
+}
+
+.categoria h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #9c27b0;
+  border-left: 5px solid #e91e63;
+  padding-left: 10px;
+}
+
+.descripcion-cat {
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* Grid de productos */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjetas */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 70%;
+  height: 800px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: #ff699b;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  color: #444;
+}
+
+.card span {
+  display: block;
+  font-weight: bold;
+  color: #9c27b0;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f7d9e3;
+  margin-top: 2rem;
+}
