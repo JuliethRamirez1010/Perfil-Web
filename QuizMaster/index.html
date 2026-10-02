@@ -1,66 +1,82 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizMaster</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
     <div class="contenedor">
 
         <section id="login" class="tarjeta login">
+
             <h1>🎯 QuizMaster</h1>
             <p class="subtitulo">Pon a prueba tus conocimientos</p>
 
             <div id="formLogin">
+
                 <h2>Iniciar sesión</h2>
 
-                <input type="text" id="usuarioLogin" placeholder="Usuario">
-                <input type="password" id="passwordLogin" placeholder="Contraseña">
+                <input id="usuarioLogin" type="text" placeholder="Usuario">
 
-                <button onclick="iniciarSesion()">INICIAR SESIÓN</button>
+                <input id="passwordLogin" type="password" placeholder="Contraseña">
+
+                <button id="btnLogin">INICIAR SESIÓN</button>
 
                 <p id="mensajeLogin"></p>
 
                 <p class="cambio">
                     ¿No tienes una cuenta?
-                    <button class="link" onclick="mostrarRegistro()">Regístrate</button>
+                    <button id="btnMostrarRegistro" class="link">Regístrate</button>
                 </p>
+
             </div>
 
             <div id="formRegistro" class="oculto">
+
                 <h2>Crear cuenta</h2>
 
-                <input type="text" id="usuarioRegistro" placeholder="Crea tu usuario">
-                <input type="password" id="passwordRegistro" placeholder="Crea tu contraseña">
-                <input type="password" id="confirmarRegistro" placeholder="Confirma tu contraseña">
+                <input id="usuarioRegistro" type="text" placeholder="Crea tu usuario">
 
-                <button onclick="registrarse()">REGISTRARSE</button>
+                <input id="passwordRegistro" type="password" placeholder="Crea tu contraseña">
+
+                <input id="confirmarRegistro" type="password" placeholder="Confirma tu contraseña">
+
+                <button id="btnRegistro">REGISTRARSE</button>
 
                 <p id="mensajeRegistro"></p>
 
                 <p class="cambio">
                     ¿Ya tienes una cuenta?
-                    <button class="link" onclick="mostrarLogin()">Inicia sesión</button>
+                    <button id="btnMostrarLogin" class="link">Inicia sesión</button>
                 </p>
+
             </div>
+
         </section>
+
 
         <section id="juego" class="oculto">
 
             <header class="encabezado">
+
                 <div>
                     <h1>🎯 QuizMaster</h1>
                     <p>Jugador: <strong id="nombreJugador"></strong></p>
                 </div>
 
-                <button class="salir" onclick="cerrarSesion()">CERRAR SESIÓN</button>
+                <button id="btnCerrarSesion" class="salir">
+                    CERRAR SESIÓN
+                </button>
+
             </header>
 
+
             <div class="estadisticas">
+
                 <div>
                     <span>⭐</span>
                     <strong id="puntos">0</strong>
@@ -84,30 +100,50 @@
                     <strong id="tiempo">00:00</strong>
                     <small>Tiempo</small>
                 </div>
+
             </div>
+
 
             <div class="contenido">
 
                 <aside class="categorias">
+
                     <h3>CATEGORÍAS</h3>
+
                     <div id="listaCategorias"></div>
+
                 </aside>
+
 
                 <main class="quiz">
 
                     <div class="tarjeta quiz-card">
 
-                        <h2 id="tituloCategoria">Selecciona una categoría</h2>
+                        <h2 id="tituloCategoria">
+                            Selecciona una categoría
+                        </h2>
 
                         <div class="niveles">
-                            <span id="nivel1">NIVEL 1</span>
-                            <span id="nivel2">NIVEL 2</span>
-                            <span id="nivel3">NIVEL 3</span>
+
+                            <span id="nivel1">
+                                NIVEL 1
+                            </span>
+
+                            <span id="nivel2">
+                                NIVEL 2
+                            </span>
+
+                            <span id="nivel3">
+                                NIVEL 3
+                            </span>
+
                         </div>
+
 
                         <div class="progreso">
                             <div id="barraProgreso"></div>
                         </div>
+
 
                         <p id="numeroPregunta"></p>
 
@@ -115,26 +151,32 @@
                             Selecciona una categoría para comenzar.
                         </h2>
 
+
                         <div id="respuestas"></div>
 
                         <p id="mensaje"></p>
 
-                        <button id="btnSiguiente" class="siguiente oculto" onclick="siguientePregunta()">
+
+                        <button id="btnSiguiente" class="siguiente oculto">
                             SIGUIENTE
                         </button>
+
 
                         <div id="resultado" class="resultado oculto"></div>
 
                     </div>
 
                 </main>
+
             </div>
+
         </section>
 
     </div>
 
-    <script src="script.js"></script>
+
+    <script src="./script.js"></script>
+
 </body>
 </html>
-```
 
