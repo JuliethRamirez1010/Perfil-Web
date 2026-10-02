@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabores Restaurant</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <div id="authSection">
+    <section id="authSection">
         <div class="auth-container">
+
             <div class="auth-brand">
                 <div class="brand-icon">🍽️</div>
                 <h1>Sabores</h1>
-                <p>Restaurant</p>
+                <p>RESTAURANT</p>
             </div>
 
             <div class="auth-box" id="loginBox">
@@ -28,7 +29,7 @@
 
                 <p class="switch-text">
                     ¿No tienes una cuenta?
-                    <span id="showRegister">Registrarme</span>
+                    <button class="link-btn" id="showRegister">Registrarme</button>
                 </p>
             </div>
 
@@ -46,13 +47,14 @@
 
                 <p class="switch-text">
                     ¿Ya tienes una cuenta?
-                    <span id="showLogin">Iniciar sesión</span>
+                    <button class="link-btn" id="showLogin">Iniciar sesión</button>
                 </p>
             </div>
-        </div>
-    </div>
 
-    <div id="appSection" class="hidden">
+        </div>
+    </section>
+
+    <section id="appSection" class="hidden">
 
         <header>
             <div class="logo">
@@ -64,9 +66,9 @@
             </div>
 
             <nav>
-                <button data-page="homePage">Inicio</button>
-                <button data-page="menuPage">Menú</button>
-                <button data-page="ordersPage">Mis pedidos</button>
+                <button class="nav-btn" data-page="homePage">Inicio</button>
+                <button class="nav-btn" data-page="menuPage">Menú</button>
+                <button class="nav-btn" data-page="ordersPage">Mis pedidos</button>
             </nav>
 
             <div class="header-right">
@@ -94,15 +96,27 @@
                 <div class="hero">
                     <div class="hero-content">
                         <span class="tag">SABOR QUE INSPIRA</span>
-                        <h1>Disfruta lo mejor de<br><strong>nuestra cocina</strong></h1>
-                        <p>Platos preparados con ingredientes frescos, pasión y mucho sabor.</p>
-                        <button class="hero-btn" data-page="menuPage">Ver nuestro menú →</button>
+
+                        <h1>
+                            Disfruta lo mejor de
+                            <strong>nuestra cocina</strong>
+                        </h1>
+
+                        <p>
+                            Platos preparados con ingredientes frescos,
+                            pasión y mucho sabor.
+                        </p>
+
+                        <button class="hero-btn" data-page="menuPage">
+                            Ver nuestro menú →
+                        </button>
                     </div>
 
                     <div class="hero-food">🍔</div>
                 </div>
 
                 <div class="features">
+
                     <div class="feature">
                         <span>🥗</span>
                         <div>
@@ -126,6 +140,7 @@
                             <p>Recibe tu pedido sin esperar.</p>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="section-title">
@@ -133,7 +148,10 @@
                         <span>RECOMENDADOS</span>
                         <h2>Los favoritos</h2>
                     </div>
-                    <button data-page="menuPage">Ver todo →</button>
+
+                    <button data-page="menuPage">
+                        Ver todo →
+                    </button>
                 </div>
 
                 <div class="product-grid" id="popularProducts"></div>
@@ -148,16 +166,37 @@
                         <h1>Nuestro menú</h1>
                     </div>
 
-                    <input type="text" id="searchInput" placeholder="🔍 Buscar producto...">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="🔍 Buscar producto..."
+                    >
                 </div>
 
                 <div class="categories">
-                    <button class="category active" data-category="all">Todos</button>
-                    <button class="category" data-category="burger">Hamburguesas</button>
-                    <button class="category" data-category="pizza">Pizzas</button>
-                    <button class="category" data-category="plato">Platos fuertes</button>
-                    <button class="category" data-category="bebida">Bebidas</button>
-                    <button class="category" data-category="postre">Postres</button>
+                    <button class="category active" data-category="all">
+                        Todos
+                    </button>
+
+                    <button class="category" data-category="burger">
+                        Hamburguesas
+                    </button>
+
+                    <button class="category" data-category="pizza">
+                        Pizzas
+                    </button>
+
+                    <button class="category" data-category="plato">
+                        Platos fuertes
+                    </button>
+
+                    <button class="category" data-category="bebida">
+                        Bebidas
+                    </button>
+
+                    <button class="category" data-category="postre">
+                        Postres
+                    </button>
                 </div>
 
                 <div class="product-grid" id="menuProducts"></div>
@@ -188,6 +227,7 @@
 
                 <div class="profile-card">
                     <div class="profile-avatar">👤</div>
+
                     <div>
                         <h2 id="profileName"></h2>
                         <p id="profileUser"></p>
@@ -198,22 +238,25 @@
             </section>
 
         </main>
-    </div>
+    </section>
 
-    <div class="cart-panel" id="cartPanel">
+    <aside class="cart-panel" id="cartPanel">
 
         <div class="cart-header-title">
             <div>
                 <span>MI PEDIDO</span>
                 <h2>Carrito</h2>
             </div>
+
             <button id="closeCart">✕</button>
         </div>
 
         <div id="cartItems"></div>
 
         <div class="cart-bottom">
+
             <div class="summary">
+
                 <div>
                     <span>Subtotal</span>
                     <strong id="cartSubtotal">$0</strong>
@@ -228,24 +271,43 @@
                     <span>Total</span>
                     <strong id="cartTotal">$0</strong>
                 </div>
+
             </div>
 
-            <button class="main-btn" id="checkoutBtn">Realizar pedido</button>
-            <button class="clear-btn" id="clearCart">Vaciar carrito</button>
+            <button class="main-btn" id="checkoutBtn">
+                Realizar pedido
+            </button>
+
+            <button class="clear-btn" id="clearCart">
+                Vaciar carrito
+            </button>
+
         </div>
-    </div>
+
+    </aside>
 
     <div class="overlay hidden" id="overlay"></div>
 
     <div class="modal hidden" id="checkoutModal">
+
         <div class="modal-header">
             <h2>Finalizar pedido</h2>
             <button id="closeCheckout">✕</button>
         </div>
 
         <div class="form-grid">
-            <input type="text" id="customerName" placeholder="Nombre completo">
-            <input type="text" id="customerPhone" placeholder="Teléfono">
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Nombre completo"
+            >
+
+            <input
+                type="text"
+                id="customerPhone"
+                placeholder="Teléfono"
+            >
 
             <select id="orderType">
                 <option value="">Tipo de pedido</option>
@@ -254,7 +316,11 @@
                 <option value="Comer aquí">Comer aquí</option>
             </select>
 
-            <input type="text" id="customerAddress" placeholder="Dirección">
+            <input
+                type="text"
+                id="customerAddress"
+                placeholder="Dirección"
+            >
 
             <select id="paymentMethod">
                 <option value="">Método de pago</option>
@@ -263,18 +329,29 @@
                 <option value="Nequi">Nequi</option>
                 <option value="Daviplata">Daviplata</option>
             </select>
+
         </div>
 
-        <button class="main-btn" id="confirmOrder">Confirmar pedido</button>
+        <button class="main-btn" id="confirmOrder">
+            Confirmar pedido
+        </button>
+
     </div>
 
     <div class="modal hidden" id="receiptModal">
+
         <div class="receipt">
+
             <div class="receipt-icon">✓</div>
+
             <h2>¡Pedido realizado!</h2>
-            <p>Tu pedido ha sido recibido correctamente.</p>
+
+            <p>
+                Tu pedido ha sido recibido correctamente.
+            </p>
 
             <div class="receipt-info">
+
                 <div>
                     <span>Pedido</span>
                     <strong id="receiptId"></strong>
@@ -299,15 +376,23 @@
                     <span>Total</span>
                     <strong id="receiptTotal"></strong>
                 </div>
+
             </div>
 
-            <button class="main-btn" id="closeReceipt">Aceptar</button>
+            <button class="main-btn" id="closeReceipt">
+                Aceptar
+            </button>
+
         </div>
+
     </div>
 
-    <button class="floating-cart" id="floatingCart">🛒 <span id="floatingCount">0</span></button>
+    <button class="floating-cart" id="floatingCart">
+        🛒 <span id="floatingCount">0</span>
+    </button>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+
 </body>
 </html>
 ```
