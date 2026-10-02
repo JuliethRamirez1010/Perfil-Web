@@ -1,4 +1,4 @@
-```javascript
+alert("JavaScript funciona");
 const categorias = [
     {
         nombre: "Cultura General",
