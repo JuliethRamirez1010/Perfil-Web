@@ -1,912 +1,299 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fairy Glow | Catálogo</title>
+    <meta charset="utf-8">
+    <title>Fairy Glow | Vestidos</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-<link rel="stylesheet" href="css/catalogo.min.css">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-<style>
-* {
-    box-sizing: border-box;
-}
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fffafd;
-    color: #444;
-}
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-.navbar {
-    width: 100%;
-    background: white;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+    <!-- Libraries Stylesheet -->
+    <link href="./css/animate.min.css" rel="stylesheet">
+    <link href="./css/owl.carousel.min.css" rel="stylesheet">
 
-.navbar-contenido {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-.logo {
-    color: #d889a9;
-    font-size: 25px;
-    font-weight: bold;
-    text-decoration: none;
-    letter-spacing: 1px;
-}
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.nav-links a,
-.btn-carrito-nav {
-    text-decoration: none;
-    color: #555;
-    padding: 10px 16px;
-    border-radius: 20px;
-    border: none;
-    background: transparent;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    background: #fce8f1;
-    color: #c76d94;
-}
-
-.btn-carrito-nav {
-    background: #d889a9;
-    color: white;
-}
-
-.btn-carrito-nav:hover {
-    background: #c76d94;
-}
-
-.logged-info {
-    text-align: center;
-    padding: 12px;
-    color: #777;
-    background: #fff5f9;
-}
-
-.logged-info button {
-    border: none;
-    background: none;
-    color: #c76d94;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-header {
-    text-align: center;
-    padding: 35px 20px 20px;
-}
-
-header h1 {
-    color: #c76d94;
-    font-size: 32px;
-}
-
-.catalogo {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
-
-.categoria {
-    margin-bottom: 45px;
-}
-
-.categoria h2 {
-    text-align: center;
-    color: #555;
-    margin-bottom: 25px;
-}
-
-.productos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-}
-
-.producto {
-    background: white;
-    border-radius: 18px;
-    padding: 15px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-    text-align: center;
-    transition: 0.3s;
-}
-
-.producto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-}
-
-.producto img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 14px;
-}
-
-.producto h3 {
-    font-size: 17px;
-    margin: 15px 0 10px;
-}
-
-.btn-precio {
-    width: 100%;
-    border: none;
-    background: #f3b3ca;
-    color: white;
-    padding: 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-precio:hover {
-    background: #d889a9;
-}
-
-.carrito {
-    position: fixed;
-    top: 0;
-    right: -430px;
-    width: 400px;
-    max-width: 95%;
-    height: 100vh;
-    background: white;
-    box-shadow: -5px 0 20px rgba(0,0,0,0.15);
-    z-index: 2000;
-    padding: 25px;
-    transition: 0.4s;
-    overflow-y: auto;
-}
-
-.carrito.abierto {
-    right: 0;
-}
-
-.carrito-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-}
-
-.carrito-header h2 {
-    color: #c76d94;
-}
-
-.cerrar-carrito {
-    border: none;
-    background: #fce8f1;
-    color: #c76d94;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.producto-carrito {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.producto-carrito-info {
-    flex: 1;
-}
-
-.producto-carrito-info strong {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.btn-eliminar {
-    border: none;
-    background: #ffe4ed;
-    color: #c76d94;
-    border-radius: 10px;
-    padding: 7px 10px;
-    cursor: pointer;
-}
-
-.total-carrito {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 25px 0 15px;
-    text-align: center;
-    color: #555;
-}
-
-.btn-vaciar,
-.btn-comprar {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.btn-vaciar {
-    background: #eee;
-    color: #555;
-}
-
-.btn-comprar {
-    background: #d889a9;
-    color: white;
-}
-
-.btn-comprar:hover {
-    background: #c76d94;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 3000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.modal.activo {
-    display: flex;
-}
-
-.modal-contenido {
-    background: white;
-    width: 600px;
-    max-width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 20px;
-    padding: 30px;
-}
-
-.modal-contenido h2 {
-    text-align: center;
-    color: #c76d94;
-    margin-top: 0;
-}
-
-.formulario-compra label {
-    display: block;
-    margin-top: 14px;
-    margin-bottom: 6px;
-    font-weight: bold;
-}
-
-.formulario-compra input,
-.formulario-compra textarea,
-.formulario-compra select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 15px;
-}
-
-.formulario-compra textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-.resumen-pedido {
-    background: #fff5f9;
-    padding: 15px;
-    border-radius: 12px;
-    margin-top: 20px;
-}
-
-.resumen-pedido h3 {
-    color: #c76d94;
-}
-
-.acciones-modal {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.acciones-modal button {
-    flex: 1;
-    padding: 13px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.btn-cancelar {
-    background: #eee;
-    color: #555;
-}
-
-.btn-confirmar {
-    background: #d889a9;
-    color: white;
-}
-
-.pedido-confirmado {
-    text-align: center;
-}
-
-.pedido-confirmado h2 {
-    font-size: 28px;
-}
-
-.pedido-confirmado button {
-    border: none;
-    background: #d889a9;
-    color: white;
-    padding: 12px 35px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-footer {
-    margin-top: 50px;
-    padding: 25px;
-    text-align: center;
-    background: #fff0f6;
-    color: #777;
-}
-
-@media (max-width: 900px) {
-    .productos {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .navbar-contenido {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .nav-links {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .productos {
-        grid-template-columns: 1fr;
-    }
-
-    .producto img {
-        height: 350px;
-    }
-
-    .carrito {
-        width: 100%;
-    }
-}
-</style>
+    <!-- icon vestido -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
+    
 
-<nav class="navbar">
-    <div class="navbar-contenido">
-        <a href="index.html" class="logo">✨ Fairy Glow</a>
 
-        <div class="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="#catalogo">Catálogo</a>
-            <button class="btn-carrito-nav" id="btnCarrito">
-                🛒 Carrito (<span id="cantidadCarrito">0</span>)
-            </button>
-        </div>
-    </div>
-</nav>
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
+                <a href="index.html" class="navbar-brand">
+                    <img class="img" src="img/logo.png" alt="">
 
-<div class="logged-info" id="catalogUser"></div>
 
-<header id="catalogo">
-    <h1>Nuestro catálogo</h1>
-</header>
-
-<main class="catalogo">
-
-<section class="categoria">
-    <h2>Modelos viejos: entre 1999 y 2005</h2>
-
-    <div class="productos">
-
-        <div class="producto">
-            <img src="img/vn1.jpeg" alt="Vestido Dorado Elegante">
-            <h3>Vestido Dorado Elegante</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Dorado Elegante', 200000)">
-                $200.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vn2.jpeg" alt="Vestido Rojo Elegante">
-            <h3>Vestido Rojo Elegante</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Rojo Elegante', 217000)">
-                $217.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vn5.jpeg" alt="Vestido Verde Elegante">
-            <h3>Vestido Verde Elegante</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Verde Elegante', 250000)">
-                $250.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vn6.jpeg" alt="Vestido Azul Cielo">
-            <h3>Vestido Azul Cielo</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Azul Cielo', 220000)">
-                $220.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-    </div>
-</section>
-
-<section class="categoria">
-    <h2>Modelos semi nuevos: entre 2006 y 2018</h2>
-
-    <div class="productos">
-
-        <div class="producto">
-            <img src="img/vf1.jpeg" alt="Vestido Azul Claro Elegante">
-            <h3>Vestido Azul Claro Elegante</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Azul Claro Elegante', 70000)">
-                $70.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vf5.jpeg" alt="Vestido Beige Elegante">
-            <h3>Vestido Beige Elegante</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Beige Elegante', 72000)">
-                $72.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vf2.jpeg" alt="Vestido Azul Elegante">
-            <h3>Vestido Azul Elegante</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Azul Elegante', 100000)">
-                $100.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vf6.jpeg" alt="Vestido Blanco Elegante">
-            <h3>Vestido Blanco Elegante</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Blanco Elegante', 120000)">
-                $120.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-    </div>
-</section>
-
-<section class="categoria">
-    <h2>Modelos nuevos: 2019 hasta la actualidad</h2>
-
-    <div class="productos">
-
-        <div class="producto">
-            <img src="img/vc1.jpeg" alt="Vestido Blanco">
-            <h3>Vestido Blanco</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Blanco', 70000)">
-                $70.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vc2.jpeg" alt="Vestido Lila">
-            <h3>Vestido Lila</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Lila', 72000)">
-                $72.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vc5.jpeg" alt="Vestido Azul Fluorescente">
-            <h3>Vestido Azul Fluorescente</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Azul Fluorescente', 103000)">
-                $103.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-        <div class="producto">
-            <img src="img/vc6.jpeg" alt="Vestido Café">
-            <h3>Vestido Café</h3>
-            <button class="btn-precio" onclick="agregarCarrito('Vestido Café', 100000)">
-                $100.000 COP · Agregar 🛒
-            </button>
-        </div>
-
-    </div>
-</section>
-
-</main>
-
-<div id="carrito" class="carrito">
-
-    <div class="carrito-header">
-        <h2>🛒 Mi carrito</h2>
-        <button class="cerrar-carrito" id="cerrarCarrito">✕</button>
-    </div>
-
-    <div id="listaCarrito">
-        <p>Tu carrito está vacío.</p>
-    </div>
-
-    <div class="total-carrito">
-        Total: $<span id="totalCarrito">0</span> COP
-    </div>
-
-    <button class="btn-vaciar" onclick="vaciarCarrito()">
-        Vaciar carrito
-    </button>
-
-    <button class="btn-comprar" onclick="abrirFormularioCompra()">
-        Comprar y confirmar pedido
-    </button>
-
-</div>
-
-<div id="modalCompra" class="modal">
-
-    <div class="modal-contenido">
-
-        <h2>Confirmar pedido</h2>
-
-        <form id="formularioCompra" class="formulario-compra">
-
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" required>
-
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" required>
-
-            <label for="correo">Correo electrónico</label>
-            <input type="email" id="correo" required>
-
-            <label for="ciudad">Ciudad</label>
-            <input type="text" id="ciudad" required>
-
-            <label for="direccion">Dirección de entrega</label>
-            <textarea id="direccion" required></textarea>
-
-            <label for="barrio">Barrio</label>
-            <input type="text" id="barrio" required>
-
-            <label for="metodoPago">Método de pago</label>
-
-            <select id="metodoPago" required>
-                <option value="">Selecciona una opción</option>
-                <option value="Contra entrega">Contra entrega</option>
-                <option value="Transferencia bancaria">Transferencia bancaria</option>
-                <option value="Nequi">Nequi</option>
-                <option value="Daviplata">Daviplata</option>
-            </select>
-
-            <div class="resumen-pedido">
-
-                <h3>Resumen del pedido</h3>
-
-                <div id="resumenProductos"></div>
-
-                <p>
-                    <strong>
-                        Total: $<span id="resumenTotal">0</span> COP
-                    </strong>
-                </p>
-
-            </div>
-
-            <div class="acciones-modal">
-
-                <button
-                    type="button"
-                    class="btn-cancelar"
-                    onclick="cerrarFormularioCompra()">
-                    Cancelar
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="login.html" class="nav-item nav-link">Iniciar sesión</a>
+                        <a href="registro.html" class="nav-item nav-link">Registrarse</a>
+                        <a href="catalogo.html" class="nav-item nav-link">Catálogo</a>
+                        <span id="userArea" class="nav-item nav-link"></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
 
-                <button
-                    type="submit"
-                    class="btn-confirmar">
-                    Confirmar pedido
-                </button>
 
+    <!-- Hero Start -->
+    <div class="container-fluid pb-5 hero-header bg-light mb-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center mb-5">
+                <div class="col-lg-6">
+                    <h1 class="display-1 mb-4 animated slideInRight " style="font-size: 80px;">Fairy <span class="text-primary">Glow</span></h1>
+                </div>
+                <div class="col-lg-6">
+                    <div class="owl-carousel header-carousel animated fadeIn">
+                        <img class="img-fluid" src="img/f1_p.jpeg" alt="">
+                        <img class="img-fluid" src="img/f2_p.jpeg" alt="">
+                        <img class="img-fluid" src="img/f3_p.jpeg" alt="">
+                    </div>
+                </div>
             </div>
-
-        </form>
-
+            <div class="row g-5 animated fadeIn">
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-gem text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Diseño Innavador</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-gem text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Textiles De Calidad</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-gem text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Precios Justos</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-gem text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Accesible para ti</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-</div>
+    
+    <!-- Feature End -->
 
-<div id="modalConfirmado" class="modal">
 
-    <div class="modal-contenido pedido-confirmado">
-
-        <h2>✓ Pedido confirmado</h2>
-
-        <p>Gracias por tu compra en Fairy Glow.</p>
-
-        <p>
-            Hemos recibido tu pedido correctamente.
-        </p>
-
-        <p>
-            Nos comunicaremos contigo para confirmar
-            los detalles de la entrega.
-        </p>
-
-        <button onclick="cerrarPedidoConfirmado()">
-            Aceptar
-        </button>
-
+    <!-- Project Start -->
+    <div class="container-fluid mt-5">
+        <div class="container mt-5">
+            <div class="row g-0">
+                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column justify-content-center bg-primary h-100 p-5">
+                        <h1 class="text-white mb-5">Modelos <span
+                                class="text-uppercase text-primary bg-light px-2">de travelito</span></h1>
+                        <h4 class="text-white mb-0"><span class="display-1">6</span> Tendencias que marcan estilo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/ft1.jpeg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Vestido Largo</h4>
+                                    <small class="text-white">Verde menta</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/ft2.jpeg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Vestido Largo</h4>
+                                    <small class="text-white">Amarillo</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/ft3.jpeg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Vestido Largo</h4>
+                                    <small class="text-white">Blanco</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/ft4.jpeg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Vestido Corto</h4>
+                                    <small class="text-white">Blanco estampado de cerezas</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.6s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/ft5.jpeg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Vestido Corto</h4>
+                                    <small class="text-white">Rosado con Blanco</small>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="project-item position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="img/ft6.jpeg" alt="">
+                                <a class="project-overlay text-decoration-none" href="#!">
+                                    <h4 class="text-white">Vestido Corto</h4>
+                                    <small class="text-white">Azul cielo</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Project End -->
 
-</div>
 
-<footer>
-    <p>✨ Fairy Glow © 2026</p>
-    <p>Moda elegante para cada ocasión</p>
-</footer>
+    <!-- Service Start -->
+    <!-- Service End -->
 
+
+    <!-- Newsletter End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <h1 class="text-white">Fairy Glow</h1>
+                    </a>
+                    <p class="mb-0">En Fairy Glow, creamos vestidos únicos que combinan elegancia,
+                        creatividad y estilo. Nuestro compromiso es resaltar tu belleza con cada diseño,
+                        confeccionado con dedicación y pasión por la moda.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <h3 class="text-white mb-4">Contáctanos</h3>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Calle 18 Carrera 1ª Barrio/Arkabal Espinal, Tolima</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+57 3116782467</p>
+                    <p><i class="fa fa-envelope me-3"></i>contacto@fairyglow.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-black btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-black btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-black btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-black btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-black btn-square border-2 me-2" href="#!"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Enlaces</h5>
+                    <a class="btn btn-link" href="about.html">Sobre nosotros</a>
+                    <a class="btn btn-link" href="catalogo.html">Categorias</a>
+                    <a class="btn btn-link" href="privacy.html">Politica y Privacidad</a>
+                    <a class="btn btn-link" href="terms.html">Terminos y condiciones</a>
+                    <a class="btn btn-link" href="#!">Contactenos</a>
+
+
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="text-white mb-4">Diseño exclusivo de vestidos</h5>
+                    <a class="btn btn-link" href="#!">Confección personalizada</a>
+                    <a class="btn btn-link" href="#!">Alquiler de vestidos</a>
+                    <a class="btn btn-link" href="#!">Ajustes y modificaciones</a>
+                    <a class="btn btn-link" href="#!">Asesoría de imagen</a>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#!">Your Site Name</a>, All Right Reserved.
+
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>. Distributed by
+                        <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="#!">Home</a>
+                            <a href="#!">Cookies</a>
+                            <a href="#!">Help</a>
+                            <a href="#!">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/easing.min.js"></script>
+    <script src="./js/waypoints.min.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="./js/main.js"></script>
 <script src="js/auth.js"></script>
-
-<script>
-
-if (!protectPage()) {}
-
-const s = getSession();
-
-const cu = document.getElementById('catalogUser');
-
-if (cu && s) {
-    cu.innerHTML =
-        'Hola, ' +
-        s.name.split(' ')[0] +
-        ' · <button onclick="logout()">Cerrar sesión</button>';
-}
-
-let carrito = [];
-
-function agregarCarrito(nombre, precio) {
-
-    const productoExistente =
-        carrito.find(producto => producto.nombre === nombre);
-
-    if (productoExistente) {
-
-        productoExistente.cantidad++;
-
-    } else {
-
-        carrito.push({
-            nombre: nombre,
-            precio: precio,
-            cantidad: 1
-        });
-
-    }
-
-    actualizarCarrito();
-
-    document.getElementById('carrito')
-        .classList.add('abierto');
-}
-
-function actualizarCarrito() {
-
-    const lista = document.getElementById('listaCarrito');
-
-    const cantidad = document.getElementById('cantidadCarrito');
-
-    const totalElemento = document.getElementById('totalCarrito');
-
-    if (carrito.length === 0) {
-
-        lista.innerHTML =
-            '<p>Tu carrito está vacío.</p>';
-
-        cantidad.textContent = '0';
-
-        totalElemento.textContent = '0';
-
-        return;
-    }
-
-    let total = 0;
-
-    let cantidadTotal = 0;
-
-    lista.innerHTML = '';
-
-    carrito.forEach((producto, index) => {
-
-        const subtotal =
-            producto.precio * producto.cantidad;
-
-        total += subtotal;
-
-        cantidadTotal += producto.cantidad;
-
-        const div =
-            document.createElement('div');
-
-        div.className = 'producto-carrito';
-
-        div.innerHTML = `
-            <div class="producto-carrito-info">
-                <strong>${producto.nombre}</strong>
-                <span>
-                    ${producto.cantidad} x
-                    $${producto.precio.toLocaleString('es-CO')} COP
-                </span>
-            </div>
-
-            <button
-                class="btn-eliminar"
-                onclick="eliminarProducto(${index})">
-                🗑
-            </button>
-        `;
-
-        lista.appendChild(div);
-
-    });
-
-    cantidad.textContent = cantidadTotal;
-
-    totalElemento.textContent =
-        total.toLocaleString('es-CO');
-}
-
-function eliminarProducto(index) {
-
-    carrito.splice(index, 1);
-
-    actualizarCarrito();
-}
-
-function vaciarCarrito() {
-
-    carrito = [];
-
-    actualizarCarrito();
-}
-
-function abrirFormularioCompra() {
-
-    if (carrito.length === 0) {
-
-        alert('Agrega al menos un producto al carrito.');
-
-        return;
-    }
-
-    const resumen =
-        document.getElementById('resumenProductos');
-
-    const total =
-        document.getElementById('resumenTotal');
-
-    resumen.innerHTML = '';
-
-    let totalCompra = 0;
-
-    carrito.forEach(producto => {
-
-        const subtotal =
-            producto.precio * producto.cantidad;
-
-        totalCompra += subtotal;
-
-        const p =
-            document.createElement('p');
-
-        p.textContent =
-            `${producto.nombre} x${producto.cantidad} - $${subtotal.toLocaleString('es-CO')} COP`;
-
-        resumen.appendChild(p);
-
-    });
-
-    total.textContent =
-        totalCompra.toLocaleString('es-CO');
-
-    document.getElementById('modalCompra')
-        .classList.add('activo');
-}
-
-function cerrarFormularioCompra() {
-
-    document.getElementById('modalCompra')
-        .classList.remove('activo');
-}
-
-document
-    .getElementById('formularioCompra')
-    .addEventListener('submit', function(event) {
-
-        event.preventDefault();
-
-        document.getElementById('modalCompra')
-            .classList.remove('activo');
-
-        document.getElementById('modalConfirmado')
-            .classList.add('activo');
-
-        carrito = [];
-
-        actualizarCarrito();
-
-    });
-
-function cerrarPedidoConfirmado() {
-
-    document.getElementById('modalConfirmado')
-        .classList.remove('activo');
-}
-
-document
-    .getElementById('btnCarrito')
-    .addEventListener('click', function() {
-
-        document.getElementById('carrito')
-            .classList.add('abierto');
-
-    });
-
-document
-    .getElementById('cerrarCarrito')
-    .addEventListener('click', function() {
-
-        document.getElementById('carrito')
-            .classList.remove('abierto');
-
-    });
-
-</script>
-
 </body>
+
 </html>
