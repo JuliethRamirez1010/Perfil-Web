@@ -1,4 +1,3 @@
-```javascript
 const categorias = [
     {
         nombre: "Cultura General",
@@ -657,4 +656,4 @@ function cerrarSesion() {
 
     document.getElementById("mensajeLogin").textContent = "";
 }
-```
+
