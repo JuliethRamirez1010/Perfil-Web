@@ -1,4 +1,4 @@
-```javascript
+:::writing{variant="standard" id="92647" title="script.js"}
 const products = [
     {id:1,category:"burger",name:"Hamburguesa Clásica",price:25000,icon:"🍔",description:"Carne, queso, lechuga, tomate y salsa especial."},
     {id:2,category:"burger",name:"Hamburguesa BBQ",price:29000,icon:"🍔",description:"Carne, queso cheddar, tocineta y salsa BBQ."},
@@ -103,7 +103,10 @@ $("registerBtn").onclick = function() {
 
     users.push(account);
 
-    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
 
     alert("Cuenta creada correctamente.");
 
@@ -168,7 +171,6 @@ function openApp(user) {
     $("profileEmail").textContent = "Correo: " + user.email;
 
     showPage("homePage");
-
     renderPopular();
     renderMenu();
     renderOrders();
@@ -207,6 +209,7 @@ document.addEventListener("click", function(e) {
     if (!e.target.closest(".user-menu")) {
         $("userDropdown").classList.add("hidden");
     }
+
 });
 
 document.querySelectorAll("[data-page]").forEach(function(button) {
@@ -277,19 +280,27 @@ function productCard(product) {
 
     return `
         <div class="product-card">
-            <div class="product-icon">${product.icon}</div>
+
+            <div class="product-icon">
+                ${product.icon}
+            </div>
 
             <h3>${product.name}</h3>
 
             <p>${product.description}</p>
 
             <div class="product-bottom">
-                <span class="price">${money(product.price)}</span>
+
+                <span class="price">
+                    ${money(product.price)}
+                </span>
 
                 <button class="add-btn" data-id="${product.id}">
                     +
                 </button>
+
             </div>
+
         </div>
     `;
 }
@@ -332,6 +343,10 @@ function addToCart(id) {
         return item.id === id;
     });
 
+    if (!product) {
+        return;
+    }
+
     const existing = cart.find(function(item) {
         return item.id === id;
     });
@@ -362,9 +377,11 @@ function changeQuantity(id, change) {
     item.quantity += change;
 
     if (item.quantity <= 0) {
+
         cart = cart.filter(function(product) {
             return product.id !== id;
         });
+
     }
 
     renderCart();
@@ -475,7 +492,9 @@ $("clearCart").onclick = function() {
     }
 
     if (confirm("¿Quieres vaciar el carrito?")) {
+
         cart = [];
+
         renderCart();
     }
 };
@@ -488,7 +507,6 @@ $("checkoutBtn").onclick = function() {
     }
 
     $("customerName").value = currentUser.name;
-
     $("customerPhone").value = "";
     $("customerAddress").value = "";
     $("orderType").value = "";
@@ -530,17 +548,24 @@ $("confirmOrder").onclick = function() {
     const total = subtotal + service;
 
     const order = {
+
         id: "SB-" + Math.floor(100000 + Math.random() * 900000),
+
         userId: currentUser.id,
+
         date: new Date().toLocaleString("es-CO"),
+
         products: cart.map(function(item) {
+
             return {
                 name: item.name,
                 quantity: item.quantity,
                 price: item.price,
                 icon: item.icon
             };
+
         }),
+
         subtotal: subtotal,
         service: service,
         total: total,
@@ -585,7 +610,9 @@ $("closeReceipt").onclick = function() {
 function renderOrders() {
 
     const orders = getOrders().filter(function(order) {
+
         return currentUser && order.userId === currentUser.id;
+
     });
 
     if (orders.length === 0) {
@@ -625,6 +652,7 @@ function renderOrders() {
 
                         return `
                             <div class="order-product">
+
                                 <span>
                                     ${product.icon}
                                     ${product.name}
@@ -634,6 +662,7 @@ function renderOrders() {
                                 <strong>
                                     ${money(product.price * product.quantity)}
                                 </strong>
+
                             </div>
                         `;
 
@@ -642,6 +671,7 @@ function renderOrders() {
                 </div>
 
                 <div class="order-bottom">
+
                     <span>
                         ${order.type} · ${order.payment}
                     </span>
@@ -649,6 +679,7 @@ function renderOrders() {
                     <span class="order-total">
                         ${money(order.total)}
                     </span>
+
                 </div>
 
             </div>
@@ -670,8 +701,23 @@ if (savedUser) {
     });
 
     if (account) {
+
         currentUser = account;
+
         openApp(account);
     }
 }
-```
+:::
+
+### ⚠️ Hay una corrección clave
+
+En tu repositorio actual, **no basta con quitar el comentario de `style.css`**. También tienes que quitar los ``` de `script.js`. Al revisar el archivo publicado, aparecen explícitamente en la línea 0 y en la última línea. :contentReference[oaicite:4]{index=4}
+
+La estructura final debe quedar exactamente así:
+
+```text
+Perfil-Web
+└── proyecto-restaurante
+    ├── index.html
+    ├── style.css
+    └── script.js
