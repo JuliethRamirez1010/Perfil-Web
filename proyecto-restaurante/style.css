@@ -102,7 +102,6 @@ button {
 
 .main-btn:hover {
     background: #671919;
-    transform: translateY(-1px);
 }
 
 .switch-text {
@@ -111,10 +110,10 @@ button {
     color: #777;
 }
 
-.switch-text span {
+.link-btn {
+    background: none;
     color: #8d2424;
     font-weight: bold;
-    cursor: pointer;
 }
 
 header {
@@ -156,14 +155,14 @@ nav {
     gap: 8px;
 }
 
-nav button {
+.nav-btn {
     background: transparent;
     padding: 10px 15px;
     color: #665854;
     border-radius: 8px;
 }
 
-nav button:hover {
+.nav-btn:hover {
     color: #8d2424;
     background: #faf1ed;
 }
@@ -174,8 +173,7 @@ nav button:hover {
     gap: 15px;
 }
 
-.cart-header,
-.user-menu > button {
+.cart-header {
     background: #faf7f2;
     padding: 10px 14px;
     border-radius: 9px;
@@ -192,6 +190,12 @@ nav button:hover {
 
 .user-menu {
     position: relative;
+}
+
+.user-menu > button {
+    background: #faf7f2;
+    padding: 10px 14px;
+    border-radius: 9px;
 }
 
 .user-dropdown {
@@ -255,6 +259,7 @@ main {
 }
 
 .hero h1 strong {
+    display: block;
     color: #e8bd6d;
 }
 
@@ -455,10 +460,6 @@ main {
     font-weight: bold;
 }
 
-.cart-header-title h2 {
-    margin-top: 4px;
-}
-
 .cart-header-title button,
 .modal-header button {
     background: #f5f2ef;
@@ -597,11 +598,6 @@ main {
     border: 1px solid #ddd;
     border-radius: 9px;
     outline: none;
-}
-
-.form-grid input:focus,
-.form-grid select:focus {
-    border-color: #8d2424;
 }
 
 .modal > .main-btn {
