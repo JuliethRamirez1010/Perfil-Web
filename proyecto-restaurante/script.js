@@ -1,15 +1,6 @@
-document.getElementById("calcular").addEventListener("click",function(){
-const nombre=document.getElementById("nombre").value.trim();
-const cedula=document.getElementById("cedula").value.trim();
-const servicio=document.querySelector('input[name="servicio"]:checked');
-const plato=Number(document.getElementById("plato").value);
-const cantidad=Number(document.getElementById("cantidad").value);
-const resultado=document.getElementById("resultado");
-if(!nombre||!cedula||!servicio||plato===0||cantidad<1){resultado.textContent="Complete all required fields.";return;}
-let extras=0;
-document.querySelectorAll(".extras input:checked").forEach(c=>extras+=Number(c.value));
-let total=(plato*cantidad)+extras;
-if(servicio.value==="domicilio")total+=5000;
-resultado.textContent=`${nombre}, your total is $${total.toLocaleString("en-US")}. Service: ${servicio.value}.`;
-});
-
+const data=[{id:1,c:"main",n:"Burger",p:25000,i:"🍔"},{id:2,c:"main",n:"Pizza",p:30000,i:"🍕"},{id:3,c:"main",n:"Lasagna",p:28000,i:"🍝"},{id:4,c:"drink",n:"Lemon soda",p:5000,i:"🥤"},{id:5,c:"drink",n:"Natural juice",p:7000,i:"🧃"},{id:6,c:"dessert",n:"Chocolate cake",p:9000,i:"🍰"}];let cart=[];const money=n=>"$"+n.toLocaleString("es-CO"),$=x=>document.getElementById(x);
+function menu(cat="all"){$("menu").innerHTML=data.filter(x=>cat==="all"||x.c===cat).map(x=>`<article class="item"><div class="pic">${x.i}</div><h3>${x.n}</h3><p>Fresh restaurant menu item.</p><div><b>${money(x.p)}</b><button class="add" onclick="add(${x.id})">Add</button></div></article>`).join("")}
+function add(id){let x=cart.find(a=>a.id===id);x?x.q++:cart.push({...data.find(a=>a.id===id),q:1});render()}
+function change(id,d){let x=cart.find(a=>a.id===id);x.q+=d;if(x.q<1)cart=cart.filter(a=>a.id!==id);render()}
+function render(){let sub=cart.reduce((s,x)=>s+x.p*x.q,0),fee=Math.round(sub*.05);$("cart").innerHTML=cart.map(x=>`<div class="row"><div><b>${x.n}</b><div class="qty"><button onclick="change(${x.id},-1)">−</button> ${x.q} <button onclick="change(${x.id},1)">+</button></div></div><b>${money(x.p*x.q)}</b></div>`).join("")||"<p>Your order is empty.</p>";$("sub").textContent=money(sub);$("service").textContent=money(fee);$("total").textContent=money(sub+fee)}
+$("loginBtn").onclick=()=>{if($("user").value==="karen"&&$("pass").value==="1234"){$("login").classList.add("hide");$("app").classList.remove("hide");menu();render()}else $("loginMsg").textContent="Incorrect login."};$("logout").onclick=()=>{$("app").classList.add("hide");$("login").classList.remove("hide");cart=[]};document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");menu(b.dataset.cat)});$("clear").onclick=()=>{cart=[];render()};$("confirm").onclick=()=>{$("msg").textContent=cart.length?"Order confirmed successfully!":"Add products first."};
