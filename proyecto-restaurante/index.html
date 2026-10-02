@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Restaurant System · Karen Ramírez</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sabores Restaurant</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<header><h1>Restaurant System</h1><p>Karen Julieth Ramírez Ospina · Java/Swing concept adapted as a web project</p></header>
-<main>
-<section class="card">
-<h2>Customer Information</h2>
-<div class="grid">
-<input id="nombre" placeholder="Customer name">
-<input id="cedula" placeholder="Customer ID">
-</div>
-</section>
-<section class="card">
-<h2>Service</h2>
-<div class="options">
-<label><input type="radio" name="servicio" value="local"> Eat here</label>
-<label><input type="radio" name="servicio" value="llevar"> Take away</label>
-<label><input type="radio" name="servicio" value="domicilio"> Delivery</label>
-</div>
-</section>
-<section class="card">
-<h2>Menu</h2>
-<div class="grid">
-<label>Dish
-<select id="plato">
-<option value="0">Select a dish</option>
-<option value="25000">Hamburger - $25,000</option>
-<option value="30000">Pizza - $30,000</option>
-<option value="20000">Hot dog - $20,000</option>
-<option value="28000">Lasagna - $28,000</option>
-</select></label>
-<label>Quantity<input id="cantidad" type="number" min="1" value="1"></label>
-</div>
-<div class="options extras">
-<label><input type="checkbox" value="7000"> French fries - $7,000</label>
-<label><input type="checkbox" value="5000"> Soda - $5,000</label>
-<label><input type="checkbox" value="6000"> Dessert - $6,000</label>
-<label><input type="checkbox" value="2000"> Sauce - $2,000</label>
-</div>
-<button id="calcular">Calculate order</button>
-<p id="resultado" class="resultado"></p>
-</section>
-</main>
-<script src="script.js"></script>
-</body>
-</html>
-
+<section id="login" class="login"><div class="box"><div class="logo">🍽️</div><h1>Sabores</h1><p>Restaurant ordering system</p><input id="user" placeholder="Username"><input id="pass" type="password" placeholder="Password"><button id="loginBtn">Sign in</button><small>Demo: karen / 1234</small><b id="loginMsg"></b></div></section>
+<div id="app" class="hide"><header><b>🍽️ SABORES</b><button id="logout">Log out</button></header><main><section class="hero"><h2>Welcome, Karen!</h2><p>Choose your food and build your order.</p></section><div class="layout"><section><nav><button data-cat="all" class="active">All</button><button data-cat="main">Main</button><button data-cat="drink">Drinks</button><button data-cat="dessert">Desserts</button></nav><div id="menu" class="menu"></div></section><aside><h2>Your order</h2><div id="cart"></div><hr><p>Subtotal <b id="sub">$0</b></p><p>Service 5% <b id="service">$0</b></p><h2>Total <span id="total">$0</span></h2><button id="confirm">Confirm order</button><button id="clear">Clear</button><b id="msg"></b></aside></div></main></div>
+<script src="script.js"></script></body></html>
