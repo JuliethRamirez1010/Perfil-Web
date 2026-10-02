@@ -1,4 +1,3 @@
-:::writing{variant="standard" id="92647" title="script.js"}
 const products = [
     {id:1,category:"burger",name:"Hamburguesa Clásica",price:25000,icon:"🍔",description:"Carne, queso, lechuga, tomate y salsa especial."},
     {id:2,category:"burger",name:"Hamburguesa BBQ",price:29000,icon:"🍔",description:"Carne, queso cheddar, tocineta y salsa BBQ."},
@@ -23,7 +22,9 @@ let currentUser = null;
 
 const $ = id => document.getElementById(id);
 
-const money = number => "$" + Number(number).toLocaleString("es-CO");
+function money(value) {
+    return "$" + Number(value).toLocaleString("es-CO");
+}
 
 function getUsers() {
     try {
@@ -51,116 +52,21 @@ function showRegister() {
     $("registerBox").classList.remove("hidden");
 }
 
-$("showRegister").onclick = function() {
-    showRegister();
-};
-
-$("showLogin").onclick = function() {
-    showLogin();
-};
-
-$("registerBtn").onclick = function() {
-
-    const name = $("regName").value.trim();
-    const user = $("regUser").value.trim();
-    const email = $("regEmail").value.trim();
-    const pass = $("regPass").value;
-    const pass2 = $("regPass2").value;
-
-    if (name === "" || user === "" || email === "" || pass === "" || pass2 === "") {
-        alert("Completa todos los campos.");
-        return;
-    }
-
-    if (pass.length < 4) {
-        alert("La contraseña debe tener mínimo 4 caracteres.");
-        return;
-    }
-
-    if (pass !== pass2) {
-        alert("Las contraseñas no coinciden.");
-        return;
-    }
-
-    const users = getUsers();
-
-    const exists = users.some(function(item) {
-        return item.user.toLowerCase() === user.toLowerCase();
+function showPage(page) {
+    document.querySelectorAll(".page").forEach(item => {
+        item.classList.add("hidden");
     });
 
-    if (exists) {
-        alert("Ese usuario ya existe.");
-        return;
+    $(page).classList.remove("hidden");
+
+    if (page === "ordersPage") {
+        renderOrders();
     }
 
-    const account = {
-        id: Date.now(),
-        name: name,
-        user: user,
-        email: email,
-        pass: pass
-    };
-
-    users.push(account);
-
-    localStorage.setItem(
-        "users",
-        JSON.stringify(users)
-    );
-
-    alert("Cuenta creada correctamente.");
-
-    $("loginUser").value = user;
-    $("loginPass").value = "";
-
-    $("regName").value = "";
-    $("regUser").value = "";
-    $("regEmail").value = "";
-    $("regPass").value = "";
-    $("regPass2").value = "";
-
-    showLogin();
-};
-
-$("loginBtn").onclick = function() {
-
-    const user = $("loginUser").value.trim();
-    const pass = $("loginPass").value;
-
-    if (user === "" || pass === "") {
-        alert("Ingresa usuario y contraseña.");
-        return;
-    }
-
-    const users = getUsers();
-
-    const account = users.find(function(item) {
-        return item.user === user && item.pass === pass;
-    });
-
-    if (!account) {
-        alert("Usuario o contraseña incorrectos.");
-        return;
-    }
-
-    currentUser = account;
-
-    localStorage.setItem(
-        "currentUser",
-        JSON.stringify(account)
-    );
-
-    openApp(account);
-};
-
-$("loginPass").onkeydown = function(e) {
-    if (e.key === "Enter") {
-        $("loginBtn").click();
-    }
-};
+    window.scrollTo(0,0);
+}
 
 function openApp(user) {
-
     $("authSection").classList.add("hidden");
     $("appSection").classList.remove("hidden");
 
@@ -177,8 +83,7 @@ function openApp(user) {
     renderCart();
 }
 
-$("logoutBtn").onclick = function() {
-
+function logout() {
     localStorage.removeItem("currentUser");
 
     currentUser = null;
@@ -191,52 +96,24 @@ $("logoutBtn").onclick = function() {
     $("loginPass").value = "";
 
     showLogin();
-};
+}
 
-$("userButton").onclick = function() {
-    $("userDropdown").classList.toggle("hidden");
-};
+function productCard(product) {
+    return `
+        <div class="product-card">
+            <div class="product-icon">${product.icon}</div>
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
 
-$("profileButton").onclick = function() {
-
-    $("userDropdown").classList.add("hidden");
-
-    showPage("profilePage");
-};
-
-document.addEventListener("click", function(e) {
-
-    if (!e.target.closest(".user-menu")) {
-        $("userDropdown").classList.add("hidden");
-    }
-
-});
-
-document.querySelectorAll("[data-page]").forEach(function(button) {
-
-    button.onclick = function() {
-        showPage(button.dataset.page);
-    };
-
-});
-
-function showPage(pageId) {
-
-    document.querySelectorAll(".page").forEach(function(page) {
-        page.classList.add("hidden");
-    });
-
-    $(pageId).classList.remove("hidden");
-
-    if (pageId === "ordersPage") {
-        renderOrders();
-    }
-
-    window.scrollTo(0,0);
+            <div class="product-bottom">
+                <span class="price">${money(product.price)}</span>
+                <button type="button" class="add-btn" data-id="${product.id}">+</button>
+            </div>
+        </div>
+    `;
 }
 
 function renderPopular() {
-
     $("popularProducts").innerHTML = products
         .slice(0,4)
         .map(productCard)
@@ -246,27 +123,23 @@ function renderPopular() {
 }
 
 function renderMenu() {
+    const search = $("searchInput").value.toLowerCase().trim();
 
-    const search = $("searchInput").value.toLowerCase();
-
-    const filtered = products.filter(function(product) {
-
-        const categoryMatch =
+    const filtered = products.filter(product => {
+        const categoryOK =
             currentCategory === "all" ||
             product.category === currentCategory;
 
-        const searchMatch =
+        const searchOK =
             product.name.toLowerCase().includes(search) ||
             product.description.toLowerCase().includes(search);
 
-        return categoryMatch && searchMatch;
+        return categoryOK && searchOK;
     });
 
     if (filtered.length === 0) {
-
         $("menuProducts").innerHTML =
-            '<div class="no-orders">No encontramos productos.</div>';
-
+            '<div class="no-orders"><h2>No encontramos productos</h2><p>Prueba otra búsqueda.</p></div>';
         return;
     }
 
@@ -276,80 +149,22 @@ function renderMenu() {
     addProductEvents($("menuProducts"));
 }
 
-function productCard(product) {
-
-    return `
-        <div class="product-card">
-
-            <div class="product-icon">
-                ${product.icon}
-            </div>
-
-            <h3>${product.name}</h3>
-
-            <p>${product.description}</p>
-
-            <div class="product-bottom">
-
-                <span class="price">
-                    ${money(product.price)}
-                </span>
-
-                <button class="add-btn" data-id="${product.id}">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-    `;
-}
-
 function addProductEvents(container) {
-
-    container.querySelectorAll(".add-btn").forEach(function(button) {
-
-        button.onclick = function() {
+    container.querySelectorAll(".add-btn").forEach(button => {
+        button.onclick = () => {
             addToCart(Number(button.dataset.id));
         };
-
     });
 }
 
-document.querySelectorAll(".category").forEach(function(button) {
-
-    button.onclick = function() {
-
-        document.querySelectorAll(".category").forEach(function(item) {
-            item.classList.remove("active");
-        });
-
-        button.classList.add("active");
-
-        currentCategory = button.dataset.category;
-
-        renderMenu();
-    };
-
-});
-
-$("searchInput").oninput = function() {
-    renderMenu();
-};
-
 function addToCart(id) {
-
-    const product = products.find(function(item) {
-        return item.id === id;
-    });
+    const product = products.find(item => item.id === id);
 
     if (!product) {
         return;
     }
 
-    const existing = cart.find(function(item) {
-        return item.id === id;
-    });
+    const existing = cart.find(item => item.id === id);
 
     if (existing) {
         existing.quantity++;
@@ -365,10 +180,7 @@ function addToCart(id) {
 }
 
 function changeQuantity(id, change) {
-
-    const item = cart.find(function(product) {
-        return product.id === id;
-    });
+    const item = cart.find(product => product.id === id);
 
     if (!item) {
         return;
@@ -377,20 +189,14 @@ function changeQuantity(id, change) {
     item.quantity += change;
 
     if (item.quantity <= 0) {
-
-        cart = cart.filter(function(product) {
-            return product.id !== id;
-        });
-
+        cart = cart.filter(product => product.id !== id);
     }
 
     renderCart();
 }
 
 function renderCart() {
-
     if (cart.length === 0) {
-
         $("cartItems").innerHTML = `
             <div class="empty-cart">
                 <div style="font-size:55px">🛒</div>
@@ -398,61 +204,53 @@ function renderCart() {
                 <p>Agrega productos del menú.</p>
             </div>
         `;
-
     } else {
+        $("cartItems").innerHTML = cart.map(item => `
+            <div class="cart-item">
 
-        $("cartItems").innerHTML = cart.map(function(item) {
-
-            return `
-                <div class="cart-item">
-
-                    <div class="cart-item-icon">
-                        ${item.icon}
-                    </div>
-
-                    <div class="cart-item-info">
-                        <h4>${item.name}</h4>
-                        <p>${money(item.price)}</p>
-                    </div>
-
-                    <div class="quantity">
-                        <button data-minus="${item.id}">−</button>
-                        <strong>${item.quantity}</strong>
-                        <button data-plus="${item.id}">+</button>
-                    </div>
-
+                <div class="cart-item-icon">
+                    ${item.icon}
                 </div>
-            `;
 
-        }).join("");
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <p>${money(item.price)}</p>
+                </div>
 
-        $("cartItems").querySelectorAll("[data-minus]").forEach(function(button) {
+                <div class="quantity">
+                    <button type="button" data-minus="${item.id}">−</button>
+                    <strong>${item.quantity}</strong>
+                    <button type="button" data-plus="${item.id}">+</button>
+                </div>
 
-            button.onclick = function() {
-                changeQuantity(Number(button.dataset.minus), -1);
+            </div>
+        `).join("");
+
+        $("cartItems").querySelectorAll("[data-minus]").forEach(button => {
+            button.onclick = () => {
+                changeQuantity(Number(button.dataset.minus),-1);
             };
-
         });
 
-        $("cartItems").querySelectorAll("[data-plus]").forEach(function(button) {
-
-            button.onclick = function() {
-                changeQuantity(Number(button.dataset.plus), 1);
+        $("cartItems").querySelectorAll("[data-plus]").forEach(button => {
+            button.onclick = () => {
+                changeQuantity(Number(button.dataset.plus),1);
             };
-
         });
     }
 
-    const subtotal = cart.reduce(function(total,item) {
-        return total + item.price * item.quantity;
-    },0);
+    const subtotal = cart.reduce(
+        (total,item) => total + item.price * item.quantity,
+        0
+    );
 
     const service = subtotal * 0.05;
     const total = subtotal + service;
 
-    const count = cart.reduce(function(total,item) {
-        return total + item.quantity;
-    },0);
+    const count = cart.reduce(
+        (total,item) => total + item.quantity,
+        0
+    );
 
     $("cartSubtotal").textContent = money(subtotal);
     $("cartService").textContent = money(service);
@@ -462,161 +260,26 @@ function renderCart() {
 }
 
 function openCart() {
-
     $("cartPanel").classList.add("open");
     $("overlay").classList.remove("hidden");
 }
 
 function closeCart() {
-
     $("cartPanel").classList.remove("open");
     $("overlay").classList.add("hidden");
 }
 
-$("cartHeader").onclick = openCart;
-$("floatingCart").onclick = openCart;
-$("closeCart").onclick = closeCart;
-
-$("overlay").onclick = function() {
-
-    closeCart();
-
-    $("checkoutModal").classList.add("hidden");
-    $("receiptModal").classList.add("hidden");
-};
-
-$("clearCart").onclick = function() {
-
-    if (cart.length === 0) {
+function renderOrders() {
+    if (!currentUser) {
+        $("ordersContainer").innerHTML = "";
         return;
     }
 
-    if (confirm("¿Quieres vaciar el carrito?")) {
-
-        cart = [];
-
-        renderCart();
-    }
-};
-
-$("checkoutBtn").onclick = function() {
-
-    if (cart.length === 0) {
-        alert("Agrega productos al carrito.");
-        return;
-    }
-
-    $("customerName").value = currentUser.name;
-    $("customerPhone").value = "";
-    $("customerAddress").value = "";
-    $("orderType").value = "";
-    $("paymentMethod").value = "";
-
-    $("checkoutModal").classList.remove("hidden");
-    $("overlay").classList.remove("hidden");
-};
-
-$("closeCheckout").onclick = function() {
-
-    $("checkoutModal").classList.add("hidden");
-    $("overlay").classList.add("hidden");
-};
-
-$("confirmOrder").onclick = function() {
-
-    const name = $("customerName").value.trim();
-    const phone = $("customerPhone").value.trim();
-    const type = $("orderType").value;
-    const address = $("customerAddress").value.trim();
-    const payment = $("paymentMethod").value;
-
-    if (name === "" || phone === "" || type === "" || payment === "") {
-        alert("Completa todos los campos obligatorios.");
-        return;
-    }
-
-    if (type === "Domicilio" && address === "") {
-        alert("Ingresa la dirección de entrega.");
-        return;
-    }
-
-    const subtotal = cart.reduce(function(total,item) {
-        return total + item.price * item.quantity;
-    },0);
-
-    const service = subtotal * 0.05;
-    const total = subtotal + service;
-
-    const order = {
-
-        id: "SB-" + Math.floor(100000 + Math.random() * 900000),
-
-        userId: currentUser.id,
-
-        date: new Date().toLocaleString("es-CO"),
-
-        products: cart.map(function(item) {
-
-            return {
-                name: item.name,
-                quantity: item.quantity,
-                price: item.price,
-                icon: item.icon
-            };
-
-        }),
-
-        subtotal: subtotal,
-        service: service,
-        total: total,
-        type: type,
-        address: address,
-        payment: payment,
-        status: "Preparando"
-    };
-
-    const orders = getOrders();
-
-    orders.unshift(order);
-
-    localStorage.setItem(
-        "orders",
-        JSON.stringify(orders)
+    const orders = getOrders().filter(
+        order => order.userId === currentUser.id
     );
 
-    $("receiptId").textContent = order.id;
-    $("receiptName").textContent = name;
-    $("receiptType").textContent = type;
-    $("receiptPayment").textContent = payment;
-    $("receiptTotal").textContent = money(total);
-
-    cart = [];
-
-    $("checkoutModal").classList.add("hidden");
-    $("receiptModal").classList.remove("hidden");
-
-    renderCart();
-    renderOrders();
-};
-
-$("closeReceipt").onclick = function() {
-
-    $("receiptModal").classList.add("hidden");
-    $("overlay").classList.add("hidden");
-
-    showPage("ordersPage");
-};
-
-function renderOrders() {
-
-    const orders = getOrders().filter(function(order) {
-
-        return currentUser && order.userId === currentUser.id;
-
-    });
-
     if (orders.length === 0) {
-
         $("ordersContainer").innerHTML = `
             <div class="no-orders">
                 <div style="font-size:55px">📋</div>
@@ -624,100 +287,330 @@ function renderOrders() {
                 <p>Cuando realices un pedido aparecerá aquí.</p>
             </div>
         `;
-
         return;
     }
 
-    $("ordersContainer").innerHTML = orders.map(function(order) {
+    $("ordersContainer").innerHTML = orders.map(order => `
+        <div class="order-card">
 
-        return `
-            <div class="order-card">
-
-                <div class="order-top">
-
-                    <div>
-                        <div class="order-id">${order.id}</div>
-                        <small>${order.date}</small>
-                    </div>
-
-                    <span class="status">
-                        ${order.status}
-                    </span>
-
+            <div class="order-top">
+                <div>
+                    <div class="order-id">${order.id}</div>
+                    <small>${order.date}</small>
                 </div>
 
-                <div class="order-products">
-
-                    ${order.products.map(function(product) {
-
-                        return `
-                            <div class="order-product">
-
-                                <span>
-                                    ${product.icon}
-                                    ${product.name}
-                                    x${product.quantity}
-                                </span>
-
-                                <strong>
-                                    ${money(product.price * product.quantity)}
-                                </strong>
-
-                            </div>
-                        `;
-
-                    }).join("")}
-
-                </div>
-
-                <div class="order-bottom">
-
-                    <span>
-                        ${order.type} · ${order.payment}
-                    </span>
-
-                    <span class="order-total">
-                        ${money(order.total)}
-                    </span>
-
-                </div>
-
+                <span class="status">${order.status}</span>
             </div>
-        `;
 
-    }).join("");
+            <div class="order-products">
+                ${order.products.map(product => `
+                    <div class="order-product">
+                        <span>
+                            ${product.icon}
+                            ${product.name}
+                            x${product.quantity}
+                        </span>
+
+                        <strong>
+                            ${money(product.price * product.quantity)}
+                        </strong>
+                    </div>
+                `).join("")}
+            </div>
+
+            <div class="order-bottom">
+                <span>${order.type} · ${order.payment}</span>
+                <span class="order-total">${money(order.total)}</span>
+            </div>
+
+        </div>
+    `).join("");
 }
 
-const savedUser = JSON.parse(
-    localStorage.getItem("currentUser")
-);
+document.addEventListener("DOMContentLoaded", () => {
 
-if (savedUser) {
+    $("showRegister").onclick = showRegister;
+    $("showLogin").onclick = showLogin;
 
-    const users = getUsers();
+    $("registerBtn").onclick = () => {
 
-    const account = users.find(function(user) {
-        return user.id === savedUser.id;
-    });
+        const name = $("regName").value.trim();
+        const user = $("regUser").value.trim();
+        const email = $("regEmail").value.trim();
+        const pass = $("regPass").value;
+        const pass2 = $("regPass2").value;
 
-    if (account) {
+        if (!name || !user || !email || !pass || !pass2) {
+            alert("Completa todos los campos.");
+            return;
+        }
+
+        if (pass.length < 4) {
+            alert("La contraseña debe tener mínimo 4 caracteres.");
+            return;
+        }
+
+        if (pass !== pass2) {
+            alert("Las contraseñas no coinciden.");
+            return;
+        }
+
+        const users = getUsers();
+
+        const exists = users.some(
+            item => item.user.toLowerCase() === user.toLowerCase()
+        );
+
+        if (exists) {
+            alert("Ese usuario ya existe.");
+            return;
+        }
+
+        const account = {
+            id: Date.now(),
+            name,
+            user,
+            email,
+            pass
+        };
+
+        users.push(account);
+
+        localStorage.setItem(
+            "users",
+            JSON.stringify(users)
+        );
+
+        $("loginUser").value = user;
+        $("loginPass").value = "";
+
+        $("regName").value = "";
+        $("regUser").value = "";
+        $("regEmail").value = "";
+        $("regPass").value = "";
+        $("regPass2").value = "";
+
+        alert("Cuenta creada correctamente.");
+
+        showLogin();
+    };
+
+    $("loginBtn").onclick = () => {
+
+        const user = $("loginUser").value.trim();
+        const pass = $("loginPass").value;
+
+        if (!user || !pass) {
+            alert("Ingresa usuario y contraseña.");
+            return;
+        }
+
+        const account = getUsers().find(
+            item => item.user === user && item.pass === pass
+        );
+
+        if (!account) {
+            alert("Usuario o contraseña incorrectos.");
+            return;
+        }
 
         currentUser = account;
 
+        localStorage.setItem(
+            "currentUser",
+            JSON.stringify(account)
+        );
+
         openApp(account);
+    };
+
+    $("loginPass").onkeydown = event => {
+        if (event.key === "Enter") {
+            $("loginBtn").click();
+        }
+    };
+
+    $("logoutBtn").onclick = logout;
+
+    $("userButton").onclick = () => {
+        $("userDropdown").classList.toggle("hidden");
+    };
+
+    $("profileButton").onclick = () => {
+        $("userDropdown").classList.add("hidden");
+        showPage("profilePage");
+    };
+
+    document.addEventListener("click", event => {
+        if (!event.target.closest(".user-menu")) {
+            $("userDropdown").classList.add("hidden");
+        }
+    });
+
+    document.querySelectorAll("[data-page]").forEach(button => {
+        button.onclick = () => {
+            showPage(button.dataset.page);
+        };
+    });
+
+    document.querySelectorAll(".category").forEach(button => {
+
+        button.onclick = () => {
+
+            document.querySelectorAll(".category").forEach(item => {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            currentCategory = button.dataset.category;
+
+            renderMenu();
+        };
+    });
+
+    $("searchInput").oninput = renderMenu;
+
+    $("cartHeader").onclick = openCart;
+    $("floatingCart").onclick = openCart;
+    $("closeCart").onclick = closeCart;
+
+    $("overlay").onclick = () => {
+        closeCart();
+        $("checkoutModal").classList.add("hidden");
+        $("receiptModal").classList.add("hidden");
+        $("overlay").classList.add("hidden");
+    };
+
+    $("clearCart").onclick = () => {
+
+        if (cart.length === 0) {
+            return;
+        }
+
+        if (confirm("¿Quieres vaciar el carrito?")) {
+            cart = [];
+            renderCart();
+        }
+    };
+
+    $("checkoutBtn").onclick = () => {
+
+        if (cart.length === 0) {
+            alert("Agrega productos al carrito.");
+            return;
+        }
+
+        $("customerName").value = currentUser.name;
+        $("customerPhone").value = "";
+        $("customerAddress").value = "";
+        $("orderType").value = "";
+        $("paymentMethod").value = "";
+
+        $("checkoutModal").classList.remove("hidden");
+        $("overlay").classList.remove("hidden");
+    };
+
+    $("closeCheckout").onclick = () => {
+        $("checkoutModal").classList.add("hidden");
+        $("overlay").classList.add("hidden");
+    };
+
+    $("confirmOrder").onclick = () => {
+
+        const name = $("customerName").value.trim();
+        const phone = $("customerPhone").value.trim();
+        const type = $("orderType").value;
+        const address = $("customerAddress").value.trim();
+        const payment = $("paymentMethod").value;
+
+        if (!name || !phone || !type || !payment) {
+            alert("Completa todos los campos obligatorios.");
+            return;
+        }
+
+        if (type === "Domicilio" && !address) {
+            alert("Ingresa la dirección de entrega.");
+            return;
+        }
+
+        const subtotal = cart.reduce(
+            (total,item) => total + item.price * item.quantity,
+            0
+        );
+
+        const service = subtotal * 0.05;
+        const total = subtotal + service;
+
+        const order = {
+            id: "SB-" + Math.floor(100000 + Math.random() * 900000),
+            userId: currentUser.id,
+            date: new Date().toLocaleString("es-CO"),
+            products: cart.map(item => ({
+                name: item.name,
+                quantity: item.quantity,
+                price: item.price,
+                icon: item.icon
+            })),
+            subtotal,
+            service,
+            total,
+            type,
+            address,
+            payment,
+            status: "Preparando"
+        };
+
+        const orders = getOrders();
+
+        orders.unshift(order);
+
+        localStorage.setItem(
+            "orders",
+            JSON.stringify(orders)
+        );
+
+        $("receiptId").textContent = order.id;
+        $("receiptName").textContent = name;
+        $("receiptType").textContent = type;
+        $("receiptPayment").textContent = payment;
+        $("receiptTotal").textContent = money(total);
+
+        cart = [];
+
+        $("checkoutModal").classList.add("hidden");
+        $("receiptModal").classList.remove("hidden");
+
+        renderCart();
+        renderOrders();
+    };
+
+    $("closeReceipt").onclick = () => {
+        $("receiptModal").classList.add("hidden");
+        $("overlay").classList.add("hidden");
+        showPage("ordersPage");
+    };
+
+    const savedUser = localStorage.getItem("currentUser");
+
+    if (savedUser) {
+
+        try {
+
+            const user = JSON.parse(savedUser);
+
+            const account = getUsers().find(
+                item => item.id === user.id
+            );
+
+            if (account) {
+                currentUser = account;
+                openApp(account);
+            }
+
+        } catch {
+            localStorage.removeItem("currentUser");
+        }
     }
-}
-:::
 
-### ⚠️ Hay una corrección clave
-
-En tu repositorio actual, **no basta con quitar el comentario de `style.css`**. También tienes que quitar los ``` de `script.js`. Al revisar el archivo publicado, aparecen explícitamente en la línea 0 y en la última línea. :contentReference[oaicite:4]{index=4}
-
-La estructura final debe quedar exactamente así:
-
-```text
-Perfil-Web
-└── proyecto-restaurante
-    ├── index.html
-    ├── style.css
-    └── script.js
+});
