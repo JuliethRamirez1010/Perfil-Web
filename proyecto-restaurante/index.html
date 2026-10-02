@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,390 +9,412 @@
 </head>
 <body>
 
-    <section id="authSection">
-        <div class="auth-container">
+```
+<section id="authSection">
+    <div class="auth-container">
 
-            <div class="auth-brand">
-                <div class="brand-icon">🍽️</div>
-                <h1>Sabores</h1>
-                <p>RESTAURANT</p>
-            </div>
-
-            <div class="auth-box" id="loginBox">
-                <h2>Iniciar sesión</h2>
-                <p class="auth-text">Ingresa a tu cuenta para continuar</p>
-
-                <input type="text" id="loginUser" placeholder="Usuario">
-                <input type="password" id="loginPass" placeholder="Contraseña">
-
-                <button class="main-btn" id="loginBtn">Iniciar sesión</button>
-
-                <p class="switch-text">
-                    ¿No tienes una cuenta?
-                    <button class="link-btn" id="showRegister">Registrarme</button>
-                </p>
-            </div>
-
-            <div class="auth-box hidden" id="registerBox">
-                <h2>Crear cuenta</h2>
-                <p class="auth-text">Regístrate para comenzar</p>
-
-                <input type="text" id="regName" placeholder="Nombre completo">
-                <input type="text" id="regUser" placeholder="Usuario">
-                <input type="email" id="regEmail" placeholder="Correo electrónico">
-                <input type="password" id="regPass" placeholder="Contraseña">
-                <input type="password" id="regPass2" placeholder="Confirmar contraseña">
-
-                <button class="main-btn" id="registerBtn">Crear cuenta</button>
-
-                <p class="switch-text">
-                    ¿Ya tienes una cuenta?
-                    <button class="link-btn" id="showLogin">Iniciar sesión</button>
-                </p>
-            </div>
-
+        <div class="auth-brand">
+            <div class="brand-icon">🍽️</div>
+            <h1>Sabores</h1>
+            <p>RESTAURANT</p>
         </div>
-    </section>
 
-    <section id="appSection" class="hidden">
+        <div class="auth-box" id="loginBox">
+            <h2>Iniciar sesión</h2>
+            <p class="auth-text">Ingresa a tu cuenta para continuar</p>
 
-        <header>
-            <div class="logo">
-                <span>🍽️</span>
-                <div>
-                    <strong>Sabores</strong>
-                    <small>Restaurant</small>
-                </div>
+            <input type="text" id="loginUser" placeholder="Usuario">
+            <input type="password" id="loginPass" placeholder="Contraseña">
+
+            <button class="main-btn" id="loginBtn">Iniciar sesión</button>
+
+            <p class="switch-text">
+                ¿No tienes una cuenta?
+                <button class="link-btn" id="showRegister">Registrarme</button>
+            </p>
+        </div>
+
+        <div class="auth-box hidden" id="registerBox">
+            <h2>Crear cuenta</h2>
+            <p class="auth-text">Regístrate para comenzar</p>
+
+            <input type="text" id="regName" placeholder="Nombre completo">
+            <input type="text" id="regUser" placeholder="Usuario">
+            <input type="email" id="regEmail" placeholder="Correo electrónico">
+            <input type="password" id="regPass" placeholder="Contraseña">
+            <input type="password" id="regPass2" placeholder="Confirmar contraseña">
+
+            <button class="main-btn" id="registerBtn">Crear cuenta</button>
+
+            <p class="switch-text">
+                ¿Ya tienes una cuenta?
+                <button class="link-btn" id="showLogin">Iniciar sesión</button>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="appSection" class="hidden">
+
+    <header>
+        <div class="logo">
+            <span>🍽️</span>
+            <div>
+                <strong>Sabores</strong>
+                <small>Restaurant</small>
             </div>
+        </div>
 
-            <nav>
-                <button class="nav-btn" data-page="homePage">Inicio</button>
-                <button class="nav-btn" data-page="menuPage">Menú</button>
-                <button class="nav-btn" data-page="ordersPage">Mis pedidos</button>
-            </nav>
+        <nav>
+            <button class="nav-btn" data-page="homePage">Inicio</button>
+            <button class="nav-btn" data-page="menuPage">Menú</button>
+            <button class="nav-btn" data-page="ordersPage">Mis pedidos</button>
+        </nav>
 
-            <div class="header-right">
-                <button class="cart-header" id="cartHeader">
-                    🛒 <span id="cartCount">0</span>
+        <div class="header-right">
+
+            <button class="cart-header" id="cartHeader">
+                🛒 <span id="cartCount">0</span>
+            </button>
+
+            <div class="user-menu">
+                <button id="userButton">
+                    👤 <span id="navUser">Usuario</span> ▾
                 </button>
 
-                <div class="user-menu">
-                    <button id="userButton">
-                        👤 <span id="navUser">Usuario</span> ▾
-                    </button>
-
-                    <div class="user-dropdown hidden" id="userDropdown">
-                        <button id="profileButton">Mi perfil</button>
-                        <button id="logoutBtn">Cerrar sesión</button>
-                    </div>
+                <div class="user-dropdown hidden" id="userDropdown">
+                    <button id="profileButton">Mi perfil</button>
+                    <button id="logoutBtn">Cerrar sesión</button>
                 </div>
             </div>
-        </header>
 
-        <main>
+        </div>
+    </header>
 
-            <section id="homePage" class="page">
+    <main>
 
-                <div class="hero">
-                    <div class="hero-content">
-                        <span class="tag">SABOR QUE INSPIRA</span>
+        <section id="homePage" class="page">
 
-                        <h1>
-                            Disfruta lo mejor de
-                            <strong>nuestra cocina</strong>
-                        </h1>
+            <div class="hero">
 
-                        <p>
-                            Platos preparados con ingredientes frescos,
-                            pasión y mucho sabor.
-                        </p>
+                <div class="hero-content">
 
-                        <button class="hero-btn" data-page="menuPage">
-                            Ver nuestro menú →
-                        </button>
-                    </div>
+                    <span class="tag">SABOR QUE INSPIRA</span>
 
-                    <div class="hero-food">🍔</div>
-                </div>
+                    <h1>
+                        Disfruta lo mejor de
+                        <strong>nuestra cocina</strong>
+                    </h1>
 
-                <div class="features">
+                    <p>
+                        Platos preparados con ingredientes frescos,
+                        pasión y mucho sabor.
+                    </p>
 
-                    <div class="feature">
-                        <span>🥗</span>
-                        <div>
-                            <h3>Ingredientes frescos</h3>
-                            <p>Seleccionados cuidadosamente.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature">
-                        <span>👨‍🍳</span>
-                        <div>
-                            <h3>Preparado al momento</h3>
-                            <p>Cada pedido se prepara para ti.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature">
-                        <span>🚀</span>
-                        <div>
-                            <h3>Entrega rápida</h3>
-                            <p>Recibe tu pedido sin esperar.</p>
-                        </div>
-                    </div>
+                    <button class="hero-btn" data-page="menuPage">
+                        Ver nuestro menú →
+                    </button>
 
                 </div>
 
-                <div class="section-title">
+                <div class="hero-food">🍔</div>
+
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <span>🥗</span>
                     <div>
-                        <span>RECOMENDADOS</span>
-                        <h2>Los favoritos</h2>
+                        <h3>Ingredientes frescos</h3>
+                        <p>Seleccionados cuidadosamente.</p>
                     </div>
-
-                    <button data-page="menuPage">
-                        Ver todo →
-                    </button>
                 </div>
 
-                <div class="product-grid" id="popularProducts"></div>
-
-            </section>
-
-            <section id="menuPage" class="page hidden">
-
-                <div class="page-heading">
+                <div class="feature">
+                    <span>👨‍🍳</span>
                     <div>
-                        <span>DESCUBRE</span>
-                        <h1>Nuestro menú</h1>
+                        <h3>Preparado al momento</h3>
+                        <p>Cada pedido se prepara para ti.</p>
                     </div>
-
-                    <input
-                        type="text"
-                        id="searchInput"
-                        placeholder="🔍 Buscar producto..."
-                    >
                 </div>
 
-                <div class="categories">
-                    <button class="category active" data-category="all">
-                        Todos
-                    </button>
-
-                    <button class="category" data-category="burger">
-                        Hamburguesas
-                    </button>
-
-                    <button class="category" data-category="pizza">
-                        Pizzas
-                    </button>
-
-                    <button class="category" data-category="plato">
-                        Platos fuertes
-                    </button>
-
-                    <button class="category" data-category="bebida">
-                        Bebidas
-                    </button>
-
-                    <button class="category" data-category="postre">
-                        Postres
-                    </button>
-                </div>
-
-                <div class="product-grid" id="menuProducts"></div>
-
-            </section>
-
-            <section id="ordersPage" class="page hidden">
-
-                <div class="page-heading">
+                <div class="feature">
+                    <span>🚀</span>
                     <div>
-                        <span>HISTORIAL</span>
-                        <h1>Mis pedidos</h1>
+                        <h3>Entrega rápida</h3>
+                        <p>Recibe tu pedido sin esperar.</p>
                     </div>
                 </div>
 
-                <div id="ordersContainer"></div>
+            </div>
 
-            </section>
+            <div class="section-title">
 
-            <section id="profilePage" class="page hidden">
-
-                <div class="page-heading">
-                    <div>
-                        <span>CUENTA</span>
-                        <h1>Mi perfil</h1>
-                    </div>
+                <div>
+                    <span>RECOMENDADOS</span>
+                    <h2>Los favoritos</h2>
                 </div>
 
-                <div class="profile-card">
-                    <div class="profile-avatar">👤</div>
+                <button data-page="menuPage">
+                    Ver todo →
+                </button>
 
-                    <div>
-                        <h2 id="profileName"></h2>
-                        <p id="profileUser"></p>
-                        <p id="profileEmail"></p>
-                    </div>
+            </div>
+
+            <div class="product-grid" id="popularProducts"></div>
+
+        </section>
+
+        <section id="menuPage" class="page hidden">
+
+            <div class="page-heading">
+
+                <div>
+                    <span>DESCUBRE</span>
+                    <h1>Nuestro menú</h1>
                 </div>
 
-            </section>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Buscar producto..."
+                >
 
-        </main>
-    </section>
+            </div>
 
-    <aside class="cart-panel" id="cartPanel">
+            <div class="categories">
 
-        <div class="cart-header-title">
+                <button class="category active" data-category="all">
+                    Todos
+                </button>
+
+                <button class="category" data-category="burger">
+                    Hamburguesas
+                </button>
+
+                <button class="category" data-category="pizza">
+                    Pizzas
+                </button>
+
+                <button class="category" data-category="plato">
+                    Platos fuertes
+                </button>
+
+                <button class="category" data-category="bebida">
+                    Bebidas
+                </button>
+
+                <button class="category" data-category="postre">
+                    Postres
+                </button>
+
+            </div>
+
+            <div class="product-grid" id="menuProducts"></div>
+
+        </section>
+
+        <section id="ordersPage" class="page hidden">
+
+            <div class="page-heading">
+
+                <div>
+                    <span>HISTORIAL</span>
+                    <h1>Mis pedidos</h1>
+                </div>
+
+            </div>
+
+            <div id="ordersContainer"></div>
+
+        </section>
+
+        <section id="profilePage" class="page hidden">
+
+            <div class="page-heading">
+
+                <div>
+                    <span>CUENTA</span>
+                    <h1>Mi perfil</h1>
+                </div>
+
+            </div>
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">👤</div>
+
+                <div>
+                    <h2 id="profileName"></h2>
+                    <p id="profileUser"></p>
+                    <p id="profileEmail"></p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+<aside class="cart-panel" id="cartPanel">
+
+    <div class="cart-header-title">
+
+        <div>
+            <span>MI PEDIDO</span>
+            <h2>Carrito</h2>
+        </div>
+
+        <button id="closeCart">✕</button>
+
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-bottom">
+
+        <div class="summary">
+
             <div>
-                <span>MI PEDIDO</span>
-                <h2>Carrito</h2>
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">$0</strong>
             </div>
 
-            <button id="closeCart">✕</button>
-        </div>
-
-        <div id="cartItems"></div>
-
-        <div class="cart-bottom">
-
-            <div class="summary">
-
-                <div>
-                    <span>Subtotal</span>
-                    <strong id="cartSubtotal">$0</strong>
-                </div>
-
-                <div>
-                    <span>Servicio</span>
-                    <strong id="cartService">$0</strong>
-                </div>
-
-                <div class="total">
-                    <span>Total</span>
-                    <strong id="cartTotal">$0</strong>
-                </div>
-
+            <div>
+                <span>Servicio</span>
+                <strong id="cartService">$0</strong>
             </div>
 
-            <button class="main-btn" id="checkoutBtn">
-                Realizar pedido
-            </button>
-
-            <button class="clear-btn" id="clearCart">
-                Vaciar carrito
-            </button>
+            <div class="total">
+                <span>Total</span>
+                <strong id="cartTotal">$0</strong>
+            </div>
 
         </div>
 
-    </aside>
+        <button class="main-btn" id="checkoutBtn">
+            Realizar pedido
+        </button>
 
-    <div class="overlay hidden" id="overlay"></div>
-
-    <div class="modal hidden" id="checkoutModal">
-
-        <div class="modal-header">
-            <h2>Finalizar pedido</h2>
-            <button id="closeCheckout">✕</button>
-        </div>
-
-        <div class="form-grid">
-
-            <input
-                type="text"
-                id="customerName"
-                placeholder="Nombre completo"
-            >
-
-            <input
-                type="text"
-                id="customerPhone"
-                placeholder="Teléfono"
-            >
-
-            <select id="orderType">
-                <option value="">Tipo de pedido</option>
-                <option value="Domicilio">Domicilio</option>
-                <option value="Para llevar">Para llevar</option>
-                <option value="Comer aquí">Comer aquí</option>
-            </select>
-
-            <input
-                type="text"
-                id="customerAddress"
-                placeholder="Dirección"
-            >
-
-            <select id="paymentMethod">
-                <option value="">Método de pago</option>
-                <option value="Efectivo">Efectivo</option>
-                <option value="Tarjeta">Tarjeta</option>
-                <option value="Nequi">Nequi</option>
-                <option value="Daviplata">Daviplata</option>
-            </select>
-
-        </div>
-
-        <button class="main-btn" id="confirmOrder">
-            Confirmar pedido
+        <button class="clear-btn" id="clearCart">
+            Vaciar carrito
         </button>
 
     </div>
 
-    <div class="modal hidden" id="receiptModal">
+</aside>
 
-        <div class="receipt">
+<div class="overlay hidden" id="overlay"></div>
 
-            <div class="receipt-icon">✓</div>
+<div class="modal hidden" id="checkoutModal">
 
-            <h2>¡Pedido realizado!</h2>
+    <div class="modal-header">
+        <h2>Finalizar pedido</h2>
+        <button id="closeCheckout">✕</button>
+    </div>
 
-            <p>
-                Tu pedido ha sido recibido correctamente.
-            </p>
+    <div class="form-grid">
 
-            <div class="receipt-info">
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Nombre completo"
+        >
 
-                <div>
-                    <span>Pedido</span>
-                    <strong id="receiptId"></strong>
-                </div>
+        <input
+            type="text"
+            id="customerPhone"
+            placeholder="Teléfono"
+        >
 
-                <div>
-                    <span>Cliente</span>
-                    <strong id="receiptName"></strong>
-                </div>
+        <select id="orderType">
+            <option value="">Tipo de pedido</option>
+            <option value="Domicilio">Domicilio</option>
+            <option value="Para llevar">Para llevar</option>
+            <option value="Comer aquí">Comer aquí</option>
+        </select>
 
-                <div>
-                    <span>Tipo</span>
-                    <strong id="receiptType"></strong>
-                </div>
+        <input
+            type="text"
+            id="customerAddress"
+            placeholder="Dirección"
+        >
 
-                <div>
-                    <span>Pago</span>
-                    <strong id="receiptPayment"></strong>
-                </div>
-
-                <div class="receipt-total">
-                    <span>Total</span>
-                    <strong id="receiptTotal"></strong>
-                </div>
-
-            </div>
-
-            <button class="main-btn" id="closeReceipt">
-                Aceptar
-            </button>
-
-        </div>
+        <select id="paymentMethod">
+            <option value="">Método de pago</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+            <option value="Nequi">Nequi</option>
+            <option value="Daviplata">Daviplata</option>
+        </select>
 
     </div>
 
-    <button class="floating-cart" id="floatingCart">
-        🛒 <span id="floatingCount">0</span>
+    <button class="main-btn" id="confirmOrder">
+        Confirmar pedido
     </button>
 
-    <script src="./script.js"></script>
+</div>
+
+<div class="modal hidden" id="receiptModal">
+
+    <div class="receipt">
+
+        <div class="receipt-icon">✓</div>
+
+        <h2>¡Pedido realizado!</h2>
+
+        <p>
+            Tu pedido ha sido recibido correctamente.
+        </p>
+
+        <div class="receipt-info">
+
+            <div>
+                <span>Pedido</span>
+                <strong id="receiptId"></strong>
+            </div>
+
+            <div>
+                <span>Cliente</span>
+                <strong id="receiptName"></strong>
+            </div>
+
+            <div>
+                <span>Tipo</span>
+                <strong id="receiptType"></strong>
+            </div>
+
+            <div>
+                <span>Pago</span>
+                <strong id="receiptPayment"></strong>
+            </div>
+
+            <div class="receipt-total">
+                <span>Total</span>
+                <strong id="receiptTotal"></strong>
+            </div>
+
+        </div>
+
+        <button class="main-btn" id="closeReceipt">
+            Aceptar
+        </button>
+
+    </div>
+
+</div>
+
+<button class="floating-cart" id="floatingCart">
+    🛒 <span id="floatingCount">0</span>
+</button>
+
+<script src="./script.js"></script>
+```
 
 </body>
 </html>
-```
