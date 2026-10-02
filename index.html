@@ -1,593 +1,660 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Karen Julieth Ramírez Ospina · Desarrolladora Web</title>
+  <title>Karen Julieth Ramírez Ospina · Estudiante de Programación</title>
 
-  <meta name="description" content="Portafolio de Karen Julieth Ramírez Ospina, estudiante de Técnico Profesional en Programación Web.">
+  <meta name="description" content="Portafolio personal de Karen Julieth Ramírez Ospina, estudiante de Ingeniería de Sistemas y programación.">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
+  <!-- HEADER -->
+
   <div class="contenedor-header">
     <header>
 
-      <div class="logo">
-        <a href="#inicio">Karen Ramírez</a>
-      </div>
-
-      <nav id="nav">
-        <ul>
-          <li><a href="#inicio" data-i18n="nav.home" onclick="cerrarMenu()">INICIO</a></li>
-          <li><a href="#sobremi" data-i18n="nav.about" onclick="cerrarMenu()">SOBRE MÍ</a></li>
-          <li><a href="#skills" data-i18n="nav.skills" onclick="cerrarMenu()">HABILIDADES</a></li>
-          <li><a href="#curriculum" data-i18n="nav.resume" onclick="cerrarMenu()">FORMACIÓN</a></li>
-          <li><a href="#portfolio" data-i18n="nav.portfolio" onclick="cerrarMenu()">PROYECTOS</a></li>
-          <li><a href="#contacto" data-i18n="nav.contact" onclick="cerrarMenu()">CONTACTO</a></li>
-        </ul>
-      </nav>
-
-      <div class="acciones-header">
-
-        <button id="btn-idioma" class="btn-idioma" type="button" onclick="cambiarIdioma()" aria-label="Cambiar idioma">
-          <span class="idioma-activo">ES</span>
-          <span class="idioma-sep">/</span>
-          <span class="idioma-inactivo">EN</span>
-        </button>
-
-        <button class="nav-responsive" type="button" onclick="mostrarOcultarMenu()" aria-label="Menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-
-      </div>
-
-    </header>
+```
+  <div class="logo">
+    <a href="#inicio">Karen Ramírez</a>
   </div>
 
+  <nav id="nav">
+    <ul>
+      <li><a href="#inicio" onclick="cerrarMenu()">INICIO</a></li>
+      <li><a href="#sobremi" onclick="cerrarMenu()">SOBRE MÍ</a></li>
+      <li><a href="#skills" onclick="cerrarMenu()">HABILIDADES</a></li>
+      <li><a href="#curriculum" onclick="cerrarMenu()">FORMACIÓN</a></li>
+      <li><a href="#portfolio" onclick="cerrarMenu()">PROYECTOS</a></li>
+      <li><a href="#contacto" onclick="cerrarMenu()">CONTACTO</a></li>
+    </ul>
+  </nav>
+
+  <div class="acciones-header">
+
+    <button id="btn-idioma" class="btn-idioma" type="button"
+      onclick="cambiarIdioma()" aria-label="Cambiar idioma">
+      <span class="idioma-activo">ES</span>
+      <span class="idioma-sep">/</span>
+      <span class="idioma-inactivo">EN</span>
+    </button>
+
+    <button class="nav-responsive" type="button"
+      onclick="mostrarOcultarMenu()" aria-label="Menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+  </div>
+
+</header>
+```
+
+  </div>
+
+  <!-- INICIO -->
 
   <section id="inicio" class="inicio">
 
-    <div class="contenido-banner">
+```
+<div class="contenido-banner">
 
-      <div class="contenedor-img">
-        <img src="./images/profile.jpeg" alt="Karen Julieth Ramírez Ospina">
-      </div>
+  <div class="contenedor-img">
+    <img src="./images/profile.jpeg" alt="Karen Julieth Ramírez Ospina">
+  </div>
 
-      <h1>KAREN JULIETH RAMÍREZ OSPINA</h1>
+  <h1>KAREN JULIETH RAMÍREZ OSPINA</h1>
 
-      <h2 data-i18n="hero.role">
-        Desarrolladora Web · Estudiante de Programación
-      </h2>
+  <h2>
+    Estudiante de Ingeniería de Sistemas · Programación Web
+  </h2>
 
-      <div class="redes">
+  <div class="redes">
 
-        <a href="#" target="_blank" rel="noopener" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
+    <a href="https://github.com/JulIethRamirez1010"
+      target="_blank" rel="noopener" aria-label="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
 
-        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
+    <a href="https://www.linkedin.com/"
+      target="_blank" rel="noopener" aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
 
-        <a href="mailto:kramirez23@itfip.edu.co" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
+    <a href="mailto:kramirez23@itfip.edu.co"
+      aria-label="Correo electrónico">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
 
-      </div>
+  </div>
 
-    </div>
+</div>
+```
 
   </section>
 
+  <!-- SOBRE MÍ -->
 
   <section id="sobremi" class="sobremi">
 
-    <div class="contenido-seccion">
+```
+<div class="contenido-seccion">
 
-      <h2 data-i18n="about.title">Sobre Mí</h2>
+  <h2>Sobre Mí</h2>
 
-      <p data-i18n="about.text">
-        Soy estudiante de Técnico Profesional en Programación Web y me interesa el desarrollo de aplicaciones y soluciones digitales. Durante mi formación he trabajado en diferentes proyectos académicos que me han permitido fortalecer mis conocimientos en HTML, CSS, JavaScript, bases de datos y lógica de programación. Me gusta aprender mediante la práctica, crear interfaces funcionales y buscar soluciones a diferentes problemas utilizando la tecnología.
-      </p>
+  <p>
+    Soy estudiante de Ingeniería de Sistemas y me interesa especialmente
+    el mundo de la tecnología, la programación y el desarrollo de
+    aplicaciones. Me gusta aprender haciendo, experimentar con diferentes
+    herramientas y buscar soluciones a los problemas que encuentro.
+    Durante mi formación he realizado diferentes proyectos académicos
+    relacionados con páginas web, bases de datos, programación y diseño
+    de interfaces. Actualmente sigo fortaleciendo mis conocimientos y
+    adquiriendo nuevas habilidades para crecer tanto académicamente como
+    profesionalmente.
+  </p>
 
-      <div class="fila">
+  <div class="fila">
 
-        <div class="col">
+    <div class="col">
 
-          <h3 data-i18n="about.infoTitle">
-            Información
-          </h3>
+      <h3>Información</h3>
 
-          <ul class="datos">
+      <ul class="datos">
 
-            <li>
-              <strong data-i18n="about.labelLocation">Ubicación</strong>
-              <span data-i18n="about.valueLocation">Espinal, Tolima, Colombia</span>
-            </li>
+        <li>
+          <strong>Ubicación</strong>
+          <span>Espinal, Tolima, Colombia</span>
+        </li>
 
-            <li>
-              <strong data-i18n="about.labelEmail">Correo</strong>
-              <span>kramirez23@itfip.edu.co</span>
-            </li>
+        <li>
+          <strong>Correo</strong>
+          <span>kramirez23@itfip.edu.co</span>
+        </li>
 
-            <li>
-              <strong data-i18n="about.labelLanguages">Idiomas</strong>
-              <span data-i18n="about.valueLanguages">Español (nativo) · Inglés técnico</span>
-            </li>
+        <li>
+          <strong>Formación</strong>
+          <span>Ingeniería de Sistemas</span>
+        </li>
 
-            <li>
-              <strong data-i18n="about.labelStatus">Disponibilidad</strong>
-              <span class="destacado" data-i18n="about.valueStatus">
-                Abierta a prácticas
-              </span>
-            </li>
+        <li>
+          <strong>Estado</strong>
+          <span class="destacado">Estudiante</span>
+        </li>
 
-          </ul>
+      </ul>
 
+    </div>
+
+
+    <div class="col">
+
+      <h3>Áreas que me interesan</h3>
+
+      <div class="contenedor-intereses">
+
+        <div class="interes">
+          <i class="fa-solid fa-code"></i>
+          <span>PROGRAMACIÓN</span>
         </div>
 
+        <div class="interes">
+          <i class="fa-solid fa-globe"></i>
+          <span>DESARROLLO WEB</span>
+        </div>
 
-        <div class="col">
+        <div class="interes">
+          <i class="fa-solid fa-database"></i>
+          <span>BASES DE DATOS</span>
+        </div>
 
-          <h3 data-i18n="about.interestsTitle">
-            Áreas de interés
-          </h3>
-
-          <div class="contenedor-intereses">
-
-            <div class="interes">
-              <i class="fa-solid fa-code"></i>
-              <span data-i18n="interest.1">DESARROLLO WEB</span>
-            </div>
-
-            <div class="interes">
-              <i class="fa-solid fa-laptop-code"></i>
-              <span data-i18n="interest.2">PROGRAMACIÓN</span>
-            </div>
-
-            <div class="interes">
-              <i class="fa-solid fa-database"></i>
-              <span data-i18n="interest.3">BASES DE DATOS</span>
-            </div>
-
-            <div class="interes">
-              <i class="fa-solid fa-gamepad"></i>
-              <span data-i18n="interest.4">APLICACIONES</span>
-            </div>
-
-          </div>
-
+        <div class="interes">
+          <i class="fa-solid fa-palette"></i>
+          <span>DISEÑO DIGITAL</span>
         </div>
 
       </div>
 
     </div>
 
+  </div>
+
+</div>
+```
+
   </section>
 
+  <!-- HABILIDADES -->
 
   <section id="skills" class="skills">
 
-    <div class="contenido-seccion">
+```
+<div class="contenido-seccion">
 
-      <h2 data-i18n="skills.title">
-        Habilidades
-      </h2>
+  <h2>Habilidades</h2>
 
-      <div class="fila">
+  <div class="fila">
 
-        <div class="col">
+    <div class="col">
 
-          <h3 data-i18n="skills.technical">
-            Habilidades técnicas
-          </h3>
+      <h3>Habilidades técnicas</h3>
 
-          <div class="skill">
-            <span class="skill-nombre">HTML &amp; CSS</span>
-            <div class="barra-skill">
-              <div class="progreso" data-percent="80">
-                <span>80%</span>
-              </div>
-            </div>
+      <div class="skill">
+        <span class="skill-nombre">HTML & CSS</span>
+
+        <div class="barra-skill">
+          <div class="progreso" data-percent="80">
+            <span>80%</span>
           </div>
+        </div>
+      </div>
 
-          <div class="skill">
-            <span class="skill-nombre">JavaScript</span>
-            <div class="barra-skill">
-              <div class="progreso" data-percent="70">
-                <span>70%</span>
-              </div>
-            </div>
+
+      <div class="skill">
+        <span class="skill-nombre">JavaScript</span>
+
+        <div class="barra-skill">
+          <div class="progreso" data-percent="70">
+            <span>70%</span>
           </div>
+        </div>
+      </div>
 
-          <div class="skill">
-            <span class="skill-nombre">MySQL</span>
-            <div class="barra-skill">
-              <div class="progreso" data-percent="55">
-                <span>55%</span>
-              </div>
-            </div>
+
+      <div class="skill">
+        <span class="skill-nombre">MySQL</span>
+
+        <div class="barra-skill">
+          <div class="progreso" data-percent="55">
+            <span>55%</span>
           </div>
+        </div>
+      </div>
 
-          <div class="skill">
-            <span class="skill-nombre">Git &amp; GitHub</span>
-            <div class="barra-skill">
-              <div class="progreso" data-percent="65">
-                <span>65%</span>
-              </div>
-            </div>
+
+      <div class="skill">
+        <span class="skill-nombre">Java</span>
+
+        <div class="barra-skill">
+          <div class="progreso" data-percent="60">
+            <span>60%</span>
           </div>
+        </div>
+      </div>
 
+    </div>
+
+
+    <div class="col">
+
+      <h3>Habilidades personales</h3>
+
+      <div class="skill">
+
+        <span class="skill-nombre">
+          Responsabilidad
+        </span>
+
+        <div class="barra-skill">
+          <div class="progreso" data-percent="90">
+            <span>90%</span>
+          </div>
         </div>
 
+      </div>
 
-        <div class="col">
 
-          <h3 data-i18n="skills.professional">
-            Habilidades de desarrollo
-          </h3>
+      <div class="skill">
 
-          <div class="skill">
+        <span class="skill-nombre">
+          Trabajo en equipo
+        </span>
 
-            <span class="skill-nombre" data-i18n="skill.support">
-              Diseño de interfaces
-            </span>
-
-            <div class="barra-skill">
-              <div class="progreso" data-percent="75">
-                <span>75%</span>
-              </div>
-            </div>
-
+        <div class="barra-skill">
+          <div class="progreso" data-percent="85">
+            <span>85%</span>
           </div>
+        </div>
+
+      </div>
 
 
-          <div class="skill">
+      <div class="skill">
 
-            <span class="skill-nombre" data-i18n="skill.teamwork">
-              Lógica de programación
-            </span>
+        <span class="skill-nombre">
+          Aprendizaje
+        </span>
 
-            <div class="barra-skill">
-              <div class="progreso" data-percent="80">
-                <span>80%</span>
-              </div>
-            </div>
-
+        <div class="barra-skill">
+          <div class="progreso" data-percent="90">
+            <span>90%</span>
           </div>
+        </div>
+
+      </div>
 
 
-          <div class="skill">
+      <div class="skill">
 
-            <span class="skill-nombre" data-i18n="skill.problem">
-              Resolución de problemas
-            </span>
+        <span class="skill-nombre">
+          Resolución de problemas
+        </span>
 
-            <div class="barra-skill">
-              <div class="progreso" data-percent="80">
-                <span>80%</span>
-              </div>
-            </div>
-
+        <div class="barra-skill">
+          <div class="progreso" data-percent="80">
+            <span>80%</span>
           </div>
-
-
-          <div class="skill">
-
-            <span class="skill-nombre" data-i18n="skill.english">
-              Trabajo en equipo
-            </span>
-
-            <div class="barra-skill">
-              <div class="progreso" data-percent="85">
-                <span>85%</span>
-              </div>
-            </div>
-
-          </div>
-
         </div>
 
       </div>
 
     </div>
 
+  </div>
+
+</div>
+```
+
   </section>
 
+  <!-- FORMACIÓN -->
 
   <section id="curriculum" class="curriculum">
 
-    <div class="contenido-seccion">
+```
+<div class="contenido-seccion">
 
-      <h2 data-i18n="resume.title">
-        Formación y proyectos
-      </h2>
+  <h2>Formación y proyectos</h2>
 
-      <div class="fila">
+  <div class="fila">
 
+    <div class="col izquierda">
 
-        <div class="col izquierda">
+      <h3>Formación</h3>
 
-          <h3 data-i18n="resume.education">
-            Formación
-          </h3>
+      <div class="item izq">
 
-          <div class="item izq">
+        <h4>Ingeniería de Sistemas</h4>
 
-            <h4 data-i18n="edu.1.title">
-              Técnico Profesional en Programación Web
-            </h4>
+        <span class="casa">
+          ITFIP
+        </span>
 
-            <span class="casa">
-              UniEspinal
-            </span>
+        <span class="fecha">
+          Actualmente
+        </span>
 
-            <span class="fecha">
-              2025 - 2027
-            </span>
+        <p>
+          Formación orientada al desarrollo de conocimientos en
+          programación, bases de datos, desarrollo web, lógica y
+          creación de soluciones tecnológicas.
+        </p>
 
-            <p data-i18n="edu.1.text">
-              Formación enfocada en programación, desarrollo web, bases de datos, redes y creación de soluciones tecnológicas mediante proyectos prácticos.
-            </p>
-
-            <div class="conectori">
-              <div class="circuloi"></div>
-            </div>
-
-          </div>
-
-
-          <div class="item izq">
-
-            <h4 data-i18n="edu.2.title">
-              Desarrollo de proyectos web
-            </h4>
-
-            <span class="casa">
-              Proyectos académicos
-            </span>
-
-            <span class="fecha">
-              2026
-            </span>
-
-            <p data-i18n="edu.2.text">
-              Desarrollo de aplicaciones web utilizando HTML, CSS y JavaScript, aplicando formularios, eventos, validaciones, navegación entre páginas y lógica de programación.
-            </p>
-
-            <div class="conectori">
-              <div class="circuloi"></div>
-            </div>
-
-          </div>
-
+        <div class="conectori">
+          <div class="circuloi"></div>
         </div>
 
-
-        <div class="col derecha">
-
-          <h3 data-i18n="resume.experience">
-            Proyectos destacados
-          </h3>
+      </div>
 
 
-          <div class="item der">
+      <div class="item izq">
 
-            <h4 data-i18n="exp.1.title">
-              Sistema web para restaurante
-            </h4>
+        <h4>Programación y desarrollo web</h4>
 
-            <span class="casa">
-              HTML · CSS · JavaScript
-            </span>
+        <span class="casa">
+          Proyectos académicos
+        </span>
 
-            <span class="fecha">
-              2026
-            </span>
+        <span class="fecha">
+          2026
+        </span>
 
-            <p data-i18n="exp.1.text">
-              Sistema web desarrollado para representar el funcionamiento de un restaurante. Permite al usuario interactuar con diferentes opciones del establecimiento, seleccionar el tipo de servicio y elegir productos del menú.
-            </p>
+        <p>
+          Durante mi formación he trabajado en diferentes proyectos
+          utilizando HTML, CSS, JavaScript, Java y bases de datos,
+          fortaleciendo mis conocimientos mediante la práctica.
+        </p>
 
-            <div class="conectord">
-              <div class="circulod"></div>
-            </div>
-
-          </div>
-
-
-          <div class="item der">
-
-            <h4 data-i18n="exp.2.title">
-              Tienda virtual
-            </h4>
-
-            <span class="casa">
-              HTML · CSS · JavaScript
-            </span>
-
-            <span class="fecha">
-              2026
-            </span>
-
-            <p data-i18n="exp.2.text">
-              Tienda virtual creada para presentar productos mediante una interfaz web. El proyecto trabaja la organización de productos, navegación, diseño visual y diferentes interacciones para simular una experiencia de compra.
-            </p>
-
-            <div class="conectord">
-              <div class="circulod"></div>
-            </div>
-
-          </div>
-
-
+        <div class="conectori">
+          <div class="circuloi"></div>
         </div>
 
       </div>
 
     </div>
 
+
+    <div class="col derecha">
+
+      <h3>Mis proyectos</h3>
+
+
+      <div class="item der">
+
+        <h4>Sistema para restaurante</h4>
+
+        <span class="casa">
+          HTML · CSS · JavaScript
+        </span>
+
+        <span class="fecha">
+          2026
+        </span>
+
+        <p>
+          Proyecto web para representar el funcionamiento de un
+          restaurante. Permite visualizar diferentes opciones,
+          seleccionar productos y simular un proceso de pedido.
+        </p>
+
+        <div class="conectord">
+          <div class="circulod"></div>
+        </div>
+
+      </div>
+
+
+      <div class="item der">
+
+        <h4>Tienda virtual</h4>
+
+        <span class="casa">
+          HTML · CSS · JavaScript
+        </span>
+
+        <span class="fecha">
+          2026
+        </span>
+
+        <p>
+          Proyecto enfocado en la creación de una tienda virtual,
+          mostrando productos mediante una interfaz organizada y
+          atractiva, con diferentes elementos de interacción.
+        </p>
+
+        <div class="conectord">
+          <div class="circulod"></div>
+        </div>
+
+      </div>
+
+
+      <div class="item der">
+
+        <h4>QuizMaster</h4>
+
+        <span class="casa">
+          Aplicación educativa
+        </span>
+
+        <span class="fecha">
+          2026
+        </span>
+
+        <p>
+          Juego de preguntas creado como proyecto educativo. Busca
+          combinar aprendizaje y entretenimiento mediante preguntas,
+          niveles y diferentes categorías.
+        </p>
+
+        <div class="conectord">
+          <div class="circulod"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
   </section>
 
+  <!-- PROYECTOS -->
 
   <section id="portfolio" class="portfolio">
 
-    <div class="contenido-seccion">
+```
+<div class="contenido-seccion">
 
-      <h2 data-i18n="portfolio.title">
-        Mis Proyectos
-      </h2>
+  <h2>Mis Proyectos</h2>
 
-      <div class="galeria">
-
-
-        <a class="proyecto" href="./proyecto-restaurante/index.html">
-
-          <img src="./images/project-1.png" alt="Sistema web para restaurante">
-
-          <div class="overlay">
-
-            <h3 data-i18n="project.1.title">
-              Sistema de Restaurante
-            </h3>
-
-            <p data-i18n="project.1.text">
-              Sistema web para gestión de pedidos
-            </p>
-
-          </div>
-
-        </a>
+  <div class="galeria">
 
 
-        <a class="proyecto" href="./FairyGlow_GitHub/index.html">
+    <!-- RESTAURANTE -->
+    <a class="proyecto"
+      href="./proyecto-restaurante/index.html">
 
-          <img src="./images/project-2.png" alt="Tienda virtual">
+      <img src="./images/project-1.png"
+        alt="Sistema web para restaurante">
 
-          <div class="overlay">
+      <div class="overlay">
 
-            <h3 data-i18n="project.2.title">
-              Tienda Virtual
-            </h3>
+        <h3>Sistema para Restaurante</h3>
 
-            <p data-i18n="project.2.text">
-              Catálogo y experiencia de compra
-            </p>
-
-          </div>
-
-        </a>
-
-
-        <a class="proyecto" href="./QuizMaster/index.html">
-
-          <img src="./images/project-3.png" alt="Juego educativo QuizMaster">
-
-          <div class="overlay">
-
-            <h3 data-i18n="project.3.title">
-              QuizMaster
-            </h3>
-
-            <p data-i18n="project.3.text">
-              Juego educativo de preguntas
-            </p>
-
-          </div>
-
-        </a>
+        <p>
+          Sistema web para pedidos y opciones del restaurante
+        </p>
 
       </div>
 
-    </div>
+    </a>
+
+
+    <!-- TIENDA -->
+    <a class="proyecto"
+      href="./FairyGlow_GitHub/index.html">
+
+      <img src="./images/project-2.png"
+        alt="Tienda virtual">
+
+      <div class="overlay">
+
+        <h3>Tienda Virtual</h3>
+
+        <p>
+          Catálogo de productos y experiencia de compra
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- JUEGO -->
+    <a class="proyecto"
+      href="./QuizMaster/index.html">
+
+      <img src="./images/project-3.png"
+        alt="Juego de preguntas QuizMaster">
+
+      <div class="overlay">
+
+        <h3>QuizMaster</h3>
+
+        <p>
+          Juego educativo de preguntas y respuestas
+        </p>
+
+      </div>
+
+    </a>
+
+  </div>
+
+</div>
+```
 
   </section>
 
+  <!-- CONTACTO -->
 
   <section id="contacto" class="contacto">
 
-    <div class="contenido-seccion">
+```
+<div class="contenido-seccion">
 
-      <h2 data-i18n="contact.title">
-        Contacto
-      </h2>
+  <h2>Contacto</h2>
 
-      <p class="contacto-intro" data-i18n="contact.intro">
-        ¿Tienes un proyecto, una oportunidad académica o quieres conocer mi trabajo? Puedes comunicarte conmigo a través de mi correo profesional.
-      </p>
-
-      <div class="tarjetas-contacto">
+  <p class="contacto-intro">
+    Si quieres conocer más sobre mis proyectos o comunicarte conmigo,
+    puedes hacerlo directamente a través de cualquiera de estos medios.
+  </p>
 
 
-        <a class="tarjeta" href="mailto:kramirez23@itfip.edu.co">
-
-          <i class="fa-solid fa-envelope"></i>
-
-          <strong data-i18n="contact.emailLabel">
-            Correo
-          </strong>
-
-          <span>
-            kramirez23@itfip.edu.co
-          </span>
-
-        </a>
+  <div class="tarjetas-contacto">
 
 
-        <a class="tarjeta" href="#" target="_blank" rel="noopener">
+    <!-- CORREO -->
+    <a class="tarjeta"
+      href="mailto:kramirez23@itfip.edu.co">
 
-          <i class="fa-brands fa-github"></i>
+      <i class="fa-solid fa-envelope"></i>
 
-          <strong>
-            GitHub
-          </strong>
+      <strong>
+        Correo
+      </strong>
 
-          <span>
-            JulIethRamirez1010
-          </span>
+      <span>
+        kramirez23@itfip.edu.co
+      </span>
 
-        </a>
+    </a>
 
 
-        <a class="tarjeta" href="#" target="_blank" rel="noopener">
+    <!-- GITHUB -->
+    <a class="tarjeta"
+      href="https://github.com/JulIethRamirez1010"
+      target="_blank"
+      rel="noopener">
 
-          <i class="fa-brands fa-linkedin-in"></i>
+      <i class="fa-brands fa-github"></i>
 
-          <strong>
-            LinkedIn
-          </strong>
+      <strong>
+        GitHub
+      </strong>
 
-          <span data-i18n="contact.linkedinValue">
-            Perfil profesional
-          </span>
+      <span>
+        JulIethRamirez1010
+      </span>
 
-        </a>
+    </a>
 
-      </div>
 
-    </div>
+    <!-- LINKEDIN -->
+    <a class="tarjeta"
+      href="https://www.linkedin.com/"
+      target="_blank"
+      rel="noopener">
+
+      <i class="fa-brands fa-linkedin-in"></i>
+
+      <strong>
+        LinkedIn
+      </strong>
+
+      <span>
+        Perfil profesional
+      </span>
+
+    </a>
+
+  </div>
+
+</div>
+```
 
   </section>
 
+  <!-- FOOTER -->
 
   <footer>
 
-    <a href="#inicio" class="arriba" aria-label="Volver al inicio">
-      <i class="fa-solid fa-angles-up"></i>
-    </a>
+```
+<a href="#inicio"
+  class="arriba"
+  aria-label="Volver al inicio">
 
-    <p class="footer-nota" data-i18n="footer.note">
-      Karen Julieth Ramírez Ospina · Técnico Profesional en Programación Web · UniEspinal
-    </p>
+  <i class="fa-solid fa-angles-up"></i>
+
+</a>
+
+<p class="footer-nota">
+  Karen Julieth Ramírez Ospina · Ingeniería de Sistemas · ITFIP
+</p>
+```
 
   </footer>
-
 
   <script src="./script.js"></script>
 
