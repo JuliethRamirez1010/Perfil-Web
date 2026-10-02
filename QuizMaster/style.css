@@ -1,1 +1,347 @@
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #16002b, #4b0082, #8a2be2);
+    color: white;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 25px;
+}
+
+.tarjeta {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.login {
+    max-width: 450px;
+    margin: 70px auto;
+    text-align: center;
+}
+
+.login h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    margin-bottom: 30px;
+    opacity: .8;
+}
+
+.login h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 13px 20px;
+    background: #ffcc00;
+    color: #222;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+.login > div > button {
+    width: 100%;
+}
+
+.cambio {
+    margin-top: 20px;
+}
+
+.link {
+    background: none;
+    color: #ffcc00;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.link:hover {
+    transform: none;
+    text-decoration: underline;
+}
+
+#mensajeLogin,
+#mensajeRegistro {
+    margin-top: 15px;
+    min-height: 20px;
+    font-weight: bold;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.encabezado h1 {
+    font-size: 35px;
+}
+
+.salir {
+    background: #ff4d6d;
+    color: white;
+}
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.estadisticas div {
+    background: rgba(255,255,255,.12);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+.estadisticas span {
+    font-size: 25px;
+    display: block;
+}
+
+.estadisticas strong {
+    display: block;
+    font-size: 25px;
+    margin: 5px;
+}
+
+.estadisticas small {
+    opacity: .8;
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+}
+
+.categorias {
+    background: rgba(0,0,0,.18);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.categorias h3 {
+    margin-bottom: 15px;
+}
+
+.categoria {
+    width: 100%;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,.12);
+    color: white;
+    text-align: left;
+}
+
+.categoria:hover,
+.categoria.activa {
+    background: #ffcc00;
+    color: #222;
+}
+
+.quiz-card {
+    min-height: 500px;
+}
+
+#tituloCategoria {
+    margin-bottom: 20px;
+}
+
+.niveles {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.niveles span {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background: rgba(255,255,255,.1);
+    border-radius: 8px;
+}
+
+.niveles .activo {
+    background: #ffcc00;
+    color: #222;
+}
+
+.progreso {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,.15);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#barraProgreso {
+    width: 0%;
+    height: 100%;
+    background: #ffcc00;
+    transition: .3s;
+}
+
+#numeroPregunta {
+    opacity: .7;
+    margin-bottom: 10px;
+}
+
+#pregunta {
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+#respuestas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.respuesta {
+    width: 100%;
+    background: rgba(255,255,255,.12);
+    color: white;
+    text-align: left;
+    min-height: 55px;
+}
+
+.respuesta:hover {
+    background: rgba(255,255,255,.25);
+}
+
+.respuesta.correcta {
+    background: #20c997;
+    color: white;
+}
+
+.respuesta.incorrecta {
+    background: #ff4d6d;
+    color: white;
+}
+
+#mensaje {
+    min-height: 25px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.siguiente {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.resultado {
+    margin-top: 25px;
+    padding: 25px;
+    background: rgba(255,255,255,.12);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.resultado h2 {
+    margin-bottom: 15px;
+}
+
+.resultado button {
+    margin-top: 15px;
+}
+
+.oculto {
+    display: none !important;
+}
+
+@media (max-width: 750px) {
+
+    .contenedor {
+        padding: 15px;
+    }
+
+    .contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .estadisticas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categorias {
+        order: 2;
+    }
+
+    .quiz {
+        order: 1;
+    }
+
+    .encabezado {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .salir {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .login {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .login h1 {
+        font-size: 32px;
+    }
+
+    #respuestas {
+        grid-template-columns: 1fr;
+    }
+
+    .niveles {
+        flex-direction: column;
+    }
+
+    .estadisticas strong {
+        font-size: 20px;
+    }
+}
+```
 
