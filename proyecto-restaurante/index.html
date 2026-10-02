@@ -1,5 +1,298 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sabores Restaurant</title><link rel="stylesheet" href="style.css"></head>
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabores Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-<section id="login" class="login"><div class="box"><div class="logo">🍽️</div><h1>Sabores</h1><p>Restaurant ordering system</p><input id="user" placeholder="Username"><input id="pass" type="password" placeholder="Password"><button id="loginBtn">Sign in</button><small>Demo: karen / 1234</small><b id="loginMsg"></b></div></section>
-<div id="app" class="hide"><header><b>🍽️ SABORES</b><button id="logout">Log out</button></header><main><section class="hero"><h2>Welcome, Karen!</h2><p>Choose your food and build your order.</p></section><div class="layout"><section><nav><button data-cat="all" class="active">All</button><button data-cat="main">Main</button><button data-cat="drink">Drinks</button><button data-cat="dessert">Desserts</button></nav><div id="menu" class="menu"></div></section><aside><h2>Your order</h2><div id="cart"></div><hr><p>Subtotal <b id="sub">$0</b></p><p>Service 5% <b id="service">$0</b></p><h2>Total <span id="total">$0</span></h2><button id="confirm">Confirm order</button><button id="clear">Clear</button><b id="msg"></b></aside></div></main></div>
-<script src="script.js"></script></body></html>
+
+    <section id="auth">
+
+        <div class="auth-box">
+
+            <div class="logo">🍽️</div>
+
+            <h1>Sabores</h1>
+            <p class="subtitle">Restaurant & Food</p>
+
+            <div class="tabs">
+                <button id="loginTab" class="tab active">Iniciar sesión</button>
+                <button id="registerTab" class="tab">Registrarse</button>
+            </div>
+
+            <div id="loginForm">
+
+                <h2>Bienvenido</h2>
+
+                <input type="text" id="loginUser" placeholder="Usuario">
+                <input type="password" id="loginPass" placeholder="Contraseña">
+
+                <button id="loginBtn" class="main-btn">
+                    Iniciar sesión
+                </button>
+
+                <p id="loginMsg" class="message"></p>
+
+            </div>
+
+            <div id="registerForm" class="hide">
+
+                <h2>Crear cuenta</h2>
+
+                <input type="text" id="regName" placeholder="Nombre completo">
+                <input type="text" id="regUser" placeholder="Nombre de usuario">
+                <input type="email" id="regEmail" placeholder="Correo electrónico">
+                <input type="password" id="regPass" placeholder="Contraseña">
+                <input type="password" id="regPass2" placeholder="Confirmar contraseña">
+
+                <button id="registerBtn" class="main-btn">
+                    Crear cuenta
+                </button>
+
+                <p id="registerMsg" class="message"></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div id="app" class="hide">
+
+        <header>
+
+            <div class="brand">
+                🍽️ <b>SABORES</b>
+            </div>
+
+            <div class="user-area">
+                <span id="welcomeUser"></span>
+                <button id="logout">Cerrar sesión</button>
+            </div>
+
+        </header>
+
+
+        <main>
+
+            <section class="hero">
+
+                <div>
+                    <h1>¡Bienvenido a Sabores!</h1>
+                    <p>
+                        Disfruta nuestros platos y crea tu pedido.
+                    </p>
+                </div>
+
+                <div class="hero-icon">
+                    🍔
+                </div>
+
+            </section>
+
+
+            <section class="customer">
+
+                <h2>📋 Datos del pedido</h2>
+
+                <div class="customer-grid">
+
+                    <input type="text" id="customerName"
+                           placeholder="Nombre del cliente">
+
+                    <input type="text" id="customerPhone"
+                           placeholder="Teléfono">
+
+                    <input type="text" id="customerAddress"
+                           placeholder="Dirección">
+
+                </div>
+
+            </section>
+
+
+            <div class="layout">
+
+                <section class="products">
+
+                    <div class="menu-top">
+
+                        <h2>Nuestro menú</h2>
+
+                        <input
+                            type="text"
+                            id="search"
+                            placeholder="🔎 Buscar producto..."
+                        >
+
+                    </div>
+
+
+                    <nav>
+
+                        <button class="category active" data-cat="all">
+                            Todos
+                        </button>
+
+                        <button class="category" data-cat="main">
+                            Platos
+                        </button>
+
+                        <button class="category" data-cat="drink">
+                            Bebidas
+                        </button>
+
+                        <button class="category" data-cat="dessert">
+                            Postres
+                        </button>
+
+                    </nav>
+
+
+                    <div id="menu" class="menu"></div>
+
+                </section>
+
+
+                <aside class="cart">
+
+                    <h2>🛒 Mi pedido</h2>
+
+                    <div id="cartItems">
+
+                        <p class="empty">
+                            Tu carrito está vacío.
+                        </p>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="price">
+                        <span>Subtotal</span>
+                        <b id="subtotal">$0</b>
+                    </div>
+
+                    <div class="price">
+                        <span>Servicio 5%</span>
+                        <b id="service">$0</b>
+                    </div>
+
+                    <div class="total">
+                        <span>Total</span>
+                        <b id="total">$0</b>
+                    </div>
+
+
+                    <h3>Método de pago</h3>
+
+                    <select id="payment">
+
+                        <option value="">
+                            Selecciona un método
+                        </option>
+
+                        <option value="Efectivo">
+                            💵 Efectivo
+                        </option>
+
+                        <option value="Tarjeta">
+                            💳 Tarjeta
+                        </option>
+
+                        <option value="Nequi">
+                            📱 Nequi
+                        </option>
+
+                        <option value="Daviplata">
+                            📱 Daviplata
+                        </option>
+
+                    </select>
+
+
+                    <button id="confirm" class="confirm-btn">
+                        Confirmar pedido
+                    </button>
+
+                    <button id="clear" class="clear-btn">
+                        Vaciar carrito
+                    </button>
+
+                    <p id="orderMsg" class="order-msg"></p>
+
+                </aside>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <div id="receipt" class="modal hide">
+
+        <div class="receipt-box">
+
+            <button id="closeReceipt" class="close">
+                ×
+            </button>
+
+            <div class="receipt-logo">
+                🍽️
+            </div>
+
+            <h1>Sabores Restaurant</h1>
+
+            <p>Pedido confirmado</p>
+
+            <hr>
+
+            <p>
+                <b>Número de pedido:</b>
+                <span id="orderNumber"></span>
+            </p>
+
+            <p>
+                <b>Cliente:</b>
+                <span id="receiptName"></span>
+            </p>
+
+            <p>
+                <b>Dirección:</b>
+                <span id="receiptAddress"></span>
+            </p>
+
+            <p>
+                <b>Método de pago:</b>
+                <span id="receiptPayment"></span>
+            </p>
+
+            <div id="receiptItems"></div>
+
+            <hr>
+
+            <h2>
+                Total:
+                <span id="receiptTotal"></span>
+            </h2>
+
+            <p class="thanks">
+                ¡Gracias por comprar en Sabores! ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
