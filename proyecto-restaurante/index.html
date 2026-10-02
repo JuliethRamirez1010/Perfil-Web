@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +8,6 @@
 </head>
 <body>
 
-```
 <section id="authSection">
     <div class="auth-container">
 
@@ -30,7 +28,7 @@
 
             <p class="switch-text">
                 ¿No tienes una cuenta?
-                <button class="link-btn" id="showRegister">Registrarme</button>
+                <button type="button" class="link-btn" id="showRegister">Registrarme</button>
             </p>
         </div>
 
@@ -44,11 +42,11 @@
             <input type="password" id="regPass" placeholder="Contraseña">
             <input type="password" id="regPass2" placeholder="Confirmar contraseña">
 
-            <button class="main-btn" id="registerBtn">Crear cuenta</button>
+            <button type="button" class="main-btn" id="registerBtn">Crear cuenta</button>
 
             <p class="switch-text">
                 ¿Ya tienes una cuenta?
-                <button class="link-btn" id="showLogin">Iniciar sesión</button>
+                <button type="button" class="link-btn" id="showLogin">Iniciar sesión</button>
             </p>
         </div>
 
@@ -67,28 +65,26 @@
         </div>
 
         <nav>
-            <button class="nav-btn" data-page="homePage">Inicio</button>
-            <button class="nav-btn" data-page="menuPage">Menú</button>
-            <button class="nav-btn" data-page="ordersPage">Mis pedidos</button>
+            <button type="button" class="nav-btn" data-page="homePage">Inicio</button>
+            <button type="button" class="nav-btn" data-page="menuPage">Menú</button>
+            <button type="button" class="nav-btn" data-page="ordersPage">Mis pedidos</button>
         </nav>
 
         <div class="header-right">
-
-            <button class="cart-header" id="cartHeader">
+            <button type="button" class="cart-header" id="cartHeader">
                 🛒 <span id="cartCount">0</span>
             </button>
 
             <div class="user-menu">
-                <button id="userButton">
+                <button type="button" id="userButton">
                     👤 <span id="navUser">Usuario</span> ▾
                 </button>
 
                 <div class="user-dropdown hidden" id="userDropdown">
-                    <button id="profileButton">Mi perfil</button>
-                    <button id="logoutBtn">Cerrar sesión</button>
+                    <button type="button" id="profileButton">Mi perfil</button>
+                    <button type="button" id="logoutBtn">Cerrar sesión</button>
                 </div>
             </div>
-
         </div>
     </header>
 
@@ -97,9 +93,7 @@
         <section id="homePage" class="page">
 
             <div class="hero">
-
                 <div class="hero-content">
-
                     <span class="tag">SABOR QUE INSPIRA</span>
 
                     <h1>
@@ -112,14 +106,12 @@
                         pasión y mucho sabor.
                     </p>
 
-                    <button class="hero-btn" data-page="menuPage">
+                    <button type="button" class="hero-btn" data-page="menuPage">
                         Ver nuestro menú →
                     </button>
-
                 </div>
 
                 <div class="hero-food">🍔</div>
-
             </div>
 
             <div class="features">
@@ -151,16 +143,12 @@
             </div>
 
             <div class="section-title">
-
                 <div>
                     <span>RECOMENDADOS</span>
                     <h2>Los favoritos</h2>
                 </div>
 
-                <button data-page="menuPage">
-                    Ver todo →
-                </button>
-
+                <button type="button" data-page="menuPage">Ver todo →</button>
             </div>
 
             <div class="product-grid" id="popularProducts"></div>
@@ -170,46 +158,21 @@
         <section id="menuPage" class="page hidden">
 
             <div class="page-heading">
-
                 <div>
                     <span>DESCUBRE</span>
                     <h1>Nuestro menú</h1>
                 </div>
 
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="🔍 Buscar producto..."
-                >
-
+                <input type="text" id="searchInput" placeholder="🔍 Buscar producto...">
             </div>
 
             <div class="categories">
-
-                <button class="category active" data-category="all">
-                    Todos
-                </button>
-
-                <button class="category" data-category="burger">
-                    Hamburguesas
-                </button>
-
-                <button class="category" data-category="pizza">
-                    Pizzas
-                </button>
-
-                <button class="category" data-category="plato">
-                    Platos fuertes
-                </button>
-
-                <button class="category" data-category="bebida">
-                    Bebidas
-                </button>
-
-                <button class="category" data-category="postre">
-                    Postres
-                </button>
-
+                <button type="button" class="category active" data-category="all">Todos</button>
+                <button type="button" class="category" data-category="burger">Hamburguesas</button>
+                <button type="button" class="category" data-category="pizza">Pizzas</button>
+                <button type="button" class="category" data-category="plato">Platos fuertes</button>
+                <button type="button" class="category" data-category="bebida">Bebidas</button>
+                <button type="button" class="category" data-category="postre">Postres</button>
             </div>
 
             <div class="product-grid" id="menuProducts"></div>
@@ -219,12 +182,10 @@
         <section id="ordersPage" class="page hidden">
 
             <div class="page-heading">
-
                 <div>
                     <span>HISTORIAL</span>
                     <h1>Mis pedidos</h1>
                 </div>
-
             </div>
 
             <div id="ordersContainer"></div>
@@ -234,16 +195,13 @@
         <section id="profilePage" class="page hidden">
 
             <div class="page-heading">
-
                 <div>
                     <span>CUENTA</span>
                     <h1>Mi perfil</h1>
                 </div>
-
             </div>
 
             <div class="profile-card">
-
                 <div class="profile-avatar">👤</div>
 
                 <div>
@@ -251,7 +209,6 @@
                     <p id="profileUser"></p>
                     <p id="profileEmail"></p>
                 </div>
-
             </div>
 
         </section>
@@ -263,14 +220,12 @@
 <aside class="cart-panel" id="cartPanel">
 
     <div class="cart-header-title">
-
         <div>
             <span>MI PEDIDO</span>
             <h2>Carrito</h2>
         </div>
 
-        <button id="closeCart">✕</button>
-
+        <button type="button" id="closeCart">✕</button>
     </div>
 
     <div id="cartItems"></div>
@@ -278,7 +233,6 @@
     <div class="cart-bottom">
 
         <div class="summary">
-
             <div>
                 <span>Subtotal</span>
                 <strong id="cartSubtotal">$0</strong>
@@ -293,14 +247,13 @@
                 <span>Total</span>
                 <strong id="cartTotal">$0</strong>
             </div>
-
         </div>
 
-        <button class="main-btn" id="checkoutBtn">
+        <button type="button" class="main-btn" id="checkoutBtn">
             Realizar pedido
         </button>
 
-        <button class="clear-btn" id="clearCart">
+        <button type="button" class="clear-btn" id="clearCart">
             Vaciar carrito
         </button>
 
@@ -314,22 +267,13 @@
 
     <div class="modal-header">
         <h2>Finalizar pedido</h2>
-        <button id="closeCheckout">✕</button>
+        <button type="button" id="closeCheckout">✕</button>
     </div>
 
     <div class="form-grid">
 
-        <input
-            type="text"
-            id="customerName"
-            placeholder="Nombre completo"
-        >
-
-        <input
-            type="text"
-            id="customerPhone"
-            placeholder="Teléfono"
-        >
+        <input type="text" id="customerName" placeholder="Nombre completo">
+        <input type="text" id="customerPhone" placeholder="Teléfono">
 
         <select id="orderType">
             <option value="">Tipo de pedido</option>
@@ -338,11 +282,7 @@
             <option value="Comer aquí">Comer aquí</option>
         </select>
 
-        <input
-            type="text"
-            id="customerAddress"
-            placeholder="Dirección"
-        >
+        <input type="text" id="customerAddress" placeholder="Dirección">
 
         <select id="paymentMethod">
             <option value="">Método de pago</option>
@@ -354,7 +294,7 @@
 
     </div>
 
-    <button class="main-btn" id="confirmOrder">
+    <button type="button" class="main-btn" id="confirmOrder">
         Confirmar pedido
     </button>
 
@@ -368,9 +308,7 @@
 
         <h2>¡Pedido realizado!</h2>
 
-        <p>
-            Tu pedido ha sido recibido correctamente.
-        </p>
+        <p>Tu pedido ha sido recibido correctamente.</p>
 
         <div class="receipt-info">
 
@@ -401,7 +339,7 @@
 
         </div>
 
-        <button class="main-btn" id="closeReceipt">
+        <button type="button" class="main-btn" id="closeReceipt">
             Aceptar
         </button>
 
@@ -409,12 +347,11 @@
 
 </div>
 
-<button class="floating-cart" id="floatingCart">
+<button type="button" class="floating-cart" id="floatingCart">
     🛒 <span id="floatingCount">0</span>
 </button>
 
 <script src="./script.js"></script>
-```
 
 </body>
 </html>
