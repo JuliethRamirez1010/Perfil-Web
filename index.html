@@ -5,68 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Karen Julieth Ramírez Ospina | Portafolio</title>
+  <title>Karen Julieth Ramírez Ospina · Estudiante de Programación</title>
 
-  <meta name="description" content="Portafolio de Karen Julieth Ramírez Ospina, estudiante de Ingeniería de Sistemas y desarrolladora en formación.">
+  <meta name="description" content="Portafolio personal de Karen Julieth Ramírez Ospina, estudiante de Ingeniería de Sistemas y programación.">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-
   <div class="contenedor-header">
+    <header>
 
-```
-<header>
 
   <div class="logo">
     <a href="#inicio">Karen Ramírez</a>
   </div>
 
   <nav id="nav">
-
     <ul>
-
-      <li>
-        <a href="#inicio" onclick="cerrarMenu()">INICIO</a>
-      </li>
-
-      <li>
-        <a href="#sobremi" onclick="cerrarMenu()">SOBRE MÍ</a>
-      </li>
-
-      <li>
-        <a href="#skills" onclick="cerrarMenu()">HABILIDADES</a>
-      </li>
-
-      <li>
-        <a href="#curriculum" onclick="cerrarMenu()">FORMACIÓN</a>
-      </li>
-
-      <li>
-        <a href="#portfolio" onclick="cerrarMenu()">PROYECTOS</a>
-      </li>
-
-      <li>
-        <a href="#contacto" onclick="cerrarMenu()">CONTACTO</a>
-      </li>
-
+      <li><a href="#inicio" onclick="cerrarMenu()">INICIO</a></li>
+      <li><a href="#sobremi" onclick="cerrarMenu()">SOBRE MÍ</a></li>
+      <li><a href="#skills" onclick="cerrarMenu()">HABILIDADES</a></li>
+      <li><a href="#curriculum" onclick="cerrarMenu()">FORMACIÓN</a></li>
+      <li><a href="#portfolio" onclick="cerrarMenu()">PROYECTOS</a></li>
+      <li><a href="#contacto" onclick="cerrarMenu()">CONTACTO</a></li>
     </ul>
-
   </nav>
 
   <div class="acciones-header">
 
-    <button
-      id="btn-idioma"
-      class="btn-idioma"
-      type="button"
-      onclick="cambiarIdioma()"
-      aria-label="Cambiar idioma">
+    <button id="btn-idioma" class="btn-idioma" type="button"
+      onclick="cambiarIdioma()" aria-label="Cambiar idioma">
 
       <span class="idioma-activo">ES</span>
       <span class="idioma-sep">/</span>
@@ -74,11 +47,8 @@
 
     </button>
 
-    <button
-      class="nav-responsive"
-      type="button"
-      onclick="mostrarOcultarMenu()"
-      aria-label="Abrir menú">
+    <button class="nav-responsive" type="button"
+      onclick="mostrarOcultarMenu()" aria-label="Menú">
 
       <i class="fa-solid fa-bars"></i>
 
@@ -87,21 +57,18 @@
   </div>
 
 </header>
-```
+
 
   </div>
 
-  <!-- INICIO -->
-
   <section id="inicio" class="inicio">
 
-```
+
 <div class="contenido-banner">
 
   <div class="contenedor-img">
 
-    <img
-      src="./images/profile.jpeg"
+    <img src="./images/profile.jpeg"
       alt="Karen Julieth Ramírez Ospina">
 
   </div>
@@ -109,51 +76,31 @@
   <h1>KAREN JULIETH RAMÍREZ OSPINA</h1>
 
   <h2>
-    Estudiante de Ingeniería de Sistemas · Desarrollo Web
+    Estudiante de Ingeniería de Sistemas · Programación Web
   </h2>
-
-  <p class="descripcion-inicio">
-    Apasionada por la tecnología, la programación y la creación
-    de soluciones digitales.
-  </p>
-
-  <div class="botones-inicio">
-
-    <a href="#portfolio" class="btn-principal">
-      Ver mis proyectos
-    </a>
-
-    <a href="#contacto" class="btn-secundario">
-      Contactarme
-    </a>
-
-  </div>
 
   <div class="redes">
 
-    <a
-      href="https://github.com/JulIethRamirez1010"
+    <a href="https://github.com/JulIethRamirez1010"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
       aria-label="GitHub">
 
       <i class="fa-brands fa-github"></i>
 
     </a>
 
-    <a
-      href="https://www.linkedin.com/"
+    <a href="https://www.linkedin.com/"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
       aria-label="LinkedIn">
 
       <i class="fa-brands fa-linkedin-in"></i>
 
     </a>
 
-    <a
-      href="mailto:kramirez23@itfip.edu.co"
-      aria-label="Enviar correo">
+    <a href="mailto:kramirez23@itfip.edu.co"
+      aria-label="Correo electrónico">
 
       <i class="fa-solid fa-envelope"></i>
 
@@ -162,220 +109,191 @@
   </div>
 
 </div>
-```
+
 
   </section>
 
-  <!-- SOBRE MÍ -->
-
   <section id="sobremi" class="sobremi">
 
-```
+
 <div class="contenido-seccion">
 
   <h2>Sobre Mí</h2>
 
-  <div class="sobre-contenido">
+  <p>
+    Soy estudiante de Ingeniería de Sistemas y desde hace varios años
+    me ha llamado la atención todo lo relacionado con la tecnología,
+    la programación y los computadores. Me gusta aprender cosas nuevas
+    y, sobre todo, aprender haciendo, porque siento que es la mejor
+    manera de entender realmente cómo funcionan las cosas.
+  </p>
 
-    <div class="sobre-texto">
+  <p>
+    Durante mi formación académica he tenido la oportunidad de trabajar
+    en diferentes proyectos de programación, páginas web, bases de datos
+    y aplicaciones. Estos proyectos me han permitido aprender de mis
+    propios errores, mejorar mi lógica de programación y encontrar
+    diferentes formas de solucionar un mismo problema.
+  </p>
 
-      <p>
-        Soy <strong>Karen Julieth Ramírez Ospina</strong>, estudiante
-        de Ingeniería de Sistemas con especial interés en el
-        desarrollo web, la programación y la creación de aplicaciones.
-      </p>
-
-      <p>
-        Me considero una persona curiosa, responsable y comprometida
-        con mi aprendizaje. Disfruto aprender nuevas tecnologías,
-        experimentar con diferentes herramientas y convertir ideas
-        en proyectos funcionales.
-      </p>
-
-      <p>
-        Durante mi formación académica he desarrollado diferentes
-        proyectos relacionados con páginas web, interfaces gráficas,
-        bases de datos, aplicaciones y programación. Cada proyecto
-        me ha permitido fortalecer mi lógica de programación y
-        aprender a solucionar problemas de manera más estructurada.
-      </p>
-
-      <p>
-        Actualmente continúo ampliando mis conocimientos en
-        <strong>HTML, CSS, JavaScript, Java, MySQL y desarrollo de
-        interfaces</strong>, buscando mejorar constantemente mis
-        habilidades y prepararme para nuevos retos profesionales.
-      </p>
-
-    </div>
-
-    <div class="sobre-datos">
-
-      <h3>Información personal</h3>
-
-      <ul class="datos">
-
-        <li>
-          <i class="fa-solid fa-user"></i>
-          <div>
-            <strong>Nombre</strong>
-            <span>Karen Julieth Ramírez Ospina</span>
-          </div>
-        </li>
-
-        <li>
-          <i class="fa-solid fa-location-dot"></i>
-          <div>
-            <strong>Ubicación</strong>
-            <span>Espinal, Tolima, Colombia</span>
-          </div>
-        </li>
-
-        <li>
-          <i class="fa-solid fa-graduation-cap"></i>
-          <div>
-            <strong>Formación</strong>
-            <span>Ingeniería de Sistemas</span>
-          </div>
-        </li>
-
-        <li>
-          <i class="fa-solid fa-envelope"></i>
-          <div>
-            <strong>Correo</strong>
-            <a href="mailto:kramirez23@itfip.edu.co">
-              kramirez23@itfip.edu.co
-            </a>
-          </div>
-        </li>
-
-        <li>
-          <i class="fa-solid fa-code"></i>
-          <div>
-            <strong>Área</strong>
-            <span>Programación y desarrollo web</span>
-          </div>
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-  <h3 class="titulo-intereses">
-    Áreas de interés
-  </h3>
-
-  <div class="contenedor-intereses">
-
-    <div class="interes">
-      <i class="fa-solid fa-code"></i>
-      <span>PROGRAMACIÓN</span>
-    </div>
-
-    <div class="interes">
-      <i class="fa-solid fa-globe"></i>
-      <span>DESARROLLO WEB</span>
-    </div>
-
-    <div class="interes">
-      <i class="fa-solid fa-database"></i>
-      <span>BASES DE DATOS</span>
-    </div>
-
-    <div class="interes">
-      <i class="fa-solid fa-laptop-code"></i>
-      <span>APLICACIONES</span>
-    </div>
-
-    <div class="interes">
-      <i class="fa-solid fa-palette"></i>
-      <span>DISEÑO DIGITAL</span>
-    </div>
-
-    <div class="interes">
-      <i class="fa-solid fa-lightbulb"></i>
-      <span>INNOVACIÓN</span>
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </section>
-
-  <!-- HABILIDADES -->
-
-  <section id="skills" class="skills">
-
-```
-<div class="contenido-seccion">
-
-  <h2>Mis Habilidades</h2>
-
-  <p class="subtitulo-seccion">
-    Tecnologías y habilidades que he desarrollado durante mi formación.
+  <p>
+    Actualmente continúo fortaleciendo mis conocimientos en desarrollo
+    web, Java, JavaScript, HTML, CSS y bases de datos. Mi objetivo es
+    seguir aprendiendo, adquirir experiencia y desarrollar proyectos
+    cada vez más completos que me permitan crecer tanto personal como
+    profesionalmente.
   </p>
 
   <div class="fila">
 
     <div class="col">
 
-      <h3>
-        <i class="fa-solid fa-laptop-code"></i>
-        Habilidades técnicas
-      </h3>
+      <h3>Información</h3>
 
-      <div class="skill">
+      <ul class="datos">
 
-        <div class="skill-cabecera">
-          <span>HTML & CSS</span>
-          <span>80%</span>
+        <li>
+          <strong>Ubicación</strong>
+          <span>Espinal, Tolima, Colombia</span>
+        </li>
+
+        <li>
+          <strong>Correo</strong>
+          <span>
+            <a href="mailto:kramirez23@itfip.edu.co">
+              kramirez23@itfip.edu.co
+            </a>
+          </span>
+        </li>
+
+        <li>
+          <strong>Formación</strong>
+          <span>Ingeniería de Sistemas</span>
+        </li>
+
+        <li>
+          <strong>Estado</strong>
+          <span class="destacado">Estudiante</span>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <div class="col">
+
+      <h3>Áreas que me interesan</h3>
+
+      <div class="contenedor-intereses">
+
+        <div class="interes">
+          <i class="fa-solid fa-code"></i>
+          <span>PROGRAMACIÓN</span>
         </div>
 
-        <div class="barra-skill">
-          <div class="progreso" data-percent="80"></div>
+        <div class="interes">
+          <i class="fa-solid fa-globe"></i>
+          <span>DESARROLLO WEB</span>
+        </div>
+
+        <div class="interes">
+          <i class="fa-solid fa-database"></i>
+          <span>BASES DE DATOS</span>
+        </div>
+
+        <div class="interes">
+          <i class="fa-solid fa-palette"></i>
+          <span>DISEÑO DIGITAL</span>
         </div>
 
       </div>
 
+    </div>
+
+  </div>
+
+</div>
+
+
+  </section>
+
+  <section id="skills" class="skills">
+
+
+<div class="contenido-seccion">
+
+  <h2>Habilidades</h2>
+
+  <div class="fila">
+
+    <div class="col">
+
+      <h3>Habilidades técnicas</h3>
+
       <div class="skill">
 
-        <div class="skill-cabecera">
-          <span>JavaScript</span>
-          <span>70%</span>
-        </div>
+        <span class="skill-nombre">
+          HTML & CSS
+        </span>
 
         <div class="barra-skill">
-          <div class="progreso" data-percent="70"></div>
+
+          <div class="progreso" data-percent="80">
+            <span>80%</span>
+          </div>
+
         </div>
 
       </div>
 
+
       <div class="skill">
 
-        <div class="skill-cabecera">
-          <span>Java</span>
-          <span>60%</span>
-        </div>
+        <span class="skill-nombre">
+          JavaScript
+        </span>
 
         <div class="barra-skill">
-          <div class="progreso" data-percent="60"></div>
+
+          <div class="progreso" data-percent="70">
+            <span>70%</span>
+          </div>
+
         </div>
 
       </div>
 
+
       <div class="skill">
 
-        <div class="skill-cabecera">
-          <span>MySQL</span>
-          <span>55%</span>
-        </div>
+        <span class="skill-nombre">
+          MySQL
+        </span>
 
         <div class="barra-skill">
-          <div class="progreso" data-percent="55"></div>
+
+          <div class="progreso" data-percent="55">
+            <span>55%</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill">
+
+        <span class="skill-nombre">
+          Java
+        </span>
+
+        <div class="barra-skill">
+
+          <div class="progreso" data-percent="60">
+            <span>60%</span>
+          </div>
+
         </div>
 
       </div>
@@ -385,59 +303,71 @@
 
     <div class="col">
 
-      <h3>
-        <i class="fa-solid fa-user-check"></i>
-        Habilidades personales
-      </h3>
+      <h3>Habilidades personales</h3>
 
       <div class="skill">
 
-        <div class="skill-cabecera">
-          <span>Responsabilidad</span>
-          <span>90%</span>
-        </div>
+        <span class="skill-nombre">
+          Responsabilidad
+        </span>
 
         <div class="barra-skill">
-          <div class="progreso" data-percent="90"></div>
+
+          <div class="progreso" data-percent="90">
+            <span>90%</span>
+          </div>
+
         </div>
 
       </div>
 
+
       <div class="skill">
 
-        <div class="skill-cabecera">
-          <span>Trabajo en equipo</span>
-          <span>85%</span>
-        </div>
+        <span class="skill-nombre">
+          Trabajo en equipo
+        </span>
 
         <div class="barra-skill">
-          <div class="progreso" data-percent="85"></div>
+
+          <div class="progreso" data-percent="85">
+            <span>85%</span>
+          </div>
+
         </div>
 
       </div>
 
+
       <div class="skill">
 
-        <div class="skill-cabecera">
-          <span>Aprendizaje</span>
-          <span>90%</span>
-        </div>
+        <span class="skill-nombre">
+          Aprendizaje
+        </span>
 
         <div class="barra-skill">
-          <div class="progreso" data-percent="90"></div>
+
+          <div class="progreso" data-percent="90">
+            <span>90%</span>
+          </div>
+
         </div>
 
       </div>
 
+
       <div class="skill">
 
-        <div class="skill-cabecera">
-          <span>Resolución de problemas</span>
-          <span>80%</span>
-        </div>
+        <span class="skill-nombre">
+          Resolución de problemas
+        </span>
 
         <div class="barra-skill">
-          <div class="progreso" data-percent="80"></div>
+
+          <div class="progreso" data-percent="80">
+            <span>80%</span>
+          </div>
+
         </div>
 
       </div>
@@ -451,20 +381,19 @@
 
   </section>
 
-  <!-- FORMACIÓN -->
-
   <section id="curriculum" class="curriculum">
 
 ```
 <div class="contenido-seccion">
 
-  <h2>Formación y Experiencia Académica</h2>
+  <h2>Formación y proyectos</h2>
 
   <div class="fila">
 
     <div class="col izquierda">
 
-      <h3>Mi formación</h3>
+      <h3>Formación académica</h3>
+
 
       <div class="item izq">
 
@@ -479,9 +408,10 @@
         </span>
 
         <p>
-          Formación enfocada en programación, bases de datos,
-          desarrollo de software, desarrollo web, lógica de
-          programación, redes y creación de soluciones tecnológicas.
+          Actualmente me encuentro estudiando Ingeniería de Sistemas,
+          fortaleciendo mis conocimientos en programación, desarrollo
+          web, bases de datos, lógica, redes y diferentes áreas
+          relacionadas con la tecnología.
         </p>
 
         <div class="conectori">
@@ -490,9 +420,61 @@
 
       </div>
 
+
       <div class="item izq">
 
-        <h4>Programación y Desarrollo Web</h4>
+        <h4>Técnico en Sistemas</h4>
+
+        <span class="casa">
+          Servicio Nacional de Aprendizaje · SENA
+        </span>
+
+        <span class="fecha">
+          Formación técnica
+        </span>
+
+        <p>
+          Formación técnica en sistemas, donde adquirí conocimientos
+          relacionados con computadores, software, mantenimiento,
+          herramientas tecnológicas y fundamentos de programación.
+        </p>
+
+        <div class="conectori">
+          <div class="circuloi"></div>
+        </div>
+
+      </div>
+
+
+      <div class="item izq">
+
+        <h4>Bachiller Técnico en Sistemas</h4>
+
+        <span class="casa">
+          Institución Educativa Técnica Félix Tiberio Guzmán
+        </span>
+
+        <span class="fecha">
+          Bachillerato
+        </span>
+
+        <p>
+          Realicé mis estudios de bachillerato en la Institución
+          Educativa Técnica Félix Tiberio Guzmán, donde además de
+          mi formación académica obtuve una formación técnica
+          relacionada con sistemas.
+        </p>
+
+        <div class="conectori">
+          <div class="circuloi"></div>
+        </div>
+
+      </div>
+
+
+      <div class="item izq">
+
+        <h4>Programación y desarrollo web</h4>
 
         <span class="casa">
           Proyectos académicos
@@ -503,33 +485,9 @@
         </span>
 
         <p>
-          Desarrollo de diferentes proyectos utilizando HTML,
-          CSS, JavaScript, Java y bases de datos, aplicando
-          conceptos de diseño, programación y funcionalidad.
-        </p>
-
-        <div class="conectori">
-          <div class="circuloi"></div>
-        </div>
-
-      </div>
-
-      <div class="item izq">
-
-        <h4>Desarrollo de aplicaciones</h4>
-
-        <span class="casa">
-          Proyectos académicos
-        </span>
-
-        <span class="fecha">
-          2026
-        </span>
-
-        <p>
-          Creación de aplicaciones y proyectos educativos orientados
-          a resolver necesidades específicas mediante herramientas
-          de programación.
+          Durante mi formación he desarrollado diferentes proyectos
+          utilizando HTML, CSS, JavaScript, Java y bases de datos,
+          aprendiendo principalmente mediante la práctica.
         </p>
 
         <div class="conectori">
@@ -543,11 +501,12 @@
 
     <div class="col derecha">
 
-      <h3>Proyectos destacados</h3>
+      <h3>Mis proyectos</h3>
+
 
       <div class="item der">
 
-        <h4>Sistema para Restaurante</h4>
+        <h4>Sistema para restaurante</h4>
 
         <span class="casa">
           HTML · CSS · JavaScript
@@ -558,9 +517,9 @@
         </span>
 
         <p>
-          Sistema web diseñado para representar el funcionamiento
-          de un restaurante. Incluye diferentes opciones de
-          navegación, productos y simulación de pedidos.
+          Proyecto web realizado para representar el funcionamiento
+          de un restaurante. Permite navegar por diferentes opciones,
+          visualizar productos y simular un proceso de pedido.
         </p>
 
         <div class="conectord">
@@ -569,9 +528,10 @@
 
       </div>
 
+
       <div class="item der">
 
-        <h4>FairyGlow · Tienda Virtual</h4>
+        <h4>FairyGlow · Tienda virtual</h4>
 
         <span class="casa">
           HTML · CSS · JavaScript
@@ -582,9 +542,9 @@
         </span>
 
         <p>
-          Tienda virtual desarrollada para presentar productos
-          mediante una interfaz atractiva, organizada y orientada
-          a una experiencia de compra sencilla.
+          Proyecto enfocado en una tienda virtual, con una interfaz
+          diseñada para mostrar productos de manera organizada y
+          ofrecer una experiencia de navegación sencilla.
         </p>
 
         <div class="conectord">
@@ -592,6 +552,7 @@
         </div>
 
       </div>
+
 
       <div class="item der">
 
@@ -606,9 +567,9 @@
         </span>
 
         <p>
-          Juego educativo de preguntas y respuestas que combina
-          entretenimiento y aprendizaje mediante diferentes
-          categorías, preguntas, puntos y vidas.
+          Juego de preguntas creado como proyecto educativo, con
+          diferentes categorías y dinámicas para combinar el
+          aprendizaje con el entretenimiento.
         </p>
 
         <div class="conectord">
@@ -626,8 +587,6 @@
 
   </section>
 
-  <!-- PROYECTOS -->
-
   <section id="portfolio" class="portfolio">
 
 ```
@@ -635,14 +594,9 @@
 
   <h2>Mis Proyectos</h2>
 
-  <p class="subtitulo-seccion">
-    Algunos de los proyectos que he desarrollado durante mi formación.
-  </p>
-
   <div class="galeria">
 
-    <a
-      class="proyecto"
+    <a class="proyecto"
       href="./proyecto-restaurante/index.html">
 
       <img
@@ -656,21 +610,15 @@
         </h3>
 
         <p>
-          Sistema web para pedidos y gestión de productos.
+          Sistema web para pedidos y opciones del restaurante
         </p>
-
-        <span>
-          Ver proyecto
-          <i class="fa-solid fa-arrow-right"></i>
-        </span>
 
       </div>
 
     </a>
 
 
-    <a
-      class="proyecto"
+    <a class="proyecto"
       href="./FairyGlow_GitHub/index.html">
 
       <img
@@ -684,26 +632,20 @@
         </h3>
 
         <p>
-          Catálogo virtual con productos e interacción.
+          Catálogo de productos y experiencia de compra
         </p>
-
-        <span>
-          Ver proyecto
-          <i class="fa-solid fa-arrow-right"></i>
-        </span>
 
       </div>
 
     </a>
 
 
-    <a
-      class="proyecto"
+    <a class="proyecto"
       href="./QuizMaster/index.html">
 
       <img
         src="./images/project-3.png"
-        alt="Juego educativo QuizMaster">
+        alt="Juego de preguntas QuizMaster">
 
       <div class="overlay">
 
@@ -712,13 +654,8 @@
         </h3>
 
         <p>
-          Juego educativo de preguntas y respuestas.
+          Juego educativo de preguntas y respuestas
         </p>
-
-        <span>
-          Ver proyecto
-          <i class="fa-solid fa-arrow-right"></i>
-        </span>
 
       </div>
 
@@ -731,22 +668,22 @@
 
   </section>
 
-  <!-- CONTACTO -->
-
   <section id="contacto" class="contacto">
 
 ```
 <div class="contenido-seccion">
 
-  <h2>¿Hablamos?</h2>
+  <h2>Contacto</h2>
 
   <p class="contacto-intro">
-    Si deseas conocer más sobre mis proyectos, tienes alguna
-    propuesta o simplemente quieres ponerte en contacto conmigo,
-    puedes escribirme directamente.
+    Si quieres conocer más sobre mis proyectos, tienes alguna
+    pregunta o simplemente quieres comunicarte conmigo, puedes
+    hacerlo directamente a través de cualquiera de estos medios.
   </p>
 
+
   <div class="tarjetas-contacto">
+
 
     <a
       class="tarjeta"
@@ -755,7 +692,7 @@
       <i class="fa-solid fa-envelope"></i>
 
       <strong>
-        Correo electrónico
+        Correo
       </strong>
 
       <span>
@@ -769,7 +706,7 @@
       class="tarjeta"
       href="https://github.com/JulIethRamirez1010"
       target="_blank"
-      rel="noopener">
+      rel="noopener noreferrer">
 
       <i class="fa-brands fa-github"></i>
 
@@ -788,7 +725,7 @@
       class="tarjeta"
       href="https://www.linkedin.com/"
       target="_blank"
-      rel="noopener">
+      rel="noopener noreferrer">
 
       <i class="fa-brands fa-linkedin-in"></i>
 
@@ -804,27 +741,14 @@
 
   </div>
 
-  <div class="mensaje-contacto">
-
-    <i class="fa-solid fa-paper-plane"></i>
-
-    <p>
-      Gracias por visitar mi portafolio.
-      Espero que podamos crear algo interesante juntos.
-    </p>
-
-  </div>
-
 </div>
 ```
 
   </section>
 
-  <!-- FOOTER -->
-
   <footer>
 
-```
+
 <a
   href="#inicio"
   class="arriba"
@@ -838,28 +762,6 @@
   Karen Julieth Ramírez Ospina · Ingeniería de Sistemas · ITFIP
 </p>
 
-<div class="footer-redes">
-
-  <a
-    href="https://github.com/JulIethRamirez1010"
-    target="_blank"
-    rel="noopener"
-    aria-label="GitHub">
-
-    <i class="fa-brands fa-github"></i>
-
-  </a>
-
-  <a
-    href="mailto:kramirez23@itfip.edu.co"
-    aria-label="Correo electrónico">
-
-    <i class="fa-solid fa-envelope"></i>
-
-  </a>
-
-</div>
-```
 
   </footer>
 
