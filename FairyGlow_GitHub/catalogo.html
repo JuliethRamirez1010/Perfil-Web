@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,106 +21,68 @@ body {
 
 .navbar {
     width: 100%;
-    background: rgba(255,255,255,0.97);
-    border-bottom: 1px solid #f4dce7;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .navbar-contenido {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
-    padding: 18px 25px;
+    padding: 15px 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-    color: #c76d94 !important;
-    text-decoration: none !important;
+    color: #d889a9;
     font-size: 25px;
     font-weight: bold;
+    text-decoration: none;
     letter-spacing: 1px;
-}
-
-.logo span {
-    font-size: 18px;
-    margin-right: 4px;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 10px;
 }
 
-.nav-links a {
-    color: #555 !important;
-    text-decoration: none !important;
+.nav-links a,
+.btn-carrito-nav {
+    text-decoration: none;
+    color: #555;
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: none;
+    background: transparent;
     font-size: 15px;
-    position: relative;
-    transition: 0.3s;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: #d889a9;
-    left: 50%;
-    bottom: -6px;
-    transform: translateX(-50%);
+    cursor: pointer;
     transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: #c76d94 !important;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    background: #fce8f1;
+    color: #c76d94;
 }
 
 .btn-carrito-nav {
-    border: none !important;
-    background: #d889a9 !important;
-    color: white !important;
-    padding: 10px 17px !important;
-    border-radius: 25px !important;
-    cursor: pointer;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    transition: 0.3s;
+    background: #d889a9;
+    color: white;
 }
 
 .btn-carrito-nav:hover {
-    background: #c76d94 !important;
-    transform: translateY(-2px);
-}
-
-.btn-carrito-nav b {
-    background: white;
-    color: #c76d94;
-    min-width: 21px;
-    height: 21px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
+    background: #c76d94;
 }
 
 .logged-info {
     text-align: center;
-    padding: 9px;
-    background: #fff8fb;
+    padding: 12px;
     color: #777;
-    font-size: 14px;
+    background: #fff5f9;
 }
 
 .logged-info button {
@@ -132,30 +93,14 @@ body {
     font-weight: bold;
 }
 
-.catalogo-header {
+header {
     text-align: center;
-    padding: 60px 20px 35px;
+    padding: 35px 20px 20px;
 }
 
-.catalogo-header .subtitulo {
-    color: #d889a9;
-    font-size: 13px;
-    letter-spacing: 3px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-.catalogo-header h1 {
-    color: #555;
-    font-size: 38px;
-    margin: 0;
-    font-weight: 500;
-}
-
-.catalogo-header .descripcion {
-    color: #999;
-    font-size: 16px;
-    margin-top: 12px;
+header h1 {
+    color: #c76d94;
+    font-size: 32px;
 }
 
 .catalogo {
@@ -165,15 +110,13 @@ body {
 }
 
 .categoria {
-    margin-bottom: 60px;
+    margin-bottom: 45px;
 }
 
 .categoria h2 {
     text-align: center;
     color: #555;
-    margin-bottom: 28px;
-    font-size: 23px;
-    font-weight: 500;
+    margin-bottom: 25px;
 }
 
 .productos {
@@ -186,7 +129,7 @@ body {
     background: white;
     border-radius: 18px;
     padding: 15px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
     text-align: center;
     transition: 0.3s;
 }
@@ -205,8 +148,7 @@ body {
 
 .producto h3 {
     font-size: 17px;
-    margin: 15px 0 12px;
-    color: #555;
+    margin: 15px 0 10px;
 }
 
 .btn-precio {
@@ -223,7 +165,6 @@ body {
 
 .btn-precio:hover {
     background: #d889a9;
-    transform: translateY(-2px);
 }
 
 .carrito {
@@ -417,10 +358,6 @@ body {
     color: white;
 }
 
-.btn-confirmar:hover {
-    background: #c76d94;
-}
-
 .pedido-confirmado {
     text-align: center;
 }
@@ -441,37 +378,28 @@ body {
 
 footer {
     margin-top: 50px;
-    padding: 30px;
+    padding: 25px;
     text-align: center;
     background: #fff0f6;
     color: #777;
-}
-
-footer p {
-    margin: 6px;
 }
 
 @media (max-width: 900px) {
     .productos {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .nav-links {
-        gap: 15px;
-    }
 }
 
 @media (max-width: 600px) {
     .navbar-contenido {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
 
     .nav-links {
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 15px;
     }
 
     .productos {
@@ -485,14 +413,6 @@ footer p {
     .carrito {
         width: 100%;
     }
-
-    .catalogo-header h1 {
-        font-size: 29px;
-    }
-
-    .catalogo-header {
-        padding: 45px 20px 30px;
-    }
 }
 </style>
 </head>
@@ -501,229 +421,144 @@ footer p {
 
 <nav class="navbar">
     <div class="navbar-contenido">
-
-        <a href="index.html" class="logo">
-            <span>✦</span> Fairy Glow
-        </a>
+        <a href="index.html" class="logo">✨ Fairy Glow</a>
 
         <div class="nav-links">
-
             <a href="index.html">Inicio</a>
-
-            <a href="#catalogo">Vestidos</a>
-
-            <a href="#novedades">Novedades</a>
-
+            <a href="#catalogo">Catálogo</a>
             <button class="btn-carrito-nav" id="btnCarrito">
-                🛍 <span>Mi carrito</span>
-                <b id="cantidadCarrito">0</b>
+                🛒 Carrito (<span id="cantidadCarrito">0</span>)
             </button>
-
         </div>
-
     </div>
 </nav>
 
 <div class="logged-info" id="catalogUser"></div>
 
-<header id="catalogo" class="catalogo-header">
-
-    <p class="subtitulo">COLECCIÓN FAIRY GLOW</p>
-
-    <h1>Encuentra tu vestido perfecto</h1>
-
-    <p class="descripcion">
-        Diseños elegantes para cada ocasión
-    </p>
-
+<header id="catalogo">
+    <h1>Nuestro catálogo</h1>
 </header>
 
 <main class="catalogo">
 
 <section class="categoria">
-
     <h2>Modelos viejos: entre 1999 y 2005</h2>
 
     <div class="productos">
 
         <div class="producto">
-
             <img src="img/vn1.jpeg" alt="Vestido Dorado Elegante">
-
             <h3>Vestido Dorado Elegante</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Dorado Elegante', 200000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Dorado Elegante', 200000)">
                 $200.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vn2.jpeg" alt="Vestido Rojo Elegante">
-
             <h3>Vestido Rojo Elegante</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Rojo Elegante', 217000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Rojo Elegante', 217000)">
                 $217.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vn5.jpeg" alt="Vestido Verde Elegante">
-
             <h3>Vestido Verde Elegante</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Verde Elegante', 250000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Verde Elegante', 250000)">
                 $250.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vn6.jpeg" alt="Vestido Azul Cielo">
-
             <h3>Vestido Azul Cielo</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Azul Cielo', 220000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Azul Cielo', 220000)">
                 $220.000 COP · Agregar 🛒
             </button>
-
         </div>
 
     </div>
-
 </section>
 
 <section class="categoria">
-
     <h2>Modelos semi nuevos: entre 2006 y 2018</h2>
 
     <div class="productos">
 
         <div class="producto">
-
             <img src="img/vf1.jpeg" alt="Vestido Azul Claro Elegante">
-
             <h3>Vestido Azul Claro Elegante</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Azul Claro Elegante', 70000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Azul Claro Elegante', 70000)">
                 $70.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vf5.jpeg" alt="Vestido Beige Elegante">
-
             <h3>Vestido Beige Elegante</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Beige Elegante', 72000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Beige Elegante', 72000)">
                 $72.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vf2.jpeg" alt="Vestido Azul Elegante">
-
             <h3>Vestido Azul Elegante</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Azul Elegante', 100000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Azul Elegante', 100000)">
                 $100.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vf6.jpeg" alt="Vestido Blanco Elegante">
-
             <h3>Vestido Blanco Elegante</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Blanco Elegante', 120000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Blanco Elegante', 120000)">
                 $120.000 COP · Agregar 🛒
             </button>
-
         </div>
 
     </div>
-
 </section>
 
-<section class="categoria" id="novedades">
-
+<section class="categoria">
     <h2>Modelos nuevos: 2019 hasta la actualidad</h2>
 
     <div class="productos">
 
         <div class="producto">
-
             <img src="img/vc1.jpeg" alt="Vestido Blanco">
-
             <h3>Vestido Blanco</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Blanco', 70000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Blanco', 70000)">
                 $70.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vc2.jpeg" alt="Vestido Lila">
-
             <h3>Vestido Lila</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Lila', 72000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Lila', 72000)">
                 $72.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vc5.jpeg" alt="Vestido Azul Fluorescente">
-
             <h3>Vestido Azul Fluorescente</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Azul Fluorescente', 103000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Azul Fluorescente', 103000)">
                 $103.000 COP · Agregar 🛒
             </button>
-
         </div>
 
         <div class="producto">
-
             <img src="img/vc6.jpeg" alt="Vestido Café">
-
             <h3>Vestido Café</h3>
-
-            <button class="btn-precio"
-                onclick="agregarCarrito('Vestido Café', 100000)">
+            <button class="btn-precio" onclick="agregarCarrito('Vestido Café', 100000)">
                 $100.000 COP · Agregar 🛒
             </button>
-
         </div>
 
     </div>
-
 </section>
 
 </main>
@@ -731,13 +566,8 @@ footer p {
 <div id="carrito" class="carrito">
 
     <div class="carrito-header">
-
         <h2>🛒 Mi carrito</h2>
-
-        <button class="cerrar-carrito" id="cerrarCarrito">
-            ✕
-        </button>
-
+        <button class="cerrar-carrito" id="cerrarCarrito">✕</button>
     </div>
 
     <div id="listaCarrito">
@@ -766,85 +596,32 @@ footer p {
 
         <form id="formularioCompra" class="formulario-compra">
 
-            <label for="nombre">
-                Nombre completo
-            </label>
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" required>
 
-            <input
-                type="text"
-                id="nombre"
-                required>
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" required>
 
-            <label for="telefono">
-                Teléfono
-            </label>
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" required>
 
-            <input
-                type="tel"
-                id="telefono"
-                required>
+            <label for="ciudad">Ciudad</label>
+            <input type="text" id="ciudad" required>
 
-            <label for="correo">
-                Correo electrónico
-            </label>
+            <label for="direccion">Dirección de entrega</label>
+            <textarea id="direccion" required></textarea>
 
-            <input
-                type="email"
-                id="correo"
-                required>
+            <label for="barrio">Barrio</label>
+            <input type="text" id="barrio" required>
 
-            <label for="ciudad">
-                Ciudad
-            </label>
-
-            <input
-                type="text"
-                id="ciudad"
-                required>
-
-            <label for="direccion">
-                Dirección de entrega
-            </label>
-
-            <textarea
-                id="direccion"
-                required></textarea>
-
-            <label for="barrio">
-                Barrio
-            </label>
-
-            <input
-                type="text"
-                id="barrio"
-                required>
-
-            <label for="metodoPago">
-                Método de pago
-            </label>
+            <label for="metodoPago">Método de pago</label>
 
             <select id="metodoPago" required>
-
-                <option value="">
-                    Selecciona una opción
-                </option>
-
-                <option value="Contra entrega">
-                    Contra entrega
-                </option>
-
-                <option value="Transferencia bancaria">
-                    Transferencia bancaria
-                </option>
-
-                <option value="Nequi">
-                    Nequi
-                </option>
-
-                <option value="Daviplata">
-                    Daviplata
-                </option>
-
+                <option value="">Selecciona una opción</option>
+                <option value="Contra entrega">Contra entrega</option>
+                <option value="Transferencia bancaria">Transferencia bancaria</option>
+                <option value="Nequi">Nequi</option>
+                <option value="Daviplata">Daviplata</option>
             </select>
 
             <div class="resumen-pedido">
@@ -855,8 +632,7 @@ footer p {
 
                 <p>
                     <strong>
-                        Total:
-                        $<span id="resumenTotal">0</span> COP
+                        Total: $<span id="resumenTotal">0</span> COP
                     </strong>
                 </p>
 
@@ -891,9 +667,7 @@ footer p {
 
         <h2>✓ Pedido confirmado</h2>
 
-        <p>
-            Gracias por tu compra en Fairy Glow.
-        </p>
+        <p>Gracias por tu compra en Fairy Glow.</p>
 
         <p>
             Hemos recibido tu pedido correctamente.
@@ -913,13 +687,8 @@ footer p {
 </div>
 
 <footer>
-
     <p>✨ Fairy Glow © 2026</p>
-
-    <p>
-        Moda elegante para cada ocasión
-    </p>
-
+    <p>Moda elegante para cada ocasión</p>
 </footer>
 
 <script src="js/auth.js"></script>
@@ -933,12 +702,10 @@ const s = getSession();
 const cu = document.getElementById('catalogUser');
 
 if (cu && s) {
-
     cu.innerHTML =
         'Hola, ' +
         s.name.split(' ')[0] +
         ' · <button onclick="logout()">Cerrar sesión</button>';
-
 }
 
 let carrito = [];
@@ -964,22 +731,17 @@ function agregarCarrito(nombre, precio) {
 
     actualizarCarrito();
 
-    document
-        .getElementById('carrito')
+    document.getElementById('carrito')
         .classList.add('abierto');
-
 }
 
 function actualizarCarrito() {
 
-    const lista =
-        document.getElementById('listaCarrito');
+    const lista = document.getElementById('listaCarrito');
 
-    const cantidad =
-        document.getElementById('cantidadCarrito');
+    const cantidad = document.getElementById('cantidadCarrito');
 
-    const totalElemento =
-        document.getElementById('totalCarrito');
+    const totalElemento = document.getElementById('totalCarrito');
 
     if (carrito.length === 0) {
 
@@ -991,7 +753,6 @@ function actualizarCarrito() {
         totalElemento.textContent = '0';
 
         return;
-
     }
 
     let total = 0;
@@ -1012,21 +773,15 @@ function actualizarCarrito() {
         const div =
             document.createElement('div');
 
-        div.className =
-            'producto-carrito';
+        div.className = 'producto-carrito';
 
         div.innerHTML = `
             <div class="producto-carrito-info">
-
-                <strong>
-                    ${producto.nombre}
-                </strong>
-
+                <strong>${producto.nombre}</strong>
                 <span>
                     ${producto.cantidad} x
                     $${producto.precio.toLocaleString('es-CO')} COP
                 </span>
-
             </div>
 
             <button
@@ -1040,12 +795,10 @@ function actualizarCarrito() {
 
     });
 
-    cantidad.textContent =
-        cantidadTotal;
+    cantidad.textContent = cantidadTotal;
 
     totalElemento.textContent =
         total.toLocaleString('es-CO');
-
 }
 
 function eliminarProducto(index) {
@@ -1053,7 +806,6 @@ function eliminarProducto(index) {
     carrito.splice(index, 1);
 
     actualizarCarrito();
-
 }
 
 function vaciarCarrito() {
@@ -1061,19 +813,15 @@ function vaciarCarrito() {
     carrito = [];
 
     actualizarCarrito();
-
 }
 
 function abrirFormularioCompra() {
 
     if (carrito.length === 0) {
 
-        alert(
-            'Agrega al menos un producto al carrito.'
-        );
+        alert('Agrega al menos un producto al carrito.');
 
         return;
-
     }
 
     const resumen =
@@ -1089,8 +837,7 @@ function abrirFormularioCompra() {
     carrito.forEach(producto => {
 
         const subtotal =
-            producto.precio *
-            producto.cantidad;
+            producto.precio * producto.cantidad;
 
         totalCompra += subtotal;
 
@@ -1107,79 +854,59 @@ function abrirFormularioCompra() {
     total.textContent =
         totalCompra.toLocaleString('es-CO');
 
-    document
-        .getElementById('modalCompra')
+    document.getElementById('modalCompra')
         .classList.add('activo');
-
 }
 
 function cerrarFormularioCompra() {
 
-    document
-        .getElementById('modalCompra')
+    document.getElementById('modalCompra')
         .classList.remove('activo');
-
 }
 
 document
     .getElementById('formularioCompra')
-    .addEventListener(
-        'submit',
-        function(event) {
+    .addEventListener('submit', function(event) {
 
-            event.preventDefault();
+        event.preventDefault();
 
-            document
-                .getElementById('modalCompra')
-                .classList.remove('activo');
+        document.getElementById('modalCompra')
+            .classList.remove('activo');
 
-            document
-                .getElementById('modalConfirmado')
-                .classList.add('activo');
+        document.getElementById('modalConfirmado')
+            .classList.add('activo');
 
-            carrito = [];
+        carrito = [];
 
-            actualizarCarrito();
+        actualizarCarrito();
 
-        }
-    );
+    });
 
 function cerrarPedidoConfirmado() {
 
-    document
-        .getElementById('modalConfirmado')
+    document.getElementById('modalConfirmado')
         .classList.remove('activo');
-
 }
 
 document
     .getElementById('btnCarrito')
-    .addEventListener(
-        'click',
-        function() {
+    .addEventListener('click', function() {
 
-            document
-                .getElementById('carrito')
-                .classList.add('abierto');
+        document.getElementById('carrito')
+            .classList.add('abierto');
 
-        }
-    );
+    });
 
 document
     .getElementById('cerrarCarrito')
-    .addEventListener(
-        'click',
-        function() {
+    .addEventListener('click', function() {
 
-            document
-                .getElementById('carrito')
-                .classList.remove('abierto');
+        document.getElementById('carrito')
+            .classList.remove('abierto');
 
-        }
-    );
+    });
 
 </script>
 
 </body>
 </html>
-```
