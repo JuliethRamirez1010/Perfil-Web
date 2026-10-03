@@ -1,82 +1,25 @@
 # Translation Notes
 
-**Student:** [Your name]
-**Course:** [Inglés I / Inglés II]
-**Date:** [dd/mm/yyyy]
-
----
-
-## Why this file exists
-
-Your Spanish profile and your English profile are **not** the same text in two
-languages. They are two different documents for two different readers.
-
-Some examples of what changes:
-
-- A Colombian *hoja de vida* often includes a photo, an ID number, an address
-  and a date of birth. An English CV or profile does not. In many countries
-  this information is removed on purpose, because of anti-discrimination law.
-- Spanish professional writing often uses nouns: *"Manejo de bases de datos
-  relacionales."* English uses action verbs: *"Built and maintained relational
-  databases."*
-- Some technical words are never translated. Nobody writes *"marco de trabajo
-  JavaScript del lado del cliente"*. We write *framework*.
-
-This file is where you show that you understood those differences.
-
----
+**Student:** Karen Julieth Ramírez Ospina
+**Course:** Inglés II
+**Date:** 02/10/2026
 
 ## Question 1 · What did you leave out?
 
-Name **one thing** that appears in your Spanish version and does **not** appear
-in your English version. Explain why you removed it.
-
-> [Write 2–4 sentences in English.]
-
----
+One thing that appears in my Spanish version is music. I did not include it in my English version because I wanted to focus more on my academic and professional interests. I think this information is not necessary for my professional profile.
 
 ## Question 2 · What did you not translate?
 
-Name **one technical term** that you kept in English in both versions.
-Explain why translating it would be a bad idea.
-
-> [Write 2–4 sentences in English.]
-
----
+One technical term that I kept in English is HTML. I did not translate it because HTML is the standard name of this technology. I also kept Java, JavaScript, CSS, and MySQL because they are technical terms used in programming.
 
 ## Question 3 · What was difficult?
 
-Name **one sentence** that was hard to write in English. Copy the Spanish
-version and your English version. Explain what you changed and why a
-word-by-word translation did not work.
+**Spanish:** “Actualmente continúo fortaleciendo mis conocimientos en desarrollo web, Java, JavaScript, HTML, CSS y bases de datos.”
 
-> Spanish: [copy your sentence here]
->
-> English: [copy your sentence here]
->
-> [Write 2–4 sentences in English explaining the change.]
+**English:** “I am currently strengthening my knowledge in web development, Java, JavaScript, HTML, CSS, and databases.”
 
----
+This sentence was difficult because a word-by-word translation did not sound natural in English. I used “I am currently strengthening” because I am talking about something I am doing now. I changed the sentence structure to make it sound more natural in English.
 
 ## Tools
 
-You may use dictionaries, translators and AI tools. But you must say so here.
-
-**Which tools did you use, and for what?**
-
-> [Write your answer in English. Be specific. For example: "I used
-> Cambridge Dictionary to check the difference between *develop* and
-> *design*." Or: "I used a translator for a first version of the About
-> section, and then I rewrote it because it sounded too formal."]
-
----
-
-## Self-check before you submit
-
-- [ ] Both dictionaries in `script.js` have the same keys.
-- [ ] No `[square brackets]` are left in the page.
-- [ ] My page has no address, no phone number and no ID number.
-- [ ] The language button works in both directions.
-- [ ] All my links open the correct page.
-- [ ] I read my English text out loud and it sounds natural to me.
-- [ ] I can explain my profile in English, without reading it.
+I used a translator to help me with the first version of some sentences. I also used AI to check the English and improve some sentences. Finally, I reviewed the text myself and changed some words to make it easier to understand.
