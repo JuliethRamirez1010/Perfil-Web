@@ -374,46 +374,120 @@ footer .redes a {
 
 .circuloi { float: right; }
 .circulod { float: left; }
-
+```css
 /* ---------- PORTFOLIO ---------- */
+
 .galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
 }
 
+/* Tarjetas de los proyectos */
 .proyecto {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: var(--color-fondo-oscuro);
-  min-height: 200px;
-  text-decoration: none;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 12px;
+    min-height: 280px;
+    background-color: var(--color-fondo-oscuro);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.proyecto img { width: 100%; display: block; }
+/* Imagen del sistema para restaurante */
+.proyecto.restaurante {
+    background-image: url("./img/restaurante.jpg");
+}
 
+/* Imagen de la tienda FairyGlow */
+.proyecto.fairyglow {
+    background-image: url("./img/fairyglow.jpg");
+}
+
+/* Imagen del juego QuizMaster */
+.proyecto.quizmaster {
+    background-image: url("./img/quizmaster.jpg");
+}
+
+/* Efecto al pasar el cursor */
+.proyecto:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Capa de texto sobre la imagen */
 .proyecto .overlay {
-  position: absolute;
-  inset: 0;
-  text-align: center;
-  background: rgba(28, 182, 152, .88);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  transition: opacity .5s;
-  font-size: 16px;
-  letter-spacing: 1px;
-  opacity: 0;
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    background: linear-gradient(
+        to top,
+        rgba(19, 21, 23, 0.95),
+        rgba(19, 21, 23, 0.25)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 25px;
+    transition: background 0.3s ease;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    opacity: 1;
 }
 
+/* Título del proyecto */
+.proyecto .overlay h3 {
+    color: var(--color-acento);
+    font-family: var(--fuente-titulo);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Descripción */
+.proyecto .overlay p {
+    color: var(--color-texto);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* Más intensidad de color al pasar el cursor */
 .proyecto:hover .overlay,
-.proyecto:focus-visible .overlay { opacity: 1; }
+.proyecto:focus-visible .overlay {
+    background: linear-gradient(
+        to top,
+        rgba(19, 21, 23, 0.97),
+        rgba(28, 182, 152, 0.30)
+    );
+}
 
-.proyecto .overlay h3 { margin-bottom: 10px; font-size: 19px; }
+/* Adaptación para celulares */
+@media screen and (max-width: 760px) {
+    .galeria {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
+    .proyecto {
+        min-height: 250px;
+    }
+
+    .proyecto .overlay {
+        padding: 20px;
+    }
+
+    .proyecto .overlay h3 {
+        font-size: 20px;
+    }
+}
+```
 /* ---------- CONTACT ---------- */
 .contacto-intro {
   text-align: center;
