@@ -409,12 +409,12 @@ footer .redes a {
 
 /* Imagen de la tienda FairyGlow */
 .proyecto.fairyglow {
-    background-image: url("./img/Fairy Glow.png");
+    background-image: url("./images/Fairy Glow.png");
 }
 
 /* Imagen del juego QuizMaster */
 .proyecto.quizmaster {
-    background-image: url("./img/QuizMaster.png");
+    background-image: url("./images/QuizMaster.png");
 }
 
 /* Efecto al pasar el cursor */
