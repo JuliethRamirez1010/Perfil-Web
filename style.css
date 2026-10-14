@@ -402,17 +402,17 @@ footer .redes a {
 
 /* Imagen del sistema para restaurante */
 .proyecto.restaurante {
-    background-image: url("./img/restaurante.jpg");
+    background-image: url("./images/restaurante.png");
 }
 
 /* Imagen de la tienda FairyGlow */
 .proyecto.fairyglow {
-    background-image: url("./img/fairyglow.jpg");
+    background-image: url("./img/Fairy Glow.png");
 }
 
 /* Imagen del juego QuizMaster */
 .proyecto.quizmaster {
-    background-image: url("./img/quizmaster.jpg");
+    background-image: url("./img/QuizMaster.png");
 }
 
 /* Efecto al pasar el cursor */
