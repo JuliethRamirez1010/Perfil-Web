@@ -20,13 +20,7 @@ const ES = {
   skillsTitle: "Habilidades",
   technical: "Habilidades técnicas",
   personal: "Habilidades personales",
-  technicalSkills: [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Java",
-    "MySQL"
-  ],
+  technicalSkills: ["HTML", "CSS", "JavaScript", "Java", "MySQL"],
   personalSkills: [
     "Responsabilidad",
     "Trabajo en equipo",
@@ -117,13 +111,7 @@ const EN = {
   skillsTitle: "Skills",
   technical: "Technical Skills",
   personal: "Personal Skills",
-  technicalSkills: [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Java",
-    "MySQL"
-  ],
+  technicalSkills: ["HTML", "CSS", "JavaScript", "Java", "MySQL"],
   personalSkills: [
     "Responsibility",
     "Teamwork",
@@ -189,11 +177,11 @@ const EN = {
   contactEmail: "Email",
   contactLinkedin: "Professional Profile",
 
-  footer: "Karen Julieth Ramírez Ospina · Systems Engineering · ITFIP"
+  footer: "Karen Julieth Ramírez Ospina · Systems Engineering · UNIESPINAL"
 };
 
 
-/* IDIOMA ACTUAL */
+/* ESTADO */
 let idiomaActual = "es";
 let menuVisible = false;
 
@@ -219,12 +207,12 @@ function traducirTitulo(seccion, texto) {
 }
 
 
-/* APLICAR IDIOMA */
+/* APLICAR TRADUCCIONES */
 function aplicarIdioma(idioma) {
   const textos = idioma === "en" ? EN : ES;
 
+  idiomaActual = idioma;
   document.documentElement.lang = idioma;
-
 
   /* MENÚ */
   traducirLista(
@@ -232,13 +220,11 @@ function aplicarIdioma(idioma) {
     textos.nav
   );
 
-
   /* PRESENTACIÓN */
   ponerTexto(
     document.querySelector("#inicio h2"),
     textos.hero
   );
-
 
   /* SOBRE MÍ */
   const about = document.querySelector("#sobremi");
@@ -262,19 +248,17 @@ function aplicarIdioma(idioma) {
       const datos = columnas[0].querySelectorAll(".datos li");
 
       datos.forEach((dato, indice) => {
-        const etiqueta = dato.querySelector("strong");
-        const valor = dato.querySelector("span");
-
-        if (etiqueta && textos.information[indice + 1]) {
-          ponerTexto(etiqueta, textos.information[indice + 1]);
-        }
+        ponerTexto(
+          dato.querySelector("strong"),
+          textos.information[indice + 1]
+        );
 
         if (indice === 2) {
-          ponerTexto(valor, textos.formation);
+          ponerTexto(dato.querySelector("span"), textos.formation);
         }
 
         if (indice === 3) {
-          ponerTexto(valor, textos.status);
+          ponerTexto(dato.querySelector("span"), textos.status);
         }
       });
     }
@@ -291,7 +275,6 @@ function aplicarIdioma(idioma) {
       );
     }
   }
-
 
   /* HABILIDADES */
   const skills = document.querySelector("#skills");
@@ -325,7 +308,6 @@ function aplicarIdioma(idioma) {
       );
     }
   }
-
 
   /* FORMACIÓN Y PROYECTOS */
   const curriculum = document.querySelector("#curriculum");
@@ -368,7 +350,6 @@ function aplicarIdioma(idioma) {
     }
   }
 
-
   /* PORTAFOLIO */
   const portfolio = document.querySelector("#portfolio");
 
@@ -383,7 +364,6 @@ function aplicarIdioma(idioma) {
       ponerTexto(proyecto.querySelector("p"), datos[1]);
     });
   }
-
 
   /* CONTACTO */
   const contacto = document.querySelector("#contacto");
@@ -413,13 +393,11 @@ function aplicarIdioma(idioma) {
     }
   }
 
-
   /* PIE DE PÁGINA */
   ponerTexto(
     document.querySelector(".footer-nota"),
     textos.footer
   );
-
 
   /* BOTÓN DE IDIOMA */
   const boton = document.getElementById("btn-idioma");
@@ -428,21 +406,19 @@ function aplicarIdioma(idioma) {
     const otroIdioma = idioma === "es" ? "EN" : "ES";
 
     boton.innerHTML =
-      '<span class="idioma-activo">' + idioma.toUpperCase() + '</span>' +
-      '<span class="idioma-sep">/</span>' +
-      '<span class="idioma-inactivo">' + otroIdioma + '</span>';
+      '<span class="idioma-activo">' + idioma.toUpperCase() + "</span>" +
+      '<span class="idioma-sep"> / </span>' +
+      '<span class="idioma-inactivo">' + otroIdioma + "</span>";
 
     boton.setAttribute(
       "aria-label",
       idioma === "es" ? "Cambiar a inglés" : "Switch to Spanish"
     );
   }
-
-  idiomaActual = idioma;
 }
 
 
-/* CAMBIAR ENTRE ESPAÑOL E INGLÉS */
+/* BOTÓN DE IDIOMA */
 function cambiarIdioma() {
   aplicarIdioma(idiomaActual === "es" ? "en" : "es");
 }
@@ -453,15 +429,15 @@ function mostrarOcultarMenu() {
   const nav = document.getElementById("nav");
   if (!nav) return;
 
-  menuVisible = !menuVisible;
-  nav.className = menuVisible ? "responsive" : "";
+  menuVisible = !nav.classList.contains("responsive");
+  nav.classList.toggle("responsive", menuVisible);
 }
 
 function cerrarMenu() {
   const nav = document.getElementById("nav");
   if (!nav) return;
 
-  nav.className = "";
+  nav.classList.remove("responsive");
   menuVisible = false;
 }
 
@@ -486,30 +462,50 @@ function animarHabilidades() {
     return;
   }
 
-  const observador = new IntersectionObserver(
-    (entradas, obs) => {
-      entradas.forEach(entrada => {
-        if (entrada.isIntersecting) {
-          mostrar(entrada.target);
-          obs.unobserve(entrada.target);
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
+  const observador = new IntersectionObserver((entradas, obs) => {
+    entradas.forEach(entrada => {
+      if (entrada.isIntersecting) {
+        mostrar(entrada.target);
+        obs.unobserve(entrada.target);
+      }
+    });
+  }, { threshold: 0.4 });
 
   barras.forEach(barra => observador.observe(barra));
 }
 
 
-/* INICIALIZACIÓN */
-document.addEventListener("DOMContentLoaded", () => {
+/* EXPONER FUNCIONES PARA LOS BOTONES DEL HTML */
+window.aplicarIdioma = aplicarIdioma;
+window.cambiarIdioma = cambiarIdioma;
+window.mostrarOcultarMenu = mostrarOcultarMenu;
+window.cerrarMenu = cerrarMenu;
+
+
+/* INICIALIZAR */
+function iniciarPortafolio() {
   aplicarIdioma("es");
   animarHabilidades();
 
-  const boton = document.getElementById("btn-idioma");
+  const botonIdioma = document.getElementById("btn-idioma");
 
-  if (boton) {
-    boton.addEventListener("click", cambiarIdioma);
+  if (botonIdioma) {
+    botonIdioma.onclick = cambiarIdioma;
   }
-});
+
+  const botonMenu = document.querySelector(".nav-responsive");
+
+  if (botonMenu) {
+    botonMenu.onclick = mostrarOcultarMenu;
+  }
+
+  document.querySelectorAll("#nav ul li a").forEach(enlace => {
+    enlace.addEventListener("click", cerrarMenu);
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", iniciarPortafolio);
+} else {
+  iniciarPortafolio();
+}
