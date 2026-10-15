@@ -92,7 +92,7 @@ const ES = {
   contactEmail: "Correo",
   contactLinkedin: "Perfil profesional",
 
-  footer: "Karen Julieth Ramírez Ospina · Ingeniería de Sistemas · ITFIP"
+  footer: "Karen Julieth Ramírez Ospina · Ingeniería de Sistemas · UNIESPINAL"
 };
 
 
