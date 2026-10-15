@@ -1,144 +1,285 @@
 
 /* =========================================================
    PORTAFOLIO - KAREN JULIETH RAMÍREZ OSPINA
-   Idiomas, menú responsive y animación de habilidades
+   Traducción completa ES / EN
+   Menú responsive y animación de habilidades
    ========================================================= */
 
-const traducciones = {
+const textosPortafolio = {
     ES: {
-        "nav.inicio": "INICIO",
-        "nav.sobremi": "SOBRE MÍ",
-        "nav.skills": "HABILIDADES",
-        "nav.curriculum": "CURRÍCULUM",
-        "nav.portfolio": "PORTAFOLIO",
-        "nav.contacto": "CONTACTO",
+        nav: [
+            "INICIO",
+            "SOBRE MÍ",
+            "HABILIDADES",
+            "FORMACIÓN",
+            "PROYECTOS",
+            "CONTACTO"
+        ],
 
-        "inicio.saludo": "Hola, soy",
-        "inicio.rol": "Estudiante de Ingeniería de Sistemas",
-        "inicio.descripcion": "Apasionada por la programación, el desarrollo web y la tecnología.",
+        inicio: {
+            titulo: "KAREN JULIETH RAMÍREZ OSPINA",
+            subtitulo: "Estudiante de Ingeniería de Sistemas · Programación Web",
+            imagen: "Foto de Karen Julieth Ramírez Ospina"
+        },
 
-        "about.titulo": "Sobre mí",
-        "about.descripcion": "Soy estudiante de Ingeniería de Sistemas, interesada en la programación, el desarrollo web y el aprendizaje de nuevas tecnologías. Me gusta crear soluciones digitales y fortalecer mis conocimientos mediante proyectos prácticos.",
-        "about.nombre": "Nombre",
-        "about.nacimiento": "Fecha de nacimiento",
-        "about.telefono": "Teléfono",
-        "about.email": "Correo electrónico",
-        "about.web": "Sitio web",
-        "about.direccion": "Ubicación",
-        "about.cargo": "Ocupación",
-        "about.interestsTitle": "Áreas de interés",
+        sobreMi: {
+            titulo: "Sobre Mí",
+            parrafos: [
+                "Soy estudiante de Ingeniería de Sistemas y desde hace varios años me ha llamado la atención todo lo relacionado con la tecnología, la programación y los computadores. Me gusta aprender cosas nuevas y, sobre todo, aprender haciendo, porque siento que es la mejor manera de entender realmente cómo funcionan las cosas.",
+                "Durante mi formación académica he tenido la oportunidad de trabajar en diferentes proyectos de programación, páginas web, bases de datos y aplicaciones. Estos proyectos me han permitido aprender de mis propios errores, mejorar mi lógica de programación y encontrar diferentes formas de solucionar un mismo problema.",
+                "Actualmente continúo fortaleciendo mis conocimientos en desarrollo web, Java, JavaScript, HTML, CSS y bases de datos. Mi objetivo es seguir aprendiendo, adquirir experiencia y desarrollar proyectos cada vez más completos que me permitan crecer tanto personal como profesionalmente."
+            ],
+            informacion: "Información",
+            datos: [
+                ["Ubicación", "Espinal, Tolima, Colombia"],
+                ["Correo", "kramirez23@itfip.edu.co"],
+                ["Formación", "Ingeniería de Sistemas"],
+                ["Estado", "Estudiante"]
+            ],
+            intereses: "Áreas que me interesan",
+            listaIntereses: [
+                "PROGRAMACIÓN",
+                "DESARROLLO WEB",
+                "MÚSICA",
+                "LEER"
+            ]
+        },
 
-        "interest.1": "PROGRAMACIÓN",
-        "interest.2": "DESARROLLO WEB",
-        "interest.3": "MÚSICA",
-        "interest.4": "LECTURA",
+        habilidades: {
+            titulo: "Habilidades",
+            tecnicas: "Habilidades técnicas",
+            personales: "Habilidades personales",
+            nombres: [
+                "HTML & CSS",
+                "JavaScript",
+                "MySQL",
+                "Java",
+                "Responsabilidad",
+                "Trabajo en equipo",
+                "Aprendizaje",
+                "Resolución de problemas"
+            ]
+        },
 
-        "skills.titulo": "Habilidades",
-        "skills.descripcion": "Conocimientos y herramientas que utilizo para desarrollar proyectos.",
-        "skills.tecnicas": "Habilidades técnicas",
-        "skills.comunicacion": "Comunicación",
-        "skills.trabajo": "Trabajo en equipo",
-        "skills.creatividad": "Creatividad",
-        "skills.dedicacion": "Dedicación",
-        "skills.proyectos": "Gestión de proyectos",
+        curriculum: {
+            titulo: "Formación y proyectos",
+            academica: "Formación académica",
+            proyectos: "Mis proyectos",
+            formacion: [
+                {
+                    titulo: "Ingeniería de Sistemas",
+                    institucion: "UNIESPINAL",
+                    fecha: "Actualmente",
+                    descripcion: "Actualmente me encuentro estudiando Ingeniería de Sistemas, fortaleciendo mis conocimientos en programación, desarrollo web, bases de datos, lógica, redes y diferentes áreas relacionadas con la tecnología."
+                },
+                {
+                    titulo: "Técnico en Sistemas",
+                    institucion: "Servicio Nacional de Aprendizaje · SENA",
+                    fecha: "Formación técnica",
+                    descripcion: "Formación técnica en sistemas, donde adquirí conocimientos relacionados con computadores, software, mantenimiento, herramientas tecnológicas y fundamentos de programación."
+                },
+                {
+                    titulo: "Bachiller Técnico en Sistemas",
+                    institucion: "Institución Educativa Técnica Félix Tiberio Guzmán",
+                    fecha: "Bachillerato",
+                    descripcion: "Realicé mis estudios de bachillerato en la Institución Educativa Técnica Félix Tiberio Guzmán, donde además de mi formación académica obtuve una formación técnica relacionada con sistemas."
+                },
+                {
+                    titulo: "Programación y desarrollo web",
+                    institucion: "Proyectos académicos",
+                    fecha: "2026",
+                    descripcion: "Durante mi formación he desarrollado diferentes proyectos utilizando HTML, CSS, JavaScript, Java y bases de datos, aprendiendo principalmente mediante la práctica."
+                }
+            ],
+            proyectosLista: [
+                {
+                    titulo: "Sistema para restaurante",
+                    tecnologia: "HTML · CSS · JavaScript",
+                    fecha: "2026",
+                    descripcion: "Proyecto web realizado para representar el funcionamiento de un restaurante. Permite navegar por diferentes opciones, visualizar productos y simular un proceso de pedido."
+                },
+                {
+                    titulo: "FairyGlow · Tienda virtual",
+                    tecnologia: "HTML · CSS · JavaScript",
+                    fecha: "2026",
+                    descripcion: "Proyecto enfocado en una tienda virtual, con una interfaz diseñada para mostrar productos de manera organizada y ofrecer una experiencia de navegación sencilla."
+                },
+                {
+                    titulo: "QuizMaster",
+                    tecnologia: "Aplicación educativa",
+                    fecha: "2026",
+                    descripcion: "Juego de preguntas creado como proyecto educativo, con diferentes categorías y dinámicas para combinar el aprendizaje con el entretenimiento."
+                }
+            ]
+        },
 
-        "curriculum.titulo": "Currículum",
-        "curriculum.descripcion": "Mi formación académica y mi proceso de aprendizaje.",
-        "curriculum.educacion": "Educación",
-        "curriculum.experiencia": "Experiencia",
-        "curriculum.formacion1": "Ingeniería de Sistemas",
-        "curriculum.formacion2": "Técnica en Sistemas",
-        "curriculum.formacion3": "Formación en programación",
-        "curriculum.descripcion1": "Formación académica orientada al desarrollo de software, las bases de datos y las tecnologías de la información.",
-        "curriculum.descripcion2": "Conocimientos en mantenimiento de equipos, soporte técnico y sistemas informáticos.",
-        "curriculum.descripcion3": "Aprendizaje de lenguajes de programación y desarrollo de aplicaciones web.",
+        portafolio: {
+            titulo: "Mis Proyectos",
+            proyectos: [
+                {
+                    titulo: "Sistema para Restaurante",
+                    descripcion: "Sistema web para pedidos y opciones del restaurante"
+                },
+                {
+                    titulo: "FairyGlow · Tienda Virtual",
+                    descripcion: "Catálogo de productos y experiencia de compra"
+                },
+                {
+                    titulo: "QuizMaster",
+                    descripcion: "Juego educativo de preguntas y respuestas"
+                }
+            ]
+        },
 
-        "portfolio.titulo": "Portafolio",
-        "portfolio.descripcion": "Algunos de los proyectos que he desarrollado.",
-        "portfolio.restaurante": "Sistema para Restaurante",
-        "portfolio.restauranteDesc": "Sistema para gestionar pedidos y facilitar los procesos de un restaurante.",
-        "portfolio.tienda": "Tienda Virtual",
-        "portfolio.tiendaDesc": "Sitio web para mostrar productos, consultar diseños y gestionar compras.",
-        "portfolio.quiz": "QuizMaster",
-        "portfolio.quizDesc": "Juego de preguntas con categorías, niveles, vidas y monedas.",
+        contacto: {
+            titulo: "Contacto",
+            introduccion: "Si quieres conocer más sobre mis proyectos, tienes alguna pregunta o simplemente quieres comunicarte conmigo, puedes hacerlo directamente a través de cualquiera de estos medios.",
+            tarjetas: [
+                ["Correo", "kramirez23@itfip.edu.co"],
+                ["GitHub", "JulIethRamirez1010"],
+                ["LinkedIn", "Perfil profesional"]
+            ]
+        },
 
-        "contacto.titulo": "Contacto",
-        "contacto.descripcion": "¿Tienes una pregunta o una propuesta? Puedes comunicarte conmigo.",
-        "contacto.nombre": "Nombre",
-        "contacto.email": "Correo electrónico",
-        "contacto.asunto": "Asunto",
-        "contacto.mensaje": "Mensaje",
-        "contacto.boton": "Enviar mensaje",
-
-        "footer.texto": "Gracias por visitar mi portafolio."
+        footer: "Karen Julieth Ramírez Ospina · Ingeniería de Sistemas · UNIESPINAL"
     },
 
     EN: {
-        "nav.inicio": "HOME",
-        "nav.sobremi": "ABOUT ME",
-        "nav.skills": "SKILLS",
-        "nav.curriculum": "RESUME",
-        "nav.portfolio": "PORTFOLIO",
-        "nav.contacto": "CONTACT",
+        nav: [
+            "HOME",
+            "ABOUT ME",
+            "SKILLS",
+            "EDUCATION",
+            "PROJECTS",
+            "CONTACT"
+        ],
 
-        "inicio.saludo": "Hello, I'm",
-        "inicio.rol": "Systems Engineering Student",
-        "inicio.descripcion": "Passionate about programming, web development, and technology.",
+        inicio: {
+            titulo: "KAREN JULIETH RAMÍREZ OSPINA",
+            subtitulo: "Systems Engineering Student · Web Development",
+            imagen: "Photo of Karen Julieth Ramírez Ospina"
+        },
 
-        "about.titulo": "About Me",
-        "about.descripcion": "I am a Systems Engineering student interested in programming, web development, and learning new technologies. I enjoy creating digital solutions and strengthening my knowledge through practical projects.",
-        "about.nombre": "Name",
-        "about.nacimiento": "Date of birth",
-        "about.telefono": "Phone",
-        "about.email": "Email",
-        "about.web": "Website",
-        "about.direccion": "Location",
-        "about.cargo": "Occupation",
-        "about.interestsTitle": "Areas of Interest",
+        sobreMi: {
+            titulo: "About Me",
+            parrafos: [
+                "I am a Systems Engineering student, and for several years I have been interested in everything related to technology, programming, and computers. I enjoy learning new things and, above all, learning by doing because I believe it is the best way to truly understand how things work.",
+                "During my academic training, I have had the opportunity to work on different programming projects, websites, databases, and applications. These projects have allowed me to learn from my mistakes, improve my programming logic, and discover different ways to solve the same problem.",
+                "I am currently continuing to strengthen my knowledge of web development, Java, JavaScript, HTML, CSS, and databases. My goal is to keep learning, gain experience, and develop increasingly complete projects that help me grow both personally and professionally."
+            ],
+            informacion: "Information",
+            datos: [
+                ["Location", "Espinal, Tolima, Colombia"],
+                ["Email", "kramirez23@itfip.edu.co"],
+                ["Education", "Systems Engineering"],
+                ["Status", "Student"]
+            ],
+            intereses: "Areas of Interest",
+            listaIntereses: [
+                "PROGRAMMING",
+                "WEB DEVELOPMENT",
+                "MUSIC",
+                "READING"
+            ]
+        },
 
-        "interest.1": "PROGRAMMING",
-        "interest.2": "WEB DEVELOPMENT",
-        "interest.3": "MUSIC",
-        "interest.4": "READING",
+        habilidades: {
+            titulo: "Skills",
+            tecnicas: "Technical Skills",
+            personales: "Personal Skills",
+            nombres: [
+                "HTML & CSS",
+                "JavaScript",
+                "MySQL",
+                "Java",
+                "Responsibility",
+                "Teamwork",
+                "Learning",
+                "Problem Solving"
+            ]
+        },
 
-        "skills.titulo": "Skills",
-        "skills.descripcion": "Knowledge and tools I use to develop projects.",
-        "skills.tecnicas": "Technical Skills",
-        "skills.comunicacion": "Communication",
-        "skills.trabajo": "Teamwork",
-        "skills.creatividad": "Creativity",
-        "skills.dedicacion": "Dedication",
-        "skills.proyectos": "Project Management",
+        curriculum: {
+            titulo: "Education and Projects",
+            academica: "Academic Background",
+            proyectos: "My Projects",
+            formacion: [
+                {
+                    titulo: "Systems Engineering",
+                    institucion: "UNIESPINAL",
+                    fecha: "Currently",
+                    descripcion: "I am currently studying Systems Engineering, strengthening my knowledge of programming, web development, databases, logic, networks, and other areas related to technology."
+                },
+                {
+                    titulo: "Systems Technician",
+                    institucion: "National Learning Service · SENA",
+                    fecha: "Technical Training",
+                    descripcion: "Technical training in computer systems, where I acquired knowledge related to computers, software, maintenance, technological tools, and programming fundamentals."
+                },
+                {
+                    titulo: "Technical High School Diploma in Systems",
+                    institucion: "Félix Tiberio Guzmán Technical Educational Institution",
+                    fecha: "High School",
+                    descripcion: "I completed my high school studies at Félix Tiberio Guzmán Technical Educational Institution, where I received both academic education and technical training related to computer systems."
+                },
+                {
+                    titulo: "Programming and Web Development",
+                    institucion: "Academic Projects",
+                    fecha: "2026",
+                    descripcion: "During my training, I have developed different projects using HTML, CSS, JavaScript, Java, and databases, learning mainly through hands-on practice."
+                }
+            ],
+            proyectosLista: [
+                {
+                    titulo: "Restaurant System",
+                    tecnologia: "HTML · CSS · JavaScript",
+                    fecha: "2026",
+                    descripcion: "A web project designed to represent how a restaurant works. It allows users to navigate different options, view products, and simulate an ordering process."
+                },
+                {
+                    titulo: "FairyGlow · Online Store",
+                    tecnologia: "HTML · CSS · JavaScript",
+                    fecha: "2026",
+                    descripcion: "An online store project featuring an interface designed to display products in an organized way and provide a simple browsing experience."
+                },
+                {
+                    titulo: "QuizMaster",
+                    tecnologia: "Educational Application",
+                    fecha: "2026",
+                    descripcion: "A quiz game developed as an educational project, featuring different categories and activities that combine learning with entertainment."
+                }
+            ]
+        },
 
-        "curriculum.titulo": "Resume",
-        "curriculum.descripcion": "My academic background and learning journey.",
-        "curriculum.educacion": "Education",
-        "curriculum.experiencia": "Experience",
-        "curriculum.formacion1": "Systems Engineering",
-        "curriculum.formacion2": "Technical Training in Systems",
-        "curriculum.formacion3": "Programming Training",
-        "curriculum.descripcion1": "Academic training focused on software development, databases, and information technology.",
-        "curriculum.descripcion2": "Knowledge of computer maintenance, technical support, and computer systems.",
-        "curriculum.descripcion3": "Learning programming languages and web application development.",
+        portafolio: {
+            titulo: "My Projects",
+            proyectos: [
+                {
+                    titulo: "Restaurant System",
+                    descripcion: "Restaurant website for orders and menu options"
+                },
+                {
+                    titulo: "FairyGlow · Online Store",
+                    descripcion: "Product catalog and shopping experience"
+                },
+                {
+                    titulo: "QuizMaster",
+                    descripcion: "Educational question-and-answer game"
+                }
+            ]
+        },
 
-        "portfolio.titulo": "Portfolio",
-        "portfolio.descripcion": "Some of the projects I have developed.",
-        "portfolio.restaurante": "Restaurant System",
-        "portfolio.restauranteDesc": "A system designed to manage orders and improve restaurant processes.",
-        "portfolio.tienda": "Online Store",
-        "portfolio.tiendaDesc": "A website to display products, explore designs, and manage purchases.",
-        "portfolio.quiz": "QuizMaster",
-        "portfolio.quizDesc": "A quiz game featuring categories, levels, lives, and coins.",
+        contacto: {
+            titulo: "Contact",
+            introduccion: "If you would like to learn more about my projects, have a question, or simply want to get in touch, you can contact me directly through any of these channels.",
+            tarjetas: [
+                ["Email", "kramirez23@itfip.edu.co"],
+                ["GitHub", "JulIethRamirez1010"],
+                ["LinkedIn", "Professional profile"]
+            ]
+        },
 
-        "contacto.titulo": "Contact",
-        "contacto.descripcion": "Have a question or a proposal? Feel free to contact me.",
-        "contacto.nombre": "Name",
-        "contacto.email": "Email",
-        "contacto.asunto": "Subject",
-        "contacto.mensaje": "Message",
-        "contacto.boton": "Send Message",
-
-        "footer.texto": "Thank you for visiting my portfolio."
+        footer: "Karen Julieth Ramírez Ospina · Systems Engineering · UNIESPINAL"
     }
 };
 
@@ -149,21 +290,33 @@ const traducciones = {
 let idiomaActual = "ES";
 
 try {
-    const idiomaGuardado = localStorage.getItem("idiomaPortafolio");
+    const guardado = localStorage.getItem("idiomaPortafolio");
 
-    if (idiomaGuardado === "ES" || idiomaGuardado === "EN") {
-        idiomaActual = idiomaGuardado;
+    if (guardado === "ES" || guardado === "EN") {
+        idiomaActual = guardado;
     }
 } catch (error) {
-    console.warn("No fue posible recuperar el idioma guardado.");
+    idiomaActual = "ES";
 }
 
 /* =========================================================
-   OBTENER TRADUCCIÓN
+   FUNCIONES AUXILIARES
    ========================================================= */
 
-function obtenerTraduccion(clave, idioma = idiomaActual) {
-    return traducciones[idioma]?.[clave] ?? null;
+function establecerTexto(elemento, texto) {
+    if (elemento && texto !== undefined && texto !== null) {
+        elemento.textContent = texto;
+    }
+}
+
+function establecerLista(selectores, textos) {
+    const elementos = document.querySelectorAll(selectores);
+
+    elementos.forEach((elemento, indice) => {
+        if (textos[indice] !== undefined) {
+            establecerTexto(elemento, textos[indice]);
+        }
+    });
 }
 
 /* =========================================================
@@ -176,62 +329,33 @@ function cambiarIdioma() {
     try {
         localStorage.setItem("idiomaPortafolio", idiomaActual);
     } catch (error) {
-        console.warn("No fue posible guardar el idioma.");
+        console.warn("No se pudo guardar la preferencia de idioma.");
     }
 
     aplicarIdioma();
 }
 
 /* =========================================================
-   APLICAR TRADUCCIONES
+   TRADUCIR TODA LA PÁGINA
    ========================================================= */
 
 function aplicarIdioma() {
-    const idioma = traducciones[idiomaActual];
+    const t = textosPortafolio[idiomaActual];
 
-    if (!idioma) return;
+    if (!t) return;
 
-    // Traduce los elementos que tienen data-i18n.
-    document.querySelectorAll("[data-i18n]").forEach(elemento => {
-        const clave = elemento.getAttribute("data-i18n");
-        const texto = obtenerTraduccion(clave);
+    /* NAVEGACIÓN */
+    establecerLista("#nav ul li a", t.nav);
 
-        if (texto !== null) {
-            elemento.textContent = texto;
-        }
-    });
-
-    // Traduce los placeholders.
-    document.querySelectorAll("[data-i18n-placeholder]").forEach(elemento => {
-        const clave = elemento.getAttribute("data-i18n-placeholder");
-        const texto = obtenerTraduccion(clave);
-
-        if (texto !== null) {
-            elemento.setAttribute("placeholder", texto);
-        }
-    });
-
-    // Traduce los atributos title.
-    document.querySelectorAll("[data-i18n-title]").forEach(elemento => {
-        const clave = elemento.getAttribute("data-i18n-title");
-        const texto = obtenerTraduccion(clave);
-
-        if (texto !== null) {
-            elemento.setAttribute("title", texto);
-        }
-    });
-
-    // Traduce el botón sin eliminar sus spans ni su diseño ES / EN.
+    /* BOTÓN ES / EN: conserva sus tres spans */
     const botonIdioma = document.getElementById("btn-idioma");
 
     if (botonIdioma) {
         const activo = botonIdioma.querySelector(".idioma-activo");
         const inactivo = botonIdioma.querySelector(".idioma-inactivo");
 
-        if (activo && inactivo) {
-            activo.textContent = idiomaActual;
-            inactivo.textContent = idiomaActual === "ES" ? "EN" : "ES";
-        }
+        establecerTexto(activo, idiomaActual);
+        establecerTexto(inactivo, idiomaActual === "ES" ? "EN" : "ES");
 
         botonIdioma.setAttribute(
             "aria-label",
@@ -241,46 +365,183 @@ function aplicarIdioma() {
         );
     }
 
-    // Traduce áreas de interés si el HTML usa las claves interest.1, etc.
-    document.querySelectorAll('[data-i18n^="interest."]').forEach(elemento => {
-        const clave = elemento.getAttribute("data-i18n");
-        const texto = obtenerTraduccion(clave);
-
-        if (texto !== null) {
-            elemento.textContent = texto;
-        }
-    });
-
-    // Compatibilidad con tarjetas de intereses sin data-i18n.
-    const intereses = document.querySelectorAll(
-        ".contenedor-intereses .interes"
+    /* INICIO */
+    establecerTexto(
+        document.querySelector("#inicio .contenido-banner h1"),
+        t.inicio.titulo
     );
 
-    const clavesIntereses = [
-        "interest.1",
-        "interest.2",
-        "interest.3",
-        "interest.4"
-    ];
+    establecerTexto(
+        document.querySelector("#inicio .contenido-banner h2"),
+        t.inicio.subtitulo
+    );
 
-    intereses.forEach((interes, indice) => {
-        if (indice >= clavesIntereses.length) return;
+    const imagenPerfil = document.querySelector(
+        "#inicio .contenedor-img img"
+    );
 
-        // Si existe un span para el texto, conserva los iconos.
-        const spanTexto = interes.querySelector("span");
+    if (imagenPerfil) {
+        imagenPerfil.alt = t.inicio.imagen;
+    }
 
-        if (spanTexto && !spanTexto.hasAttribute("data-i18n")) {
-            spanTexto.textContent = obtenerTraduccion(
-                clavesIntereses[indice]
-            );
-        } else if (!spanTexto && !interes.querySelector("i, svg")) {
-            interes.textContent = obtenerTraduccion(
-                clavesIntereses[indice]
-            );
-        }
+    /* SOBRE MÍ */
+    const seccionSobreMi = document.querySelector("#sobremi");
+    const tituloSobreMi = seccionSobreMi?.querySelector(
+        ".contenido-seccion > h2"
+    );
+
+    establecerTexto(tituloSobreMi, t.sobreMi.titulo);
+
+    establecerLista(
+        "#sobremi .contenido-seccion > p",
+        t.sobreMi.parrafos
+    );
+
+    establecerTexto(
+        document.querySelector("#sobremi .fila .col h3"),
+        t.sobreMi.informacion
+    );
+
+    establecerLista(
+        "#sobremi .datos li strong",
+        t.sobreMi.datos.map(dato => dato[0])
+    );
+
+    establecerLista(
+        "#sobremi .datos li > span",
+        t.sobreMi.datos.map(dato => dato[1])
+    );
+
+    const tituloIntereses = Array.from(
+        document.querySelectorAll("#sobremi h3")
+    ).find(elemento =>
+        elemento.textContent.trim() === "Áreas que me interesan" ||
+        elemento.textContent.trim() === "Areas of Interest" ||
+        elemento.textContent.trim() === "Áreas de interés"
+    );
+
+    establecerTexto(tituloIntereses, t.sobreMi.intereses);
+
+    establecerLista(
+        "#sobremi .contenedor-intereses .interes span",
+        t.sobreMi.listaIntereses
+    );
+
+    /* HABILIDADES */
+    const seccionSkills = document.querySelector("#skills");
+
+    establecerTexto(
+        seccionSkills?.querySelector(".contenido-seccion > h2"),
+        t.habilidades.titulo
+    );
+
+    establecerLista(
+        "#skills .fila > .col h3",
+        [t.habilidades.tecnicas, t.habilidades.personales]
+    );
+
+    establecerLista(
+        "#skills .skill-nombre",
+        t.habilidades.nombres
+    );
+
+    /* FORMACIÓN Y PROYECTOS DE LA LÍNEA DE TIEMPO */
+    const seccionCurriculum = document.querySelector("#curriculum");
+
+    establecerTexto(
+        seccionCurriculum?.querySelector(".contenido-seccion > h2"),
+        t.curriculum.titulo
+    );
+
+    establecerLista(
+        "#curriculum .fila > .col > h3",
+        [t.curriculum.academica, t.curriculum.proyectos]
+    );
+
+    const itemsFormacion = document.querySelectorAll(
+        "#curriculum .col.izquierda .item"
+    );
+
+    itemsFormacion.forEach((item, indice) => {
+        const datos = t.curriculum.formacion[indice];
+
+        if (!datos) return;
+
+        establecerTexto(item.querySelector("h4"), datos.titulo);
+        establecerTexto(item.querySelector(".casa"), datos.institucion);
+        establecerTexto(item.querySelector(".fecha"), datos.fecha);
+        establecerTexto(item.querySelector("p"), datos.descripcion);
     });
 
-    // Actualiza el idioma del documento.
+    const itemsProyectos = document.querySelectorAll(
+        "#curriculum .col.derecha .item"
+    );
+
+    itemsProyectos.forEach((item, indice) => {
+        const datos = t.curriculum.proyectosLista[indice];
+
+        if (!datos) return;
+
+        establecerTexto(item.querySelector("h4"), datos.titulo);
+        establecerTexto(item.querySelector(".casa"), datos.tecnologia);
+        establecerTexto(item.querySelector(".fecha"), datos.fecha);
+        establecerTexto(item.querySelector("p"), datos.descripcion);
+    });
+
+    /* PORTAFOLIO */
+    const seccionPortfolio = document.querySelector("#portfolio");
+
+    establecerTexto(
+        seccionPortfolio?.querySelector(".contenido-seccion > h2"),
+        t.portafolio.titulo
+    );
+
+    const tarjetasPortfolio = document.querySelectorAll(
+        "#portfolio .galeria .proyecto"
+    );
+
+    tarjetasPortfolio.forEach((tarjeta, indice) => {
+        const datos = t.portafolio.proyectos[indice];
+
+        if (!datos) return;
+
+        establecerTexto(tarjeta.querySelector(".overlay h3"), datos.titulo);
+        establecerTexto(tarjeta.querySelector(".overlay p"), datos.descripcion);
+    });
+
+    /* CONTACTO */
+    const seccionContacto = document.querySelector("#contacto");
+
+    establecerTexto(
+        seccionContacto?.querySelector(".contenido-seccion > h2"),
+        t.contacto.titulo
+    );
+
+    establecerTexto(
+        seccionContacto?.querySelector(".contacto-intro"),
+        t.contacto.introduccion
+    );
+
+    const tarjetasContacto = document.querySelectorAll(
+        "#contacto .tarjetas-contacto .tarjeta"
+    );
+
+    tarjetasContacto.forEach((tarjeta, indice) => {
+        const datos = t.contacto.tarjetas[indice];
+
+        if (!datos) return;
+
+        establecerTexto(tarjeta.querySelector("strong"), datos[0]);
+        establecerTexto(tarjeta.querySelector("span"), datos[1]);
+    });
+
+    /* PIE DE PÁGINA */
+    establecerTexto(
+        document.querySelector("footer .footer-nota"),
+        t.footer
+    );
+
+    /* IDIOMA DEL DOCUMENTO */
     document.documentElement.lang = idiomaActual.toLowerCase();
 }
 
@@ -291,46 +552,32 @@ function aplicarIdioma() {
 function mostrarOcultarMenu() {
     const nav = document.getElementById("nav");
 
-    if (!nav) {
-        console.warn('No se encontró el elemento con id="nav".');
-        return;
-    }
+    if (!nav) return;
 
     nav.classList.toggle("responsive");
 
     const botonMenu = document.querySelector(".nav-responsive");
 
     if (botonMenu) {
-        const abierto = nav.classList.contains("responsive");
-
-        botonMenu.setAttribute("aria-expanded", String(abierto));
         botonMenu.setAttribute(
-            "aria-label",
-            abierto ? "Cerrar menú" : "Abrir menú"
+            "aria-expanded",
+            String(nav.classList.contains("responsive"))
         );
     }
 }
 
-/* =========================================================
-   CERRAR MENÚ AL ELEGIR UNA OPCIÓN
-   ========================================================= */
-
-function configurarMenu() {
+function cerrarMenu() {
     const nav = document.getElementById("nav");
 
-    if (!nav) return;
+    if (nav) {
+        nav.classList.remove("responsive");
+    }
 
-    nav.querySelectorAll("a").forEach(enlace => {
-        enlace.addEventListener("click", () => {
-            nav.classList.remove("responsive");
+    const botonMenu = document.querySelector(".nav-responsive");
 
-            const botonMenu = document.querySelector(".nav-responsive");
-
-            if (botonMenu) {
-                botonMenu.setAttribute("aria-expanded", "false");
-            }
-        });
-    });
+    if (botonMenu) {
+        botonMenu.setAttribute("aria-expanded", "false");
+    }
 }
 
 /* =========================================================
@@ -340,33 +587,37 @@ function configurarMenu() {
 function animarHabilidades() {
     const seccion = document.querySelector("#skills");
 
-    if (!seccion || !("IntersectionObserver" in window)) return;
+    if (!seccion) return;
 
     const barras = seccion.querySelectorAll(".progreso[data-percent]");
 
-    const observador = new IntersectionObserver((entradas, observer) => {
-        entradas.forEach(entrada => {
-            if (!entrada.isIntersecting) return;
+    if ("IntersectionObserver" in window) {
+        const observador = new IntersectionObserver((entradas, observer) => {
+            entradas.forEach(entrada => {
+                if (!entrada.isIntersecting) return;
 
-            const barra = entrada.target;
-            const porcentaje = Number(barra.getAttribute("data-percent"));
+                const barra = entrada.target;
+                const porcentaje = Number(barra.dataset.percent);
 
-            if (Number.isFinite(porcentaje)) {
-                const valor = Math.max(0, Math.min(100, porcentaje));
-                barra.style.width = valor + "%";
-            }
+                if (Number.isFinite(porcentaje)) {
+                    barra.style.width =
+                        Math.max(0, Math.min(100, porcentaje)) + "%";
+                }
 
-            observer.unobserve(barra);
+                observer.unobserve(barra);
+            });
+        }, { threshold: 0.2 });
+
+        barras.forEach(barra => {
+            barra.style.width = "0%";
+            barra.style.transition = "width 1.5s ease-in-out";
+            observador.observe(barra);
         });
-    }, {
-        threshold: 0.2
-    });
-
-    barras.forEach(barra => {
-        barra.style.width = "0%";
-        barra.style.transition = "width 1.5s ease-in-out";
-        observador.observe(barra);
-    });
+    } else {
+        barras.forEach(barra => {
+            barra.style.width = barra.dataset.percent + "%";
+        });
+    }
 }
 
 /* =========================================================
@@ -374,32 +625,9 @@ function animarHabilidades() {
    ========================================================= */
 
 function inicializarPortafolio() {
-    // El HTML ya usa onclick="cambiarIdioma()".
-    // Por eso NO agregamos otro evento click al botón de idioma.
-    const botonIdioma = document.getElementById("btn-idioma");
-
-    if (!botonIdioma) {
-        console.warn('No se encontró el botón con id="btn-idioma".');
-    }
-
-    // El HTML también usa onclick="mostrarOcultarMenu()".
-    // No se registra otro evento para evitar dobles ejecuciones.
-    configurarMenu();
     aplicarIdioma();
     animarHabilidades();
 }
-
-/* =========================================================
-   FUNCIONES DISPONIBLES DESDE EL HTML
-   ========================================================= */
-
-window.cambiarIdioma = cambiarIdioma;
-window.mostrarOcultarMenu = mostrarOcultarMenu;
-window.aplicarIdioma = aplicarIdioma;
-
-/* =========================================================
-   EJECUTAR CUANDO EL HTML ESTÉ LISTO
-   ========================================================= */
 
 if (document.readyState === "loading") {
     document.addEventListener(
@@ -410,3 +638,9 @@ if (document.readyState === "loading") {
 } else {
     inicializarPortafolio();
 }
+
+/* Funciones utilizadas por los onclick del HTML */
+window.cambiarIdioma = cambiarIdioma;
+window.mostrarOcultarMenu = mostrarOcultarMenu;
+window.cerrarMenu = cerrarMenu;
+window.aplicarIdioma = aplicarIdioma;
