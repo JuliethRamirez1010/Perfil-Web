@@ -375,8 +375,8 @@ footer .redes a {
 .circuloi { float: right; }
 .circulod { float: left; }
 
-/* ---------- PORTFOLIO ---------- */
 
+/* ---------- PORTFOLIO ---------- */
 
 .galeria {
     display: grid;
@@ -385,66 +385,95 @@ footer .redes a {
     margin-top: 20px;
 }
 
-
 /* Tarjetas de los proyectos */
 .proyecto {
     position: relative;
     display: block;
     overflow: hidden;
     border-radius: 12px;
+    aspect-ratio: 16 / 9;
     min-height: 280px;
+
     background-color: var(--color-fondo-oscuro);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
     text-decoration: none;
     border: 1px solid rgba(255, 255, 255, 0.08);
+
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Imagen del sistema para restaurante */
+/* Ocultar las imágenes inicialmente */
 .proyecto.restaurante {
+    background-image: none;
+}
+
+.proyecto.fairyglow {
+    background-image: none;
+}
+
+.proyecto.quizmaster {
+    background-image: none;
+}
+
+/* Mostrar las imágenes únicamente al pasar el cursor */
+.proyecto.restaurante:hover,
+.proyecto.restaurante:focus-visible {
     background-image: url("./images/restaurante.png");
 }
 
-/* Imagen de la tienda FairyGlow */
-.proyecto.fairyglow {
+.proyecto.fairyglow:hover,
+.proyecto.fairyglow:focus-visible {
     background-image: url("./images/Fairy Glow.png");
 }
 
-/* Imagen del juego QuizMaster */
-.proyecto.quizmaster {
+.proyecto.quizmaster:hover,
+.proyecto.quizmaster:focus-visible {
     background-image: url("./images/QuizMaster.png");
 }
 
 /* Efecto al pasar el cursor */
-.proyecto:hover {
+.proyecto:hover,
+.proyecto:focus-visible {
     transform: translateY(-6px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    outline-offset: 3px;
 }
 
-/* Capa de texto sobre la imagen */
+/* Capa de texto: siempre visible */
 .proyecto .overlay {
     position: absolute;
     inset: 0;
     text-align: center;
-    background: linear-gradient(
-        to top,
-        rgba(19, 21, 23, 0.95),
-        rgba(19, 21, 23, 0.25)
-    );
+
+    background: transparent;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+
     padding: 25px;
-    transition: background 0.3s ease;
     font-size: 15px;
     letter-spacing: 0.3px;
+
     opacity: 1;
+    transition: background 0.35s ease;
 }
 
-/* Título del proyecto */
+/* Degradado para facilitar la lectura sobre la imagen */
+.proyecto:hover .overlay,
+.proyecto:focus-visible .overlay {
+    background: linear-gradient(
+        to top,
+        rgba(19, 21, 23, 0.95),
+        rgba(19, 21, 23, 0.20)
+    );
+}
+
+/* Título */
 .proyecto .overlay h3 {
     color: var(--color-acento);
     font-family: var(--fuente-titulo);
@@ -458,36 +487,24 @@ footer .redes a {
     font-size: 14px;
     line-height: 1.6;
     max-width: 300px;
+    margin-bottom: 0;
 }
 
-/* Más intensidad de color al pasar el cursor */
-.proyecto:hover .overlay,
-.proyecto:focus-visible .overlay {
-    background: linear-gradient(
-        to top,
-        rgba(19, 21, 23, 0.97),
-        rgba(28, 182, 152, 0.30)
-    );
+/* Adaptación para pantallas medianas */
+@media (max-width: 900px) {
+    .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
-
-/* Adaptación para pantallas pequeñas */
-@media screen and (max-width: 760px) {
+/* Adaptación para celulares */
+@media (max-width: 600px) {
     .galeria {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
 
     .proyecto {
-        aspect-ratio: 16 / 9;
-    }
-
-    .proyecto .overlay {
-        padding: 20px;
-    }
-
-    .proyecto .overlay h3 {
-        font-size: 20px;
+        min-height: 250px;
     }
 }
 
