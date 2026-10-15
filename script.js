@@ -24,7 +24,7 @@ const traducciones = {
         "about.telefono": "Teléfono",
         "about.email": "Correo electrónico",
         "about.web": "Sitio web",
-        "about.direccion": "Dirección",
+        "about.direccion": "Ubicación",
         "about.cargo": "Ocupación",
         "about.interestsTitle": "Áreas de interés",
 
@@ -143,16 +143,26 @@ const traducciones = {
 };
 
 /* =========================================================
-   VARIABLES
+   IDIOMA ACTUAL
    ========================================================= */
 
-let idiomaActual = localStorage.getItem("idiomaPortafolio") || "ES";
+let idiomaActual = "ES";
+
+try {
+    const idiomaGuardado = localStorage.getItem("idiomaPortafolio");
+
+    if (idiomaGuardado === "ES" || idiomaGuardado === "EN") {
+        idiomaActual = idiomaGuardado;
+    }
+} catch (error) {
+    console.warn("No fue posible recuperar el idioma guardado.");
+}
 
 /* =========================================================
-   OBTENER UNA TRADUCCIÓN
+   OBTENER TRADUCCIÓN
    ========================================================= */
 
-function obtenerTraduccion(clave, idioma) {
+function obtenerTraduccion(clave, idioma = idiomaActual) {
     return traducciones[idioma]?.[clave] ?? null;
 }
 
@@ -163,118 +173,112 @@ function obtenerTraduccion(clave, idioma) {
 function cambiarIdioma() {
     idiomaActual = idiomaActual === "ES" ? "EN" : "ES";
 
-    localStorage.setItem("idiomaPortafolio", idiomaActual);
+    try {
+        localStorage.setItem("idiomaPortafolio", idiomaActual);
+    } catch (error) {
+        console.warn("No fue posible guardar el idioma.");
+    }
 
     aplicarIdioma();
 }
 
 /* =========================================================
-   APLICAR TRADUCCIONES A TODO EL HTML
+   APLICAR TRADUCCIONES
    ========================================================= */
 
 function aplicarIdioma() {
     const idioma = traducciones[idiomaActual];
 
-    if (!idioma) {
-        idiomaActual = "ES";
-        aplicarIdioma();
-        return;
-    }
+    if (!idioma) return;
 
-    // Traduce todos los elementos que tengan data-i18n.
+    // Traduce los elementos que tienen data-i18n.
     document.querySelectorAll("[data-i18n]").forEach(elemento => {
         const clave = elemento.getAttribute("data-i18n");
-        const texto = obtenerTraduccion(clave, idiomaActual);
+        const texto = obtenerTraduccion(clave);
 
         if (texto !== null) {
             elemento.textContent = texto;
         }
     });
 
-    // Traduce placeholders de formularios.
+    // Traduce los placeholders.
     document.querySelectorAll("[data-i18n-placeholder]").forEach(elemento => {
         const clave = elemento.getAttribute("data-i18n-placeholder");
-        const texto = obtenerTraduccion(clave, idiomaActual);
+        const texto = obtenerTraduccion(clave);
 
         if (texto !== null) {
             elemento.setAttribute("placeholder", texto);
         }
     });
 
-    // Traduce atributos title.
+    // Traduce los atributos title.
     document.querySelectorAll("[data-i18n-title]").forEach(elemento => {
         const clave = elemento.getAttribute("data-i18n-title");
-        const texto = obtenerTraduccion(clave, idiomaActual);
+        const texto = obtenerTraduccion(clave);
 
         if (texto !== null) {
             elemento.setAttribute("title", texto);
         }
     });
 
-    // Traduce el título de las áreas de interés.
-    const tituloIntereses = document.querySelector(
-        '[data-i18n="about.interestsTitle"]'
-    );
+    // Traduce el botón sin eliminar sus spans ni su diseño ES / EN.
+    const botonIdioma = document.getElementById("btn-idioma");
 
-    if (tituloIntereses) {
-        tituloIntereses.textContent = idioma["about.interestsTitle"];
+    if (botonIdioma) {
+        const activo = botonIdioma.querySelector(".idioma-activo");
+        const inactivo = botonIdioma.querySelector(".idioma-inactivo");
+
+        if (activo && inactivo) {
+            activo.textContent = idiomaActual;
+            inactivo.textContent = idiomaActual === "ES" ? "EN" : "ES";
+        }
+
+        botonIdioma.setAttribute(
+            "aria-label",
+            idiomaActual === "ES"
+                ? "Cambiar idioma a inglés"
+                : "Change language to Spanish"
+        );
     }
 
-    // Traduce las cuatro áreas de interés si tienen data-i18n.
-    document.querySelectorAll(
-        '[data-i18n^="interest."]'
-    ).forEach((elemento, indice) => {
+    // Traduce áreas de interés si el HTML usa las claves interest.1, etc.
+    document.querySelectorAll('[data-i18n^="interest."]').forEach(elemento => {
         const clave = elemento.getAttribute("data-i18n");
-        const texto = obtenerTraduccion(clave, idiomaActual);
+        const texto = obtenerTraduccion(clave);
 
         if (texto !== null) {
             elemento.textContent = texto;
         }
     });
 
-    // Alternativa para HTML que tenga las áreas dentro de
-    // .contenedor-intereses, pero todavía no tenga data-i18n.
+    // Compatibilidad con tarjetas de intereses sin data-i18n.
     const intereses = document.querySelectorAll(
         ".contenedor-intereses .interes"
     );
 
-    if (intereses.length >= 4) {
-        const clavesIntereses = [
-            "interest.1",
-            "interest.2",
-            "interest.3",
-            "interest.4"
-        ];
+    const clavesIntereses = [
+        "interest.1",
+        "interest.2",
+        "interest.3",
+        "interest.4"
+    ];
 
-        intereses.forEach((interes, indice) => {
-            const texto = idioma[clavesIntereses[indice]];
+    intereses.forEach((interes, indice) => {
+        if (indice >= clavesIntereses.length) return;
 
-            if (!texto) return;
+        // Si existe un span para el texto, conserva los iconos.
+        const spanTexto = interes.querySelector("span");
 
-            // Busca el texto sin borrar los iconos del interés.
-            const textoElemento = interes.querySelector("span");
-
-            if (textoElemento) {
-                textoElemento.textContent = texto;
-            } else if (!interes.querySelector("i, svg")) {
-                interes.textContent = texto;
-            }
-        });
-    }
-
-    // Actualiza el botón de idioma.
-    const botonIdioma = document.getElementById("btn-idioma");
-
-    if (botonIdioma) {
-        botonIdioma.textContent = idiomaActual === "ES" ? "EN" : "ES";
-        botonIdioma.setAttribute(
-            "aria-label",
-            idiomaActual === "ES"
-                ? "Change language to English"
-                : "Cambiar idioma a español"
-        );
-        botonIdioma.setAttribute("type", "button");
-    }
+        if (spanTexto && !spanTexto.hasAttribute("data-i18n")) {
+            spanTexto.textContent = obtenerTraduccion(
+                clavesIntereses[indice]
+            );
+        } else if (!spanTexto && !interes.querySelector("i, svg")) {
+            interes.textContent = obtenerTraduccion(
+                clavesIntereses[indice]
+            );
+        }
+    });
 
     // Actualiza el idioma del documento.
     document.documentElement.lang = idiomaActual.toLowerCase();
@@ -297,18 +301,18 @@ function mostrarOcultarMenu() {
     const botonMenu = document.querySelector(".nav-responsive");
 
     if (botonMenu) {
-        const menuAbierto = nav.classList.contains("responsive");
+        const abierto = nav.classList.contains("responsive");
 
-        botonMenu.setAttribute("aria-expanded", String(menuAbierto));
+        botonMenu.setAttribute("aria-expanded", String(abierto));
         botonMenu.setAttribute(
             "aria-label",
-            menuAbierto ? "Cerrar menú" : "Abrir menú"
+            abierto ? "Cerrar menú" : "Abrir menú"
         );
     }
 }
 
 /* =========================================================
-   CERRAR EL MENÚ AL SELECCIONAR UNA OPCIÓN
+   CERRAR MENÚ AL ELEGIR UNA OPCIÓN
    ========================================================= */
 
 function configurarMenu() {
@@ -334,13 +338,11 @@ function configurarMenu() {
    ========================================================= */
 
 function animarHabilidades() {
-    const habilidades = document.querySelector("#skills");
+    const seccion = document.querySelector("#skills");
 
-    if (!habilidades) return;
+    if (!seccion || !("IntersectionObserver" in window)) return;
 
-    const barras = habilidades.querySelectorAll(
-        ".progreso[data-percent]"
-    );
+    const barras = seccion.querySelectorAll(".progreso[data-percent]");
 
     const observador = new IntersectionObserver((entradas, observer) => {
         entradas.forEach(entrada => {
@@ -351,7 +353,6 @@ function animarHabilidades() {
 
             if (Number.isFinite(porcentaje)) {
                 const valor = Math.max(0, Math.min(100, porcentaje));
-
                 barra.style.width = valor + "%";
             }
 
@@ -369,37 +370,43 @@ function animarHabilidades() {
 }
 
 /* =========================================================
-   INICIALIZAR FUNCIONES
+   INICIALIZACIÓN
    ========================================================= */
 
 function inicializarPortafolio() {
+    // El HTML ya usa onclick="cambiarIdioma()".
+    // Por eso NO agregamos otro evento click al botón de idioma.
     const botonIdioma = document.getElementById("btn-idioma");
-    const botonMenu = document.querySelector(".nav-responsive");
 
-    // Evita registrar el mismo evento varias veces.
-    if (botonIdioma && botonIdioma.dataset.eventoIdioma !== "activo") {
-        botonIdioma.addEventListener("click", cambiarIdioma);
-        botonIdioma.dataset.eventoIdioma = "activo";
+    if (!botonIdioma) {
+        console.warn('No se encontró el botón con id="btn-idioma".');
     }
 
-    if (botonMenu && botonMenu.dataset.eventoMenu !== "activo") {
-        botonMenu.addEventListener("click", mostrarOcultarMenu);
-        botonMenu.dataset.eventoMenu = "activo";
-        botonMenu.setAttribute("aria-expanded", "false");
-    }
-
+    // El HTML también usa onclick="mostrarOcultarMenu()".
+    // No se registra otro evento para evitar dobles ejecuciones.
     configurarMenu();
     aplicarIdioma();
     animarHabilidades();
 }
 
-// Permite usar estas funciones desde el HTML si hace falta.
+/* =========================================================
+   FUNCIONES DISPONIBLES DESDE EL HTML
+   ========================================================= */
+
 window.cambiarIdioma = cambiarIdioma;
 window.mostrarOcultarMenu = mostrarOcultarMenu;
 window.aplicarIdioma = aplicarIdioma;
 
+/* =========================================================
+   EJECUTAR CUANDO EL HTML ESTÉ LISTO
+   ========================================================= */
+
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", inicializarPortafolio);
+    document.addEventListener(
+        "DOMContentLoaded",
+        inicializarPortafolio,
+        { once: true }
+    );
 } else {
     inicializarPortafolio();
 }
